@@ -1,3 +1,7 @@
+---
+title: WK Han Lab Notebook
+author: Warren Kincaid
+---	 
 Notebook while in the Han Lab
 ------------------------------
  run 'pandoc labnotebook.md -o labnotebook.html' followed by 'pydifft cpb labnotebook.md' to update and view html doc as a pdf 
@@ -46,12 +50,15 @@ logging freezer activities,
 #### 7/16/2025: Monitor freezer, Calibrate thermometer and probes
 - make HEPES buffer and sucrose solution for looking to generate ice slurry in freezer
 - reading about AFPs, reviews and Joon-Hwa Lee group NMR studies
+- also started calibration of THE-343 digital thermometer, determined > 1 C offset in determined temperature while calibrating in ice bath
+- made 10 mL 18% sucrose in HEPES buffer solution to use for coming days/weeks
 
 #### 7/17/2025: Paperwork, reading, freezer/thermometer testing, resonator manuscript
 - emails regarding I9, do part 1 but needed to find SS card
 - Reading AFP lit
 - monitoring freezer still, probe not very good
 - comparison of map of uncoupled modes over varying pitch and map of coupled modes over varying pitch
+- monitoring THE343 thermometer, cross-referencing with Hg thermometer, taking readings every 1-2 hrs
 
 #### 7/18/2025: Freeze-thaw test, reading/writing AFP outline, shop for new thermometer + datalogger
 - probe types to get; K/J most common, K better than J most of the time, we want T type probe and meter capabilities for low temperatures
@@ -61,10 +68,14 @@ logging freezer activities,
 #### 7/19/2025 thru 7/21/2025: Away/traveling for family event 
 
 #### 7/22/2025: freezer, reading, resonator design manuscript
-- Need to attend H2O subgroup meetings on Tuesdays, 11 am
+- Need to attend H2O subgroup meetings on Tuesdays, 11 am (missed)
 - Still seeing large variations in measured temps between probe vs thermometer and intended freezer setting
+- Monitoring 2 thermometers, visual inspection of 10 mL sucrose in HEPES solution as it thaws/refreezes
 
-#### 7/23/2025: Freeze-thaw test in capillary, AFP Reading, 
-- 
+#### 7/23/2025: Freeze-thaw test in capillary, AFP Reading, resonator design manuscript figures
+- semi-regular logging of freezer temperatures for determining freezer range of temperature oscillation
+- Performed flash-freeze with freeze-thaw cycle of sucrose solution (no PVA) in an ESR capillary with Pravin
+	- Observed ice "needle" formation and recrystallization, alos able to see ice-water equilibrium at the start of ice nucleation
 
+#### 7/24/2025: 
 
