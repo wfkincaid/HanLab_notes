@@ -286,7 +286,44 @@ Meeting notes
 - annotated 6 gels from weekend
 - prepped for subgroup meeting on 8/19 (ended up doing SM practice instead)
 - I went with PT to Meade group to ask about potentially using their FPLC, they have multi wavelength detector but no sample collector for fractions
+- Almost finished all RCR trainings
 
+#### 8/19/2025: Digital lab notebook, finished RCR trainings, SM defense practice, KT defense, SU form
+- filling in digital lab notebook, made a new repo to type out in markdown and share with PT
+- finished last 1.5 modules of RCR trainings, email with completetion certificate
+- tried modifying freezer manually, made slightly worse and reverted
+	- ordered external thermostat to use instead as well as propylene glycol as liquid solution to also use for temperature calibration with both probes
+
+#### 8/20/2025: Shopping for Bio Rad FPLC LED UV lamp and glass window replacement for Linkam stage, CT defense, Digital lab notebook, Res design manuscript edits
+- Tried Linkam support system to request replacement window piece for stage
+- combined N8C and wt fractions based on gel results with protein into separate falcon tubes, now in fridge
+- dicussed with PT about FPLC plan/scheduling and what to do for Bio Rad UV lamp/ detector
+- CT defense in afternoon
+- editting resonator design manuscript, fcusing on edits to introduction
+
+#### 8/21/2025: McCrone tech communication, digital lab notebook, reading about quarter wavestop characteristics (res design), reading about AFP/hydrogels/PVA + rheology studies, contacted Bio Rad support about FPLC, SM defense
+- researching + shopping for in-line/flow UV detectors that could substitute current NGC UV module in FPLC system 
+- edits to resonator design manuscript
+	- quarter wavestop and relation to iris screw in waveguide behaving similar, periodicity of spikes in coupling with iris screw follow 1/2 $\lambda_{guide}$ length in height of waveguide away from the coupling hole
+	- Reading about ENDOR and ENDOR resonators, especially those with helix/solenoid probes
+- Updating digital lab notebook, was super backlogged
+- Emails with Jim at McCrone very helpful, should be nothing wrong with Linkam stage but waiting for 2nd feedback from Linakm and he says not to worroy too much about getting glass replced, still need to get quote for glass though (`jbristol@mccrone.com`)
+
+#### 8/22/2025: Test new thermostat, shopping for flow/in-line UV detectors, digital lab notebook, resonator design manuscript
+- set up new thermostat in PM, ran O/N with datalogger to test for improved temperature cycling while still trying to stay within the freezer's compressor limits, set at -6 $^\circ$C with 0.3 $^\circ$C High and Low differentials. Freezer set to -10 $^\circ$C
+- reading about AFP in hydrogel studies, including one with rheology
+- further updating lab notebook
+- edits to resonator design manuscript
+- more back and forth with PT about UV lamps/detector and what to do
+
+#### 8/23/2025: Finally get lab notebook up-to-date, test FPLC with HSA and lysozyme using WS's 20 mM Tris buffer, check new thermostat
+- New thermostat works GREAT, much better with tight +/- 1 $^\circ$C 
+- final updates to catch up lab notebok through today
+- FPLC test:
+	- made 250 mL of 20 mM tris, 150 mM NaCl buffer
+	- 5 mg lysozyme, 5 mg Human Serum-derived Albumin in tris buffer (1 mL)
+	- washed loop (2 mL) with MilliQ H2O then equilibrated with Tris buffer
+	- started typical run (1.5 mL fractions) for SEC
 
 
 
