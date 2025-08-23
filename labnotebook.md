@@ -4,7 +4,9 @@ author: Warren Kincaid
 ---	 
 Notebook while in the Han Lab
 ------------------------------
- run 'pandoc labnotebook.md -o labnotebook.html' followed by 'pydifft cpb labnotebook.md' to update and view html doc as a pdf 
+run 'pandoc labnotebook.md -o labnotebook.html' followed by 'pydifft cpb labnotebook.md' to update and view html doc as a pdf 
+I don't have it set yet to auto-update the .html each time the .md file is saved, because of this you do need to rerun both command above in sequence to see any most recently made changes
+	- this is slightly frustrating as you need to close and reopen the .html to do this
 
 ## July 2025
 
@@ -38,7 +40,7 @@ Meeting notes
 #### 7/13/2025: More reading of Gharib/Kosar
 
 #### 7/14/2025: Starting paperwork with Alexis for hiring
-- meeting with Songi and Pravin; need to look into Maria's and andice's work on AFP and hydration dynamics studies
+- meeting with Songi and Pravin; need to look into Maria's and Candice's work on AFP and hydration dynamics studies
 - learn more about FTS system both for NMR/ESR/ODNP and for using and calibrating light microscope
 
 #### 7/15/2025: H2O subgroup meeting, plan with freezer, AFP reading and plan for paper
@@ -54,7 +56,7 @@ Meeting notes
 - made 10 mL 18% sucrose in HEPES buffer solution to use for coming days/weeks
 
 #### 7/17/2025: Paperwork, reading, freezer/thermometer testing, resonator manuscript
-- emails regarding I9, do part 1 but needed to find SS card
+- emails regarding I9, do part 1 but needed to find social security card
 - Reading AFP lit
 - monitoring freezer still, probe not very good
 - comparison of map of uncoupled modes over varying pitch and map of coupled modes over varying pitch
@@ -221,19 +223,20 @@ Meeting notes
 - H2O subgroup meeting:
 	- Need to contact Olympus and BioRad reps about current issues/repairs
 	- Keep on readings about AFP, start to outline AFP paper, especially focus on plan for ODNP and related experiments
-	- Showed freezer info with K type vs T type probe comparisons, SH wants me to "hack" freezer to stay in a more consistent feedback loop closer to a more consistent -6 °C measurement, involves breaking open freezer circuitry to modify freezer's thermostat
+	- Showed freezer info with K type vs T type probe comparisons, SH wants me to "hack" freezer to stay in a more consistent feedback loop closer to a more consistent -6 $^\circ$C measurement, involves breaking open freezer circuitry to modify freezer's thermostat
 	- SH agreed with trying a mixture of protein standards through the FPL for checking issue of what might not be working
 	- Start new expression, make sure to also do wt (not just N8C mutant)
 - Contacted Jim (James J.) Bristol, jbristol@mccrone.com, who is tech and sales rep from McCrone for the Olympus microscope, Linkam temperature stage and Infinity 8 camera, contacted regarding error message from 8/11
 - start SCs for wt and N8C, still didn't know about difference between regular wt and GB1 wt wrt Amp vs Kan resistance so wt SC didn't grow O/N again
 - Cleaned FPLC with manual run, 700 mL wash using 30 % ethanol solution
 
-#### 8/13/2025: LC of AFP expr (N8C mutant), repeat SC for wt correctly, self-assessment edits
+#### 8/13/2025: LC of AFP expr (N8C mutant), repeat SC for wt correctly, self-assessment edits, RCR training
 - inoculate and monitor LC for N8C mutant (11 am - 3 pm, 1hr to 30 min monitoring intervals)
 - made plan with Pravin for what to do for FPLC run with protein standards, not doing today as Will needs for MagLOV
 - again saw wt SC not grow, talking with Pravin, learned of different wt stocks (regular AFP III wt and GB1 tagged AFP III wt)
 	-all GB1 tagged protein for AFP have Kan resistance, the "normal" AFP III wt is encoded with an Amp resistance tag to its plasmid instead
 - JF sent edits for self-assessment, started working on these to send back 8/14 AM (self-assessment due EOD 8/15) 
+- started working on RCR trainings through out day
 
 #### 8/14/2025: self-assessment edits, LC monitoring for wt, Induced monitoring + Pelleting + Lysis for N8C
 - sent back modified self-assessment to JF, some back-forth during the day making small changes
@@ -244,9 +247,45 @@ Meeting notes
 	- sonicated 
 	- Lysis pelleted after (Meade group centrifuge, high speed rotor)
 	- Ni-NTA column using imidazole solutions, elution into 20 ~1 mL fractions 
+- RCR trainings while monitoring LC
 
+#### 8/15/2025: Submitted self-assessment, Induced monitoring + pelleting + lysis for wt, gel of N8C fracs, GM (KT and SM defense practices)
+- A$_280$ nm measurements of N8C fractions, had to redo later because of nanodrop miscalibration
+- took 14 hr and 16 hr induced LC samples for wt
+- Pelleted wt in 2 separate container (large PP bottles), acquired pellet masses of 1.64 g and 2.34 g
+- Lysis for N8C, this went into GM time but finished before end of GM
+	- Had to do lysis before 5 PM as I needed to use the Meade group centrifuge and want to make sure to have it available for the final steps of lysis (pelleting remaining dead cell parts and recovering protein in lysate supernatant)
+- GM: both KT and SM have slides on ODNP, tried to help explain and offered advice for presenting smoothly ("time-dependent measure that relies on molecular motion")
+- reran A$_280$ nm measurements of N8C, prepped samples to run gel on all fractions + induced LC + Lysate supernatant + gravity column wash samples
+	- this amounts to needing to run 3 gels in total
+- Started gels at 7 pm, gels do not run at even rates in chamber, much better rates for 2 gels in direct contact with power supply through gel chamber terminals instead of the lids extenders
+	- gel power supply also kept forcing run with constant amperage instead of constant voltage, not sure why or if this is due to running with > 2 gels and using the circuit extenders as a part of the chambers lid
+- gravity column of wt:
+	- used new beads, saving used N8C combined in 50 mL falcon tube in fridge with other used beads from last expression
+	- 2 equilibrations, not sure why as I believe I only did 1 equilibration the last expression. Looking at notes I don't see what I did that was different and all volumes I used (particularly the Lysis buffer volume as this is what determines the lysate supernatant volume after pelleting was the same. Ask PT if we concentrate the Lysate supernatant before running the gravity column for next time.
+		-saved equilibration flow-throughs in separate falcon tube than wash buffer flow-throughs to see difference in gels
+	- eluted into 20 fractions
+- RCR trainings at EOD while running gels and gravity column
 
+#### 8/16/2025: Talked with PT about PVA project, gels for wt fractions, RCR trainings
+- A$_280$ nm measurements of wt fractions, prepped frac samples for gel
+- needed to make more 1X MES SDS PAGE buffer solution (made 1 L from 20X stock)
+- after getting gel started; took images of N8C gels from day prior
+* saw similar issues to day prior with gels taking long time to run, constant amp vs constant voltage, differences in gel run times relative to distance from gel chamber terminals
+- ordered more PAGE gel ladder
+- RCR trainings still... (15 modules in total and each take 1-2 hours)
+- purchased flashdrive on way home
 
+#### 8/17/2025: Came in for short time (~1 hr) to image wt gels and consolidate all gels into single container in fridge
+- saved all gels I have ran to new flashdrive
+
+#### 8/18/2025: Plan for FPLC test, microscope for modified splat assay, meeting with JF about res design manuscript
+- shopping for/ planning for freezer, looking up what to do to manually modifiy in meantime
+- tried modified splat assay again, couldn't get temperature stage to work (still having issue with misconnection)
+	- broke lid glass at EOD when doing later tries to try to focus at 40X magnification, VERY BAD
+- annotated 6 gels from weekend
+- prepped for subgroup meeting on 8/19 (ended up doing SM practice instead)
+- I went with PT to Meade group to ask about potentially using their FPLC, they have multi wavelength detector but no sample collector for fractions
 
 
 

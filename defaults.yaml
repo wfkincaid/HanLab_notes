@@ -1,0 +1,6 @@
+standalone: true
+writer: html
+variables:
+  math: mathjax
+output-file: labnotebook.html
+
