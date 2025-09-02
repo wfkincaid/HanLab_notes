@@ -325,6 +325,62 @@ Meeting notes
 	- washed loop (2 mL) with MilliQ H2O then equilibrated with Tris buffer
 	- started typical run (1.5 mL fractions) for SEC
 
+#### Throughout 8/25 - 8/30:
+- Worked on eigenmode paper edits, intro and theory, throughout week, inbetween other things in the lab
+- Meeting with JF on 8/25 about starting edits to theory section
+
+#### 8/25/2025: Patent review, results (lack of) from first FPLC with known proteins test, rerun FPLC test
+- autosampler didn't seem to work as expected for test over the weekend
+	- only collected fractions 36, 39-71 in eppendorfs
+	- intereste din potentially recalibrating autosampler for fractions
+- cleaned out loop with tris, made new BSA + lysozyme sample	
+	- restarted run with Pravin assistance
+- after second attempt at test finished, nanodroped all fractions, recorded volume collected per fraction as well
+	- did not see any protein present!
+- reviewed patent submission, looked at before and after PT edits, met with KT and PT throughout day about patent
+
+#### 8/26/2025: H2O subgroup meeting, clean FPLC lines with urea, prep for another FPLC test (initially planned for Meade group FPLC)
+- Subgroup:
+	- showed good tuning of freezer, talked about potentially insulating freezer from the outside to further improve cycling rate (longer on/off cycling)
+	- do propylene glycol test as well to verify actually set temp
+	- talked about FPLC issues, plans for cleaning the lines and running test on Meade lab FPLC since they have working multi-wavelength detector
+	- microscope -> first worry about gettin gfixed and working than expected, look into more about tuning before removing 40X mag
+- Worked with Bio Rad to show LED lamp still on warrenty, able to order replacement no charge
+- made 1L of 7M urea and ran through NGC line overnight (not column obviously)
+
+#### 8/27/2025: XEPR compare with QESR processing for DMPO generation paper, new LED lamp for FPLC, protein solution and buffer prep for 8/28, replace microscope window and new stage tests + images
+- new LED lamp arrived, replaced with PT assist
+- made new BSA + lysozyme stock, 100 $\mu$M BSA and 700 $\mu$M lysozyme, nanodropped before to ensure high A280 nm (30.19)
+- replaced glass window on THMS600 stage with cover slip, worked. With resealed stage, ran temperature profiles and recorded images/videos with 1 mg/mL PVA and ~0.6 M sucrose in HEPES buffer solution with blue dye added
+
+#### 8/28/2025: BSA-lysozyme test success, prep for AFP columns on 8/29 and 8/30, new lamp works great, XEPR interest for DMPO collab paper
+- With cleaned column lines, retried BSA-lysozyme test, saw peaks matching expectations using new LED lamp
+- rinsed line with water as well as prepared for HEPES buffer O/N
+- Reprocessed and some back and forth with JF for review of collaborator's paper involving DMPO generation and my help doing ESRs
+
+#### 8/29/2025: concentrating combined fractions from gravity column (both wt and N8C), group meeting, SEC of GB1 AFP III wt
+- Concentrated both wt and N8C in 3k MWCO
+- Cleaned 5 mL FPLC loop and washed with HEPES buffer
+- Group Meeting:
+	- water subgroup now on Wednesdays @ 11 am (starting 9/10)
+	- GM now at 1 pm on Fridays
+	- Update LabArchive
+	- Backup current data to Han Exchange
+	- Finances Situation => I need to talk with Syracuse about defending and timeline, talk with JF first
+- Started SEC of wt, filtered and spun down sample beforehand 
+
+#### 8/30/2025: Start SEC of GB1 AFP III N8C mutant, updating lab notebook, new fridge/freezer monitoring
+- monitored new freezer, temperature setting works fine
+- started filling in last week for lab notebook, finished on 9/1 for current
+- filtered, spun down N8C sample and ran on own following SEC protocol
+
+## September 2025
+
+#### 9/1/2025: SDS-PAGE gels (x2 each, wt and N8C), updating lab notebook
+- Prepped and ran 4 gels (2 for wt, 2 for N8C) on certain fractions based on observed peaks after SEC along with initial samples
+- prepped new destaining buffer, used 1X used MES SDS running buffer as there was much left over
+	- this worked fine and the gel ran better tha observed last time with good contact in container
+- need to order more 10 well premade gels, can order things tomorrow	
 
 
 
