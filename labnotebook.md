@@ -382,5 +382,16 @@ Meeting notes
 	- this worked fine and the gel ran better tha observed last time with good contact in container
 - need to order more 10 well premade gels, can order things tomorrow	
 
+#### 9/2/2025: Image gels, H2O subgroup, media prep, start SC, combine SEC fractions, prep sucrose and PVA solutions for microscope
+- gels show wt protein in fractions 32-38, N8C protein in fractions 31-38, good separation between all peaks in SEC UVs
+H2O subgroup:
+	- need distance measurements/legend for gel images
+	- help PT with rheology studies (videos/images), contact Jacqueliene if he hasn't already
+	- rough cryoEM training w- KT next week (9/12)
+	- contact mech. engineering prof who does stress tests on polymers about what test we can do to further characterize hydrogels
+	- want to learn PFG-NMR alongside PT for diffusivity measurements along with 17O NMRs
+	- want 'compelling' figures for hydrogel paper, show off results in a strong way
+	- 
+
 
 
