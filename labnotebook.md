@@ -384,14 +384,39 @@ Meeting notes
 
 #### 9/2/2025: Image gels, H2O subgroup, media prep, start SC, combine SEC fractions, prep sucrose and PVA solutions for microscope
 - gels show wt protein in fractions 32-38, N8C protein in fractions 31-38, good separation between all peaks in SEC UVs
-H2O subgroup:
+- H2O subgroup:
 	- need distance measurements/legend for gel images
 	- help PT with rheology studies (videos/images), contact Jacqueliene if he hasn't already
 	- rough cryoEM training w- KT next week (9/12)
 	- contact mech. engineering prof who does stress tests on polymers about what test we can do to further characterize hydrogels
 	- want to learn PFG-NMR alongside PT for diffusivity measurements along with 17O NMRs
 	- want 'compelling' figures for hydrogel paper, show off results in a strong way
-	- 
+	- Use 100 kDa PVA to repeat rheology(?) tests with a high-density hydrogel
+- made fresh 0.576 M sucrose in HEPES buffer stock, also made eppendorf with added 10% PVA (+ blue dye for visual)
+- Starting new expression:
+	- 2 samples: E25C and no GB1 wt
+	- Use M9 for LCs
+	- want to test wt without GB1 tag for expression and size differences with GB1 tagged wt, mass spec will be useful
+- Combined fractions from SEC for wt and N8C into single tube, good separation by FPLC UVs and gels of relevant fractions
+
+#### 9/3/2025: Mini-meeting for PVA hydrogel paper, prep and monitor LC growth, microscope testing
+- PVA hydrogel paper meeting:
+	- Need to define scope; hydrogel tuning by IRI
+	- For me -> start getting hydrogel images on microscope, meet with Candice about questions/improvements, help PT with 17O NMRs and reproducing Miriam's data, Assist B.Peters with spacers to be used with coverslips, draw up schematic of freezer and external controls
+	- look up PFG for diffusivity, what tests need to be done for characterizing physical properties
+- Microscope test:
+	- 10% PVA solution in 18% sucrose-HEPES
+		- learned this is too conc for PVA solution, also want to use water vs buffer, save using buffer for protein
+	- figured out how to include distance measurement annotation
+	- still learning microscope; taking videos and running profiles
+- prep and inoculate LCs - expr for no GB1 wt and GB1 E25C
+-monitor LCs throughout day, induced at 8 pm
+
+#### 9/4/2025: Pelleting, lysis, and Ni-affinity elution of AFP, ??
+- sampling induced samples
+
+- check JF lab notebook for other work done
+
 
 
 
