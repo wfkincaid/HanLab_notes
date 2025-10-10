@@ -1,5 +1,5 @@
 ---
-title: WK Han Lab Notebook
+title: AFP III Expression Protocol
 author: Warren Kincaid
 ---	 
 General expression protocol for AFP III
@@ -15,12 +15,14 @@ Abbreviations include:
 "Amp" - Ampicillin
 "Kan" - Kanamycin
 
-## AFP III Expression
+# AFP III Expression
 
-### "Day 1" 
+## "Day 1" - Media Prep and Small Cultures
 - Can be split into 2 days 
+
 #### Media Prep -
 <u>Small Culture</u>
+
 - LB Media:
 	- Use at 25 g LB Miller Broth / 1 L H$_2$O
 	- typically make 20 mL volume small cultures in 125 mL Erlenmeyer flasks, this would require 0.5 g LB Broth Miller 
@@ -28,8 +30,8 @@ Abbreviations include:
 	- Autoclave; Liquid 30 cycle - must reserve in advance!
 
 <u>Large Culture</u>
-- LB Media or M9 Media:
 
+- (LB Media or M9 Media)
 - For LB Media LCs:
 	- same as SC, use at 25 g LB Miller Broth / 1 L H$_2$O
 	- If we perform an expression with LB media LCs, we will most commonly use LC of 500 mL volumes
@@ -86,9 +88,7 @@ Abbreviations include:
 		- For Amp: "1000X" = 125 mg/mL, make in 15 mL falcon tube
 			- 625 mg in 5 mL H$_2$O
 			- vortex to dissolve, label
-
-
-
+--- If spliting into 2 days split here
 #### Inoculate SCs, start expression (DO AFTER 5 pm)
 - Make sure SCs are cooled after autoclaving if done on the same day
 - Make sure to have an available incubator set to 37 $^o$C, shaking at 200 rpm
@@ -98,13 +98,41 @@ Abbreviations include:
 	- Add 20 $\mu$L of respective 1000X antibiotic solution, swirl solution to combine
 	- Using a pipette tip, scoop a small amount from the glycerol stock of your current intended mutant for that culture in the expression
 	- Drop tip with bacterial culture directly into flask
-	- Recover with foil lid, place in incubator and leave to grow overnight. Don't leave i incubator > 16 hrs 
-### "Day 2" 
+	- Recover with foil lid, place in incubator and leave to grow overnight. Don't leave in incubator > 16 hrs 
+
+## "Day 2" - Large Cultures and Induction
 - remove SCs from incubator, leave on counter if using ASAP. Otherwise place on shelf in cold room (4 $^o$C), make sure foil lid on tight.
-#### LC prep
+- This day cannot be split into 2 days but some of the prep can be done beforehand. The supplemental reagents added to the M9 media below an be done the day prior <u>except the antibiotic solution</u> which we want to be as effective as possible and can go bad quickly when not refridgerated.
+
+<u>Large Culture Prep</u>
+
 - Preparing M9 minimal media LCs:
-	- (if not done so already) To the autoclaved flasks from the day prior, add [all amounts givem /1 L LC]:
-	-
-	- 
+	- (if not done so already) To the autoclaved flasks from the day prior, add [all amounts given /1 L LC]:
+		- 1 g NH$_4$Cl
+		- 2 g glucose
+		- 1000 $\mu$L 2 M MgSO$_4$
+		- 100 $\mu$L 1 M CaCl$_2$
+		- 10 mg thiamine hydrochloride
+		- 10 mg biotin
+		- 1000 $\mu$L 1000X antibiotic solution (either ampicillin or kanamycin)
+	- Swirl LCs vigorously to dissolve
+- Take blank sample (~3 mL) from one LC and save in parafilmed cuvette
+- for each LC, prepare a cuvette with a small piece of tape of a specific color at the top of the cuvette as to avoid the spectrometer's path length
+	- record which color you have associated with which LC
+- Similarly label/indicate a 10 mL serological pipette for each LC to be used for taking LC samples after inoculating and during the monitoring of the large cultures growth	
+- prepare in you lab notebook a table like the example below;
+	
+| time | t (min) | Blank | LC 1 | LC 2 | 
+|------|---------|-------|------|------|
+| 10:25 AM | 0 min | 0.00 | 0.08 | 0.10 |
+| 11:30 AM | 65 min | 0.00 | 0.10 | 0.14 |
+| 12:30 PM | 125 min | 0.00 | 0.24 | 0.44 |
+.
+.	
+.
+- Using a sterile 5 or 10 mL serological pipette (separate from the pipettes mentioned above), pipette 5 mL of each small culture (swirl before pipetting) into their respective large culture
+- Place in incubator (37 $^o$C, 200 rpm) and take ~3 mL sample of LC for initial OD600 reading ("0 min"), return sample to LC after OD measurement
+- Repeat sampling, measuring and replenishing large cultures hourly to monitor their growth. Once growth (OD600 value) begins to spike upward, decrease monitoring intervals to 30 min until OD600 values reach between 0.6 and 0.8. BE AWARE of how OD can change rapidly further into bacterial cells growth curve to avoid over growing cultures.
+
 
 
