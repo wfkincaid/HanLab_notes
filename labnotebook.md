@@ -414,9 +414,11 @@ Meeting notes
 
 #### 9/4/2025: Pelleting, lysis, and Ni-affinity elution of AFP, ??
 - sampling induced samples
-
+- pelleting + lysis + elution performed
 - check JF lab notebook for other work done
 
-
+#### 9/5/2025: Gels for Ni-affinity column fractions, microscope for PVA solution
+- images for 0.1 % PVA in 0.576 M sucrose solution
+- 
 
 
