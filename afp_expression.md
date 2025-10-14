@@ -14,6 +14,9 @@ Abbreviations include:
 "LB" - Laemmli Buffer
 "Amp" - Ampicillin
 "Kan" - Kanamycin
+"RT" = Room temperature
+"O/N" - Overnight
+"MQ" - Milli-Q system filtered
 
 # AFP III Expression
 
@@ -75,7 +78,7 @@ Abbreviations include:
 	
 	- 1 M CaCl$_2$:
 		- 5.549 g CaCl$_2$
-		- Dissolve with filtered H$_2$0 in 50 mL falcon tube
+		- Dissolve with filtered H$_2$O in 50 mL falcon tube
 		- vortex and label
 
 	- 1000X antibiotic stocks:
@@ -130,9 +133,55 @@ Abbreviations include:
 .
 .	
 .
+
 - Using a sterile 5 or 10 mL serological pipette (separate from the pipettes mentioned above), pipette 5 mL of each small culture (swirl before pipetting) into their respective large culture
 - Place in incubator (37 $^o$C, 200 rpm) and take ~3 mL sample of LC for initial OD600 reading ("0 min"), return sample to LC after OD measurement
 - Repeat sampling, measuring and replenishing large cultures hourly to monitor their growth. Once growth (OD600 value) begins to spike upward, decrease monitoring intervals to 30 min until OD600 values reach between 0.6 and 0.8. BE AWARE of how OD can change rapidly further into bacterial cells growth curve to avoid over growing cultures.
+- Once large cultures reach OD values between 0.6 and 0.8, remove them from the incubator and leave to cool on the counter (if all LCs finish at roughly the same time AND you plan to immediately induce) or in the cold room (4 $^o$C) to cool and pause any further growth
+	- You may need to turn of the incubator at this time as well to let it cool to RT for induction purposes
+- When ready for induction, add 1 mL of 1 M isopropyl-$\beta$-D-thiogalactopyranoside (IPTG) per 1 L large culture to each large culture flask, swirl, and place in a now RT incubator and leave to shake @ 200 rpm O/N.
+	- Take an initial 100 $\mu$L sample in an eppendorf of each LC after induction, add 1 $\mu$L of 2x NuPAGE dye  per 0.1 OD. Leave in freeze for when prepared to run a gel on the expression's progress
+- If able, take induction progress samples at 2, 3, and/or 4 hrs after induction as well as at the start of the next day (12 and/or 14 hr) to monitor overexpression of the AFP protein desired being generated in the LC. Similarly add the 2x NuPAGE dye solution as mentioned above
+
+## "Day 3" - Pelleting, Lysis, Size-Exclusion Chromatograpy and Elution
+- Take any induction samples mentioned in last bullet as well as a "final" induced LC sample (in an eppendorf, adding 2x NuPAGE dye as above) after the LC has spent 16 hrs shaking in the incubator O/N.
+- Mark the large Beckman-Coulter 1000 mL PP bottles to be uniquely identifiable ("A", "B", "C", etc) and in your lab notebook write out the table below
+
+| Bottle ID | empty bottle (g) | bottle + liquid (g) | bottle + pellet (g) | pellet (g) | 
+|-----------|------------------|---------------------|---------------------|------------|
+|     A     |                  |                     |                     |            |
+|     B     |                  |                     |                     |            |
+|     C     |                  |                     |                     |            | 
+|     D     |                  |                     |                     |            |
+
+- Using the large Beckman-Coulter 1000 mL PP culture bottles, mass each bottle empty (record) and them divide each LC in 500 mL aliqouts between the PP bottles
+- Remass each bottle with LC added (record) and balance to the heaviest bottle (highlighted below) by adding small amounts of filtered and autoclaved MQ H$_2$O
+- Spin down each (now balanced) LC in the Beckman-Coulter Avanti JXN-26 Centrifuge in the back equipment room which has a rotor designed for these bottles
+	- Parameters are 4000 rcf speed for 30 minutes at 4 $^o$C
+- After centrifuging, pour off supernatant into a waste container (the large culture flasks can be good for this), carefull not to pour off any of the pellet which should be stuck at the base of the PP bottles
+- Reacquire a mass measuremnt for each bottle (with pellets in their bottom) to subtract from the bottle's initial mass to determine the pellet yields for each LC/LC aliquot using to fill-out the table as seen below
+
+| Bottle ID | empty bottle (g) | bottle + liquid (g) | bottle + pellet (g) | pellet (g) | 
+|-----------|------------------|---------------------|---------------------|------------|
+|     A     |      280.68      |       773.71        |        283.83       |    3.15    |
+|     B     |      280.59      |       752.71        |        284.02       |    3.43    |
+|     C     |      280.60      | <mark>788.37</mark> |        283.35       |    2.75    | 
+|     D     |      280.54      |       752.35        |        282.69       |    2.15    |
+
+- If splitting into 2 days:
+	- resuspend each pellet in 10 mL filtered + autoclaved H$_2$O, vortex as needed
+	- pour off into a labeled 50 mL falcon tube, wash the PP bottle with an additional 10 mL filtered + autoclaved H$_2$O, vortexing
+	- pour wash into falcon tube, pipette any residual pellet solution that may remain in the PP bottle
+	- Balance falcon tubes with $\mu$L amounts of filtered + autoclaved H$_2$O as needed
+	- Centrifuge in Eppendorf 5804 R Centrifuge (front of lab) @ 4000 rcf for 10 minutes @ 4 $^o$C
+	- Pour off supernatant into waste containers, parafilm falcon tubes with pellets and leave in -80 $^o$C freezer until ready to continue with lysis and purification
+- If/when continuing with lysis:
+- Resuspend pellet in 20 mL of HEPES buffer into falcon tubes if necessary, vortexing as needed
+- to each resuspended pellet, add:
+	- 1 protease inhibitor tablet
+	- 1 flake (< 10 mg) of DNase
+- Incubate on rotiserrie oscillator	in cold room (4 $^o$C) for 30 minutes
+
 
 
 
