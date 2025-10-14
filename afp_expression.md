@@ -168,20 +168,34 @@ Abbreviations include:
 |     C     |      280.60      | <mark>788.37</mark> |        283.35       |    2.75    | 
 |     D     |      280.54      |       752.35        |        282.69       |    2.15    |
 
-- If splitting into 2 days:
+- If splitting into 2 days (otherwise skip to 'If/when continuing...' below):
 	- resuspend each pellet in 10 mL filtered + autoclaved H$_2$O, vortex as needed
 	- pour off into a labeled 50 mL falcon tube, wash the PP bottle with an additional 10 mL filtered + autoclaved H$_2$O, vortexing
 	- pour wash into falcon tube, pipette any residual pellet solution that may remain in the PP bottle
 	- Balance falcon tubes with $\mu$L amounts of filtered + autoclaved H$_2$O as needed
 	- Centrifuge in Eppendorf 5804 R Centrifuge (front of lab) @ 4000 rcf for 10 minutes @ 4 $^o$C
 	- Pour off supernatant into waste containers, parafilm falcon tubes with pellets and leave in -80 $^o$C freezer until ready to continue with lysis and purification
+
 - If/when continuing with lysis:
 - Resuspend pellet in 20 mL of HEPES buffer into falcon tubes if necessary, vortexing as needed
 - to each resuspended pellet, add:
 	- 1 protease inhibitor tablet
 	- 1 flake (< 10 mg) of DNase
-- Incubate on rotiserrie oscillator	in cold room (4 $^o$C) for 30 minutes
 
+- Parafilm lids and incubate on rotiserrie oscillator in cold room (4 $^o$C) for 30 minutes
+- While keeping all samples on ice, sonicate each one at a time using the larger hexagonal tipped sonicator within the soundproof box within the fumehood.
+	- parameters to sonicate 10 min, 2 s on/ 2 s off (20 minutes total runtime per sample), with 60 % amplitude
+	- Note that this is a rather rapid on/off cycle and high amplitude. YOU MUST monitor the sample in its ice bath as ice will melt before the 20 minutes is up, it is good to start with minimal water and a larger amount of ice in the beaker and add ice periodically every five minutes as it melts throughout the run    
 
+- After sonication, transfer each sample to the 40 (?) mL polypropylene tubes stored above the JXN-26 centrifuge in the instrument lab, label directly on each tube in Sharpie as necessary
+- Once each sample is sonicated and transferred, balance against the tube with the greatest mass by pipetting drops of filtered + autoclaved H$_2$O
+- On ice, take the balanced samples down stairs to room 2560 (knock on the Meade lab door next door asking them politely to let you in)
+
+- Centrifuge in the Thermo Sorvall RC 6 Plus Centrifuge using the Sorvall SS-34 rotor (it is most typically in the centrifuge already, there are an all black and a black and gold SS-34 rotor, use the all black one). The PP tubes that we transferred the lysate into are specifically designed to fit in this rotor.
+	- Precool the centrifuge to 4 $^o$ C before loading samples into the rotor
+	- Centrifuge @ 20,000 rcf (xg), for 30 min, @ 4 $^o$C
+	- Bring with you/Bring down after:
+		- 2x 50 mL falcon tubes for each lysate supernatant sample you will have
+		- 0.2 $\mu$L Luer Lock syringe filters
 
 
