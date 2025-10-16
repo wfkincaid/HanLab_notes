@@ -168,7 +168,7 @@ Abbreviations include:
 |     C     |      280.60      | <mark>788.37</mark> |        283.35       |    2.75    | 
 |     D     |      280.54      |       752.35        |        282.69       |    2.15    |
 
-- If splitting into 2 days (otherwise skip to 'If/when continuing...' below):
+If splitting into 2 days (otherwise skip to 'If/when continuing...' below):
 	- resuspend each pellet in 10 mL filtered + autoclaved H$_2$O, vortex as needed
 	- pour off into a labeled 50 mL falcon tube, wash the PP bottle with an additional 10 mL filtered + autoclaved H$_2$O, vortexing
 	- pour wash into falcon tube, pipette any residual pellet solution that may remain in the PP bottle
@@ -176,7 +176,7 @@ Abbreviations include:
 	- Centrifuge in Eppendorf 5804 R Centrifuge (front of lab) @ 4000 rcf for 10 minutes @ 4 $^o$C
 	- Pour off supernatant into waste containers, parafilm falcon tubes with pellets and leave in -80 $^o$C freezer until ready to continue with lysis and purification
 
-- If/when continuing with lysis:
+If/when continuing with lysis:
 - Resuspend pellet in 20 mL of HEPES buffer into falcon tubes if necessary, vortexing as needed
 - to each resuspended pellet, add:
 	- 1 protease inhibitor tablet
@@ -192,10 +192,35 @@ Abbreviations include:
 - On ice, take the balanced samples down stairs to room 2560 (knock on the Meade lab door next door asking them politely to let you in)
 
 - Centrifuge in the Thermo Sorvall RC 6 Plus Centrifuge using the Sorvall SS-34 rotor (it is most typically in the centrifuge already, there are an all black and a black and gold SS-34 rotor, use the all black one). The PP tubes that we transferred the lysate into are specifically designed to fit in this rotor.
-	- Precool the centrifuge to 4 $^o$ C before loading samples into the rotor
+	- Precool the centrifuge to 4 $^o$ C before loading samples into the rotor, leaving the samples on ice in the meantime
 	- Centrifuge @ 20,000 rcf (xg), for 30 min, @ 4 $^o$C
 	- Bring with you/Bring down after:
-		- 2x 50 mL falcon tubes for each lysate supernatant sample you will have
-		- 0.2 $\mu$L Luer Lock syringe filters
+		- 2x 50 mL falcon tubes <u>for each lysate supernatant sample you will have</u>
+		- 0.2 $\mu$L Luer Lock syringe filters ___
+		- 5 mL Luer Lock syringes ___
+		- 1 eppendorf tube to sample lysate supernatant ___
+		- 20 - 200 $\mu$L pipette
+		- 200 $\mu$L pipette tips
+		- fine point permanent marker(s)
+
+- label the falcon tubes and eppendorf as lysate supernatant samples
+- Using the items above, decant the lysate supernatant to collect into 1 falcon tube, using the syringe and filter to transfer (now filtered) supernatant to the separate falcon tube
+- take a 100 $\mu$L sample of the filtered supernatant into the eppendorf tube, leave all on ice to transfer back upstairs
+
+If pausing here (non-ideal):
+	- parafilm and leave in fridge, be sure to elute in next 24 hrs
+
+- Performing elution:	
+	- prepare affinity column with frit at bottom, have cap and bottom stopper ready for when needed
+	- Perform all of the below inside the cold room (4$^o$C)
+1. Load column with 5 mL of new/freshly washed Ni-NTA beads, pour in increments as to not overfill
+2. Wash beads with filtered MilliQ H$_2$O, 5 washes of 5 mL aliquots
+3. Equilibrate beads with HEPES (or current protein) buffer, 10 washes of 5 mL aliquots
+4. Put bottom stopper on column, pour in lysate supernatant to fill column, capping top.
+	- gently invert column to redistribute beads among solution. Leave on rotisserie oscillator to let protein bind to beads for 30 minutes
+	- collecting and saving flow-through ("equilibrium flow-through"), repeat as needed for all of lysate supernatant samples
+5. After collecting equilibrium flow-through, use wash bufffer (low imidazole concentration) to knock off loosely bound proteins from beads, 5 washes of 5 mL aliquots
+	- separate from equilibrium flow-through, also collect this flow-through as 'wash buffer flow-through'
+6. Elute using high imidazole buffer, adding 5 mL at a time collecting 1 mL fraction aliquots in eppendorf tubes, collect 15-20 fractions expecting protein in fractions 2-10 most typically 
 
 
