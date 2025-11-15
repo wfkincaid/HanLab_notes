@@ -2,17 +2,17 @@
 title: WK Han Lab Notebook
 author: Warren Kincaid
 ---	 
-Notebook while in the Han Lab
+Notebook while in the Han Lab {-}
 ------------------------------
-run 'pandoc labnotebook.md -o labnotebook.html' followed by 'pydifft cpb labnotebook.md' to update and view html doc as a pdf 
-I don't have it set yet to auto-update the .html each time the .md file is saved, because of this you do need to rerun both command above in sequence to see any most recently made changes
-	- this is slightly frustrating as you need to close and reopen the .html to do this
+run 'pandoc labnotebook.md -o labnotebook.html' to generate the .html file for the first time, then run 'pydifft cpb labnotebook.md' to update and view html doc as a pdf
 
-## July 2025
+Document is now autoupdating with reconfiguring and --upgrading packages and related modules for using new PC (HP Omnibook laptop)
 
-#### 7/7/2025: Coordinating coming into NU lab, emailing with Pravin and Songi, resonator design manuscript, also worked on thesis outline
+## July 2025 {-} 
 
-#### 7/8/2025: First day on NU campus; Meeting with Pravin about PVA and AFP III project.
+#### 7/7/2025: Coordinating coming into NU lab, emailing with Pravin and Songi, resonator design manuscript, also worked on thesis outline {-}
+
+#### 7/8/2025: First day on NU campus; Meeting with Pravin about PVA and AFP III project. {-}
 Meeting notes 
 
 - PVA use as an ice recrystallization inhibitor
@@ -28,67 +28,67 @@ Meeting notes
 - Imaging of ice crystal size/conglomeration using microscopy (new microscope)
 	- Told about freeze-thawing cycle on a microscope slide to view ice recrystallization and its potential inhibition
 
-#### 7/9/2025: Reading, resonator manuscript work on the side
+#### 7/9/2025: Reading, resonator manuscript work on the side {-}
 -	talked more with Pravin about AFPs and project, sent folder of AFP references to start reviewing.
 -	Background research on AFP types, particularly type III, and their functions in living organisms.
 
-#### 7/10/2025 and 7/11/2025: Reading for AFP, data analysis and writing for resonator design manuscript
+#### 7/10/2025 and 7/11/2025: Reading for AFP, data analysis and writing for resonator design manuscript {-}
 -	mode matching for resonator design project, work towards mapping modes figures, writing some results
 -	reskimmed Meth in Enzo Han/Franck chapter, have more questions about molecular and spin diffusion
 -	reading Gharib/Kosar review on AFPs
 
-#### 7/13/2025: More reading of Gharib/Kosar
+#### 7/13/2025: More reading of Gharib/Kosar {-}
 
-#### 7/14/2025: Starting paperwork with Alexis for hiring
+#### 7/14/2025: Starting paperwork with Alexis for hiring {-}
 - meeting with Songi and Pravin; need to look into Maria's and Candice's work on AFP and hydration dynamics studies
 - learn more about FTS system both for NMR/ESR/ODNP and for using and calibrating light microscope
 
-#### 7/15/2025: H2O subgroup meeting, plan with freezer, AFP reading and plan for paper
+#### 7/15/2025: H2O subgroup meeting, plan with freezer, AFP reading and plan for paper {-}
 - test new freezer, working on freezer calibration
 - Aim of AFP paper (ODNP portion) 
 	- map hydration dynamics around ice binding and non-ice binding regions, investigate the mechanism for changes to TH and IRI of mutants due to single site cysteine mutations 
 - prep for sucrose in HEPES control test with new freezer logging freezer activities
 
-#### 7/16/2025: Monitor freezer, Calibrate thermometer and probes
+#### 7/16/2025: Monitor freezer, Calibrate thermometer and probes {-}
 - make HEPES buffer and sucrose solution for looking to generate ice slurry in freezer
 - reading about AFPs, reviews and Joon-Hwa Lee group NMR studies
 - also started calibration of THE-343 digital thermometer, determined > 1 °C offset in determined temperature while calibrating in ice bath
 - made 10 mL 18% sucrose in HEPES buffer solution to use for coming days/weeks
 
-#### 7/17/2025: Paperwork, reading, freezer/thermometer testing, resonator manuscript
+#### 7/17/2025: Paperwork, reading, freezer/thermometer testing, resonator manuscript {-}
 - emails regarding I9, do part 1 but needed to find social security card
 - Reading AFP lit
 - monitoring freezer still, probe not very good
 - comparison of map of uncoupled modes over varying pitch and map of coupled modes over varying pitch
 - monitoring THE343 thermometer, cross-referencing with Hg thermometer, taking readings every 1-2 hrs
 
-#### 7/18/2025: Freeze-thaw test, reading/writing AFP outline, shop for new thermometer + datalogger
+#### 7/18/2025: Freeze-thaw test, reading/writing AFP outline, shop for new thermometer + datalogger {-}
 - probe types to get; K/J most common, K better than J most of the time, we want T type probe and meter capabilities for low temperatures
 - Thermocouple graded wire is better, look into getting with new T type probe
 - short meeting with Songi about AFP project, wants me to start working on manuscript ahead of time while doing background readings
 
-#### 7/19/2025 thru 7/21/2025: Away/traveling for family event 
+#### 7/19/2025 thru 7/21/2025: Away/traveling for family event {-}
 
-#### 7/22/2025: freezer, reading, resonator design manuscript
+#### 7/22/2025: freezer, reading, resonator design manuscript {-}
 - Need to attend H2O subgroup meetings on Tuesdays, 11 am (missed)
 - Still seeing large variations in measured temps between probe vs thermometer and intended freezer setting
 - Monitoring 2 thermometers, visual inspection of 10 mL sucrose in HEPES solution as it thaws/refreezes
 
-#### 7/23/2025: Freeze-thaw test in capillary, AFP Reading, resonator design manuscript figures
+#### 7/23/2025: Freeze-thaw test in capillary, AFP Reading, resonator design manuscript figures {-}
 - semi-regular logging of freezer temperatures for determining freezer range of temperature oscillation
 - Performed flash-freeze with freeze-thaw cycle of sucrose solution (no PVA) in an ESR capillary with Pravin
 	- Observed ice "needle" formation and recrystallization, alos able to see ice-water equilibrium at the start of ice nucleation
 
-#### 7/24/2025: freeze monitoring, AFP reading, res design data processing
+#### 7/24/2025: freeze monitoring, AFP reading, res design data processing {-}
 - Looking into Demuller freezer manual, want to modfiy temperature freezer cycles to be closer to -6 °C for longer and/or stray less further away from target.
 - Reading about AFP III subtypes, quaternary-amino-ethyl types 1 (typically TH active) and 2 and sulfopropyl (each more typically TH inactive)
 
-#### 7/25/2025: Listening/watching in on microscope training, AFP reading, res design
+#### 7/25/2025: Listening/watching in on microscope training, AFP reading, res design {-}
 - microscope arrived; listening in during training
 - preparing to start on AFP expression next Monday, reading protocols and coming up with questions
 - processing and analysis for coupled res designs (results figure for manuscript)
 
-#### 7/28/2025: Prepare for using microscope, expression media prep, new digital meter and probes arrived
+#### 7/28/2025: Prepare for using microscope, expression media prep, new digital meter and probes arrived {-}
 - media prep, also started media prep for M9 solutions before corrected plan through conversation with Pravin
 	- have 10X M9 Salt solution available for future use
 - SC: In 100 mL flask,
@@ -104,7 +104,7 @@ Meeting notes
 - Digital meter arrived, started reading manual for use next day (not very informative)
 - More focused on writing and edits to res design manuscript as VM software license issue, emailed SU ITS over weekend for assistance
 
-#### 7/29/2025: Start AFP expression (S, Day 1), digital thermometer/datalogger
+#### 7/29/2025: Start AFP expression (S, Day 1), digital thermometer/datalogger {-}
 - after many failures, learned issue with autoclave had to do with following written protocol (out-of-date) and intended/outdated procedure (still not fully written out), just use 'Liquid 30' cycle, no 'Dry 30' equilvalent as far as I'm aware for this autoclave (autoclave 1 and 2 on 4th floor)
 - Installed SE521 software for datalogger, TestLink app on phone for bluetooth moitoring capabilities of datalogger
 - Learning how to change datalogger settings, less active monitoring to save some battery life
@@ -118,7 +118,7 @@ Meeting notes
 - "1000X" Amp = 625 mg Ampicillin in 5 mL filtered MilliQ H2O
 - "1000X" Kan = 250 mg Kanamycin in 5 mL filtered MilliQ H2O
 
-#### 7/30/2025: LC Day 2, res design manuscript
+#### 7/30/2025: LC Day 2, res design manuscript {-}
 - Supplemental soution prep for large cultures, concerned about lack of SC growth for AFP III wt (see above for explanation)
 	- 1 M MgSO4 = 0.602 g in 5 mL filtered MilliQ H2O, add 1 mL to reach 2 mM conc in LC
 	- 20% glucose = 2 g in 10 mL filtered MilliQ H2O, add 8.75 mL reach 0.35% in LC
@@ -129,7 +129,7 @@ Meeting notes
 	- add 5 mL 100 mM IPTG to LC, final conc of 1 mM in LC solution
 - Res Design: Issue with software license on VM resolved, more focused on finishing coupled parametric lorentzian figure for updating manuscript results
 
-#### 7/31/2025: Pelleting (pause before lysis), res design manuscript, dissertation self-assessment for SU
+#### 7/31/2025: Pelleting (pause before lysis), res design manuscript, dissertation self-assessment for SU {-}
 - Samples for post-induction, monitor ODs after overnights
 	- save for PAGE gel after gravity column separation during purification steps
 - Pelleted in large poylpropylene bottles in large centrifuge, massing pellets, separated LC into equal masses between polypropylene bottles
@@ -137,26 +137,26 @@ Meeting notes
 - Continue working on res design manuscript, updating results/figures and introduction for any still needed changes
 - Continue dissertation self-assessment for SU, also need to send to JF for review/comments
 
-## August 2025
+## August 2025 {-}
 
-#### 8/1/2025: Submit updated res. design manuscript to JF, work on dissertation self-assessment
+#### 8/1/2025: Submit updated res. design manuscript to JF, work on dissertation self-assessment {-}
 - pausing purification because of lack of large filters, Pravin ordering separate filters as well as reusable one
 - Finalise resonator design manuscriot to send to JF for comments/edits
 - Han Lab group meeting
 - Rereading old notes spurred further edits to manuscript at the end of the day
 
-#### 8/4/2025: working on self-assessment, AFP reading  
+#### 8/4/2025: working on self-assessment, AFP reading {-}
 - Going through slack and notebooks of the past year back to June 2024 to summarize work that I've done over this time period and how each thing relates towards completing my dissertation.
 - Continue AFP readings, focus more on AFP type III
 
-#### 8/5/2025: H2O Subgroup, Testing Olympus microscope
+#### 8/5/2025: H2O Subgroup, Testing Olympus microscope {-}
 - H2O subgroup:
 	- goal of trying modified splat assay at end of current expression
 		- test new microscope, use a PVA solution to try to recreate existing images
 		- capture pictures while thermocycling
 - Setting up using new microscope, trying to connect communication between camera and temperature control system.
 
-#### 8/6/2025: Lysis and gravity column of N8 sample, Meeting with JF around eigenmode manuscript and self-assessment
+#### 8/6/2025: Lysis and gravity column of N8 sample, Meeting with JF around eigenmode manuscript and self-assessment {-}
 - Meeting with JF:
 	- Resonator Design manuscript:
 		- more citations needed; helix modes, coupling/adding transmission line (check out Eatons)
@@ -414,11 +414,24 @@ Meeting notes
 
 #### 9/4/2025: Pelleting, lysis, and Ni-affinity elution of AFP, ??
 - sampling induced samples
-- pelleting + lysis + elution performed
+- pelleting + lysis + elution performed for GB1 E25C and no GB1 wt
 - check JF lab notebook for other work done
 
 #### 9/5/2025: Gels for Ni-affinity column fractions, microscope for PVA solution
 - images for 0.1 % PVA in 0.576 M sucrose solution
+	- still practicing modified splat assay, was still seeing temp issue (see 10/8)
+- nanodropped Ni-NTA affinity column fractions for E25C and no GB1 wt, ran gel on high 280 nm absorbance fractions as well as expression monitoring samples (induced LC samples, lysate supernatant, Ni-NTA bead equilibrium flow-through and wash buffer flow-through collections). 
+- Preparing FPLC column for SEC (water and HEPES buffer equilibration)
+
+#### 9/6/2025: FPLC for wt and E25C purified, analyzing gels
+- concentrating samples, working on computer (updating lab notebook, resonator manuscript edits)
+
+#### 9/8/2025: Gels for SEC fractions, Comms with JB at McCrone about microscope, prep sucrose control solutions for modified splat assay
+- recovered remaining fractions for wt and E25C to rerun SEC (misreading of gel)
+- saving all fractions to potentially combien for full recovery if possible
+- MURI report for Songi; talked with Shiny about AsLOV in PVA hyrdogel, looking for mechanical motion
+
+#### 9/9/2025: Gels of second SEC fractions for wt and E25C, assisting freeze-thaw cycles (w- and w-out annealing), testinmg microscope (still seeing temp diff at this time)
 - 
 
-
+#### 

@@ -1,190 +1,287 @@
-<h2 id="notebook-while-in-the-han-lab">Notebook while in the Han
-Lab</h2>
-<p>run ‘pandoc labnotebook.md -o labnotebook.html’ followed by ‘pydifft
-cpb labnotebook.md’ to update and view html doc as a pdf I don’t have it
-set yet to auto-update the .html each time the .md file is saved,
-because of this you do need to rerun both command above in sequence to
-see any most recently made changes - this is slightly frustrating as you
-need to close and reopen the .html to do this</p>
-<h2 id="july-2025">July 2025</h2>
-<h4
-id="coordinating-coming-into-nu-lab-emailing-with-pravin-and-songi-resonator-design-manuscript-also-worked-on-thesis-outline">7/7/2025:
-Coordinating coming into NU lab, emailing with Pravin and Songi,
-resonator design manuscript, also worked on thesis outline</h4>
-<h4
-id="first-day-on-nu-campus-meeting-with-pravin-about-pva-and-afp-iii-project.">7/8/2025:
-First day on NU campus; Meeting with Pravin about PVA and AFP III
-project.</h4>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Warren Kincaid" />
+  <title>WK Han Lab Notebook</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+    <script id="MathJax-script" async src="MathJax-3.1.2/es5/tex-mml-chtml.js"></script>
+    <script>
+        // When the page is about to be unloaded, save the current scroll position
+        window.addEventListener('beforeunload', function() {
+            sessionStorage.setItem('scrollPosition', window.scrollY);
+        });
+
+        // When the page has loaded, scroll to the previous scroll position
+        window.addEventListener('load', function() {
+            var scrollPosition = sessionStorage.getItem('scrollPosition');
+            if (scrollPosition) {
+                window.scrollTo(0, scrollPosition);
+                sessionStorage.removeItem('scrollPosition');
+            }
+        });
+    </script>
+</head>
+    
+<body>
+<header id="title-block-header">
+<h1 class="title">WK Han Lab Notebook</h1>
+<p class="author">Warren Kincaid</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#notebook-while-in-the-han-lab">Notebook while in the Han Lab</a></li>
+<li><a href="#july-2025">July 2025</a></li>
+<li><a href="#august-2025">August 2025</a></li>
+<li><a href="#september-2025"><span class="toc-section-number">0.1</span> September 2025</a></li>
+<li><a href="#gels-of-second-sec-fractions-for-wt-and-e25c-assisting-freeze-thaw-cycles-w--and-w-out-annealing-testinmg-microscope-still-seeing-temp-diff-at-this-time"><span class="toc-section-number">0.2</span> #### 9/9/2025: Gels of second SEC fractions for wt and E25C, assisting freeze-thaw cycles (w- and w-out annealing), testinmg microscope (still seeing temp diff at this time)</a></li>
+</ul>
+</nav>
+<h2 class="unnumbered" id="notebook-while-in-the-han-lab">Notebook while in the Han Lab</h2>
+<p>run ‘pandoc labnotebook.md -o labnotebook.html’ to generate the .html file for the first time, then run ‘pydifft cpb labnotebook.md’ to update and view html doc as a pdf</p>
+<p>Document is now autoupdating with reconfiguring and –upgrading packages and related modules for using new PC (HP Omnibook laptop)</p>
+<h2 class="unnumbered" id="july-2025">July 2025</h2>
+<h4 class="unnumbered" id="coordinating-coming-into-nu-lab-emailing-with-pravin-and-songi-resonator-design-manuscript-also-worked-on-thesis-outline">7/7/2025: Coordinating coming into NU lab, emailing with Pravin and Songi, resonator design manuscript, also worked on thesis outline</h4>
+<h4 class="unnumbered" id="first-day-on-nu-campus-meeting-with-pravin-about-pva-and-afp-iii-project.">7/8/2025: First day on NU campus; Meeting with Pravin about PVA and AFP III project.</h4>
 <p>Meeting notes</p>
 <ul>
 <li>PVA use as an ice recrystallization inhibitor</li>
 <li>Sugar cosolutes: sucrose, glucose, trehalose
 <ul>
-<li>Although weak themselves, sugars can enhance ice recrystallization
-inhibitors</li>
+<li>Although weak themselves, sugars can enhance ice recrystallization inhibitors</li>
 </ul></li>
 <li>Goal of avoiding ice crystal conglomeration during freezing</li>
-<li>Formation of semi-rigid hydration layers by PVA between forming ice
-crystals, want to further investigate the mechanism/interaction between
-PVA with water that inhibits the conglomeration of larger ice crystals
-from forming</li>
-<li>Showed data supporting evidence of different thermal hysteresis
-between different AFP III mutants, potential (inadvertent?)
-structure/function effects due to cysteine mutagenesis for spin-labeling
-purposes</li>
+<li>Formation of semi-rigid hydration layers by PVA between forming ice crystals, want to further investigate the mechanism/interaction between PVA with water that inhibits the conglomeration of larger ice crystals from forming</li>
+<li>Showed data supporting evidence of different thermal hysteresis between different AFP III mutants, potential (inadvertent?) structure/function effects due to cysteine mutagenesis for spin-labeling purposes</li>
 <li>PVA in water forms hydrogels following a freeze-thaw cycle</li>
-<li>6 cycles of freeze-thaw show an independence of concentration in gel
-formation (?), gel porosity has dependence on concentration</li>
-<li>Using 17O NMR chemical shifts to detect the extent of tetrahedral
-“semi-rigid” hydration layer formation between PVA and forming ice
-crystals</li>
-<li>Tracking PVA mobility in solution pre- and post-freezing of PVA-H2O
-solutions during ice crystallization</li>
-<li>Imaging of ice crystal size/conglomeration using microscopy (new
-microscope)
+<li>6 cycles of freeze-thaw show an independence of concentration in gel formation (?), gel porosity has dependence on concentration</li>
+<li>Using 17O NMR chemical shifts to detect the extent of tetrahedral “semi-rigid” hydration layer formation between PVA and forming ice crystals</li>
+<li>Tracking PVA mobility in solution pre- and post-freezing of PVA-H2O solutions during ice crystallization</li>
+<li>Imaging of ice crystal size/conglomeration using microscopy (new microscope)
 <ul>
-<li>Told about freeze-thawing cycle on a microscope slide to view ice
-recrystallization and its potential inhibition</li>
+<li>Told about freeze-thawing cycle on a microscope slide to view ice recrystallization and its potential inhibition</li>
 </ul></li>
 </ul>
-<h4 id="reading-resonator-manuscript-work-on-the-side">7/9/2025:
-Reading, resonator manuscript work on the side</h4>
+<h4 class="unnumbered" id="reading-resonator-manuscript-work-on-the-side">7/9/2025: Reading, resonator manuscript work on the side</h4>
 <ul>
-<li>talked more with Pravin about AFPs and project, sent folder of AFP
-references to start reviewing.</li>
-<li>Background research on AFP types, particularly type III, and their
-functions in living organisms.</li>
+<li>talked more with Pravin about AFPs and project, sent folder of AFP references to start reviewing.</li>
+<li>Background research on AFP types, particularly type III, and their functions in living organisms.</li>
 </ul>
-<h4
-id="and-7112025-reading-for-afp-data-analysis-and-writing-for-resonator-design-manuscript">7/10/2025
-and 7/11/2025: Reading for AFP, data analysis and writing for resonator
-design manuscript</h4>
+<h4 class="unnumbered" id="and-7112025-reading-for-afp-data-analysis-and-writing-for-resonator-design-manuscript">7/10/2025 and 7/11/2025: Reading for AFP, data analysis and writing for resonator design manuscript</h4>
 <ul>
-<li>mode matching for resonator design project, work towards mapping
-modes figures, writing some results</li>
-<li>reskimmed Meth in Enzo Han/Franck chapter, have more questions about
-molecular and spin diffusion</li>
+<li>mode matching for resonator design project, work towards mapping modes figures, writing some results</li>
+<li>reskimmed Meth in Enzo Han/Franck chapter, have more questions about molecular and spin diffusion</li>
 <li>reading Gharib/Kosar review on AFPs</li>
 </ul>
-<h4 id="more-reading-of-gharibkosar">7/13/2025: More reading of
-Gharib/Kosar</h4>
-<h4 id="starting-paperwork-with-alexis-for-hiring">7/14/2025: Starting
-paperwork with Alexis for hiring</h4>
+<h4 class="unnumbered" id="more-reading-of-gharibkosar">7/13/2025: More reading of Gharib/Kosar</h4>
+<h4 class="unnumbered" id="starting-paperwork-with-alexis-for-hiring">7/14/2025: Starting paperwork with Alexis for hiring</h4>
 <ul>
-<li>meeting with Songi and Pravin; need to look into Maria’s and
-Candice’s work on AFP and hydration dynamics studies</li>
-<li>learn more about FTS system both for NMR/ESR/ODNP and for using and
-calibrating light microscope</li>
+<li>meeting with Songi and Pravin; need to look into Maria’s and Candice’s work on AFP and hydration dynamics studies</li>
+<li>learn more about FTS system both for NMR/ESR/ODNP and for using and calibrating light microscope</li>
 </ul>
-<h4
-id="h2o-subgroup-meeting-plan-with-freezer-afp-reading-and-plan-for-paper">7/15/2025:
-H2O subgroup meeting, plan with freezer, AFP reading and plan for
-paper</h4>
+<h4 class="unnumbered" id="h2o-subgroup-meeting-plan-with-freezer-afp-reading-and-plan-for-paper">7/15/2025: H2O subgroup meeting, plan with freezer, AFP reading and plan for paper</h4>
 <ul>
 <li>test new freezer, working on freezer calibration</li>
 <li>Aim of AFP paper (ODNP portion)
 <ul>
-<li>map hydration dynamics around ice binding and non-ice binding
-regions, investigate the mechanism for changes to TH and IRI of mutants
-due to single site cysteine mutations</li>
+<li>map hydration dynamics around ice binding and non-ice binding regions, investigate the mechanism for changes to TH and IRI of mutants due to single site cysteine mutations</li>
 </ul></li>
-<li>prep for sucrose in HEPES control test with new freezer logging
-freezer activities</li>
+<li>prep for sucrose in HEPES control test with new freezer logging freezer activities</li>
 </ul>
-<h4 id="monitor-freezer-calibrate-thermometer-and-probes">7/16/2025:
-Monitor freezer, Calibrate thermometer and probes</h4>
+<h4 class="unnumbered" id="monitor-freezer-calibrate-thermometer-and-probes">7/16/2025: Monitor freezer, Calibrate thermometer and probes</h4>
 <ul>
-<li>make HEPES buffer and sucrose solution for looking to generate ice
-slurry in freezer</li>
+<li>make HEPES buffer and sucrose solution for looking to generate ice slurry in freezer</li>
 <li>reading about AFPs, reviews and Joon-Hwa Lee group NMR studies</li>
-<li>also started calibration of THE-343 digital thermometer, determined
-&gt; 1 °C offset in determined temperature while calibrating in ice
-bath</li>
-<li>made 10 mL 18% sucrose in HEPES buffer solution to use for coming
-days/weeks</li>
+<li>also started calibration of THE-343 digital thermometer, determined &gt; 1 °C offset in determined temperature while calibrating in ice bath</li>
+<li>made 10 mL 18% sucrose in HEPES buffer solution to use for coming days/weeks</li>
 </ul>
-<h4
-id="paperwork-reading-freezerthermometer-testing-resonator-manuscript">7/17/2025:
-Paperwork, reading, freezer/thermometer testing, resonator
-manuscript</h4>
+<h4 class="unnumbered" id="paperwork-reading-freezerthermometer-testing-resonator-manuscript">7/17/2025: Paperwork, reading, freezer/thermometer testing, resonator manuscript</h4>
 <ul>
-<li>emails regarding I9, do part 1 but needed to find social security
-card</li>
+<li>emails regarding I9, do part 1 but needed to find social security card</li>
 <li>Reading AFP lit</li>
 <li>monitoring freezer still, probe not very good</li>
-<li>comparison of map of uncoupled modes over varying pitch and map of
-coupled modes over varying pitch</li>
-<li>monitoring THE343 thermometer, cross-referencing with Hg
-thermometer, taking readings every 1-2 hrs</li>
+<li>comparison of map of uncoupled modes over varying pitch and map of coupled modes over varying pitch</li>
+<li>monitoring THE343 thermometer, cross-referencing with Hg thermometer, taking readings every 1-2 hrs</li>
 </ul>
-<h4
-id="freeze-thaw-test-readingwriting-afp-outline-shop-for-new-thermometer-datalogger">7/18/2025:
-Freeze-thaw test, reading/writing AFP outline, shop for new thermometer
-+ datalogger</h4>
+<h4 class="unnumbered" id="freeze-thaw-test-readingwriting-afp-outline-shop-for-new-thermometer-datalogger">7/18/2025: Freeze-thaw test, reading/writing AFP outline, shop for new thermometer + datalogger</h4>
 <ul>
-<li>probe types to get; K/J most common, K better than J most of the
-time, we want T type probe and meter capabilities for low
-temperatures</li>
-<li>Thermocouple graded wire is better, look into getting with new T
-type probe</li>
-<li>short meeting with Songi about AFP project, wants me to start
-working on manuscript ahead of time while doing background readings</li>
+<li>probe types to get; K/J most common, K better than J most of the time, we want T type probe and meter capabilities for low temperatures</li>
+<li>Thermocouple graded wire is better, look into getting with new T type probe</li>
+<li>short meeting with Songi about AFP project, wants me to start working on manuscript ahead of time while doing background readings</li>
 </ul>
-<h4 id="thru-7212025-awaytraveling-for-family-event">7/19/2025 thru
-7/21/2025: Away/traveling for family event</h4>
-<h4 id="freezer-reading-resonator-design-manuscript">7/22/2025: freezer,
-reading, resonator design manuscript</h4>
+<h4 class="unnumbered" id="thru-7212025-awaytraveling-for-family-event">7/19/2025 thru 7/21/2025: Away/traveling for family event</h4>
+<h4 class="unnumbered" id="freezer-reading-resonator-design-manuscript">7/22/2025: freezer, reading, resonator design manuscript</h4>
 <ul>
-<li>Need to attend H2O subgroup meetings on Tuesdays, 11 am
-(missed)</li>
-<li>Still seeing large variations in measured temps between probe vs
-thermometer and intended freezer setting</li>
-<li>Monitoring 2 thermometers, visual inspection of 10 mL sucrose in
-HEPES solution as it thaws/refreezes</li>
+<li>Need to attend H2O subgroup meetings on Tuesdays, 11 am (missed)</li>
+<li>Still seeing large variations in measured temps between probe vs thermometer and intended freezer setting</li>
+<li>Monitoring 2 thermometers, visual inspection of 10 mL sucrose in HEPES solution as it thaws/refreezes</li>
 </ul>
-<h4
-id="freeze-thaw-test-in-capillary-afp-reading-resonator-design-manuscript-figures">7/23/2025:
-Freeze-thaw test in capillary, AFP Reading, resonator design manuscript
-figures</h4>
+<h4 class="unnumbered" id="freeze-thaw-test-in-capillary-afp-reading-resonator-design-manuscript-figures">7/23/2025: Freeze-thaw test in capillary, AFP Reading, resonator design manuscript figures</h4>
 <ul>
-<li>semi-regular logging of freezer temperatures for determining freezer
-range of temperature oscillation</li>
-<li>Performed flash-freeze with freeze-thaw cycle of sucrose solution
-(no PVA) in an ESR capillary with Pravin
+<li>semi-regular logging of freezer temperatures for determining freezer range of temperature oscillation</li>
+<li>Performed flash-freeze with freeze-thaw cycle of sucrose solution (no PVA) in an ESR capillary with Pravin
 <ul>
-<li>Observed ice “needle” formation and recrystallization, alos able to
-see ice-water equilibrium at the start of ice nucleation</li>
+<li>Observed ice “needle” formation and recrystallization, alos able to see ice-water equilibrium at the start of ice nucleation</li>
 </ul></li>
 </ul>
-<h4
-id="freeze-monitoring-afp-reading-res-design-data-processing">7/24/2025:
-freeze monitoring, AFP reading, res design data processing</h4>
+<h4 class="unnumbered" id="freeze-monitoring-afp-reading-res-design-data-processing">7/24/2025: freeze monitoring, AFP reading, res design data processing</h4>
 <ul>
-<li>Looking into Demuller freezer manual, want to modfiy temperature
-freezer cycles to be closer to -6 °C for longer and/or stray less
-further away from target.</li>
-<li>Reading about AFP III subtypes, quaternary-amino-ethyl types 1
-(typically TH active) and 2 and sulfopropyl (each more typically TH
-inactive)</li>
+<li>Looking into Demuller freezer manual, want to modfiy temperature freezer cycles to be closer to -6 °C for longer and/or stray less further away from target.</li>
+<li>Reading about AFP III subtypes, quaternary-amino-ethyl types 1 (typically TH active) and 2 and sulfopropyl (each more typically TH inactive)</li>
 </ul>
-<h4
-id="listeningwatching-in-on-microscope-training-afp-reading-res-design">7/25/2025:
-Listening/watching in on microscope training, AFP reading, res
-design</h4>
+<h4 class="unnumbered" id="listeningwatching-in-on-microscope-training-afp-reading-res-design">7/25/2025: Listening/watching in on microscope training, AFP reading, res design</h4>
 <ul>
 <li>microscope arrived; listening in during training</li>
-<li>preparing to start on AFP expression next Monday, reading protocols
-and coming up with questions</li>
-<li>processing and analysis for coupled res designs (results figure for
-manuscript)</li>
+<li>preparing to start on AFP expression next Monday, reading protocols and coming up with questions</li>
+<li>processing and analysis for coupled res designs (results figure for manuscript)</li>
 </ul>
-<h4
-id="prepare-for-using-microscope-expression-media-prep-new-digital-meter-and-probes-arrived">7/28/2025:
-Prepare for using microscope, expression media prep, new digital meter
-and probes arrived</h4>
+<h4 class="unnumbered" id="prepare-for-using-microscope-expression-media-prep-new-digital-meter-and-probes-arrived">7/28/2025: Prepare for using microscope, expression media prep, new digital meter and probes arrived</h4>
 <ul>
-<li>media prep, also started media prep for M9 solutions before
-corrected plan through conversation with Pravin
+<li>media prep, also started media prep for M9 solutions before corrected plan through conversation with Pravin
 <ul>
 <li>have 10X M9 Salt solution available for future use</li>
 </ul></li>
@@ -201,202 +298,127 @@ corrected plan through conversation with Pravin
 <li>134.035 g Na2HPO4 (500 mM)</li>
 <li>27.218 g KH2PO4 (200 mM)</li>
 <li>5.2596 g NaCl (90 mM)</li>
-<li>add stir bar PRIOR TO SALTS, cover with Al foil, add 800-900 mL
-filtered MilliQ H2O, heat + stir to dissolve, pH to 7.4-7.5, remove stir
-bar and replace into 1 L buffer bottle filling to 1000 mL</li>
+<li>add stir bar PRIOR TO SALTS, cover with Al foil, add 800-900 mL filtered MilliQ H2O, heat + stir to dissolve, pH to 7.4-7.5, remove stir bar and replace into 1 L buffer bottle filling to 1000 mL</li>
 </ul></li>
-<li>Taking notes and watching tutorial videos for Bx53m microscope
-(Olympus)</li>
-<li>Digital meter arrived, started reading manual for use next day (not
-very informative)</li>
-<li>More focused on writing and edits to res design manuscript as VM
-software license issue, emailed SU ITS over weekend for assistance</li>
+<li>Taking notes and watching tutorial videos for Bx53m microscope (Olympus)</li>
+<li>Digital meter arrived, started reading manual for use next day (not very informative)</li>
+<li>More focused on writing and edits to res design manuscript as VM software license issue, emailed SU ITS over weekend for assistance</li>
 </ul>
-<h4
-id="start-afp-expression-s-day-1-digital-thermometerdatalogger">7/29/2025:
-Start AFP expression (S, Day 1), digital thermometer/datalogger</h4>
+<h4 class="unnumbered" id="start-afp-expression-s-day-1-digital-thermometerdatalogger">7/29/2025: Start AFP expression (S, Day 1), digital thermometer/datalogger</h4>
 <ul>
-<li>after many failures, learned issue with autoclave had to do with
-following written protocol (out-of-date) and intended/outdated procedure
-(still not fully written out), just use ‘Liquid 30’ cycle, no ‘Dry 30’
-equilvalent as far as I’m aware for this autoclave (autoclave 1 and 2 on
-4th floor)</li>
-<li>Installed SE521 software for datalogger, TestLink app on phone for
-bluetooth moitoring capabilities of datalogger</li>
-<li>Learning how to change datalogger settings, less active monitoring
-to save some battery life
+<li>after many failures, learned issue with autoclave had to do with following written protocol (out-of-date) and intended/outdated procedure (still not fully written out), just use ‘Liquid 30’ cycle, no ‘Dry 30’ equilvalent as far as I’m aware for this autoclave (autoclave 1 and 2 on 4th floor)</li>
+<li>Installed SE521 software for datalogger, TestLink app on phone for bluetooth moitoring capabilities of datalogger</li>
+<li>Learning how to change datalogger settings, less active monitoring to save some battery life
 <ul>
 <li>start run for comparison of 3 K type probes</li>
 </ul></li>
 <li>Inoculated with GB1 cell stocks from -80 freezer (wt and N8)
 <ul>
-<li>Miscommunications with Pravin (Learned on 8/15 after starting
-expression over):
+<li>Miscommunications with Pravin (Learned on 8/15 after starting expression over):
 <ul>
-<li>GB1 AFP III wt stock (and all GB1 stocks) have Kanamycin resistance
-(not Ampicillin)</li>
+<li>GB1 AFP III wt stock (and all GB1 stocks) have Kanamycin resistance (not Ampicillin)</li>
 <li>AFP III wt stock (not GB1) has Amp resistance</li>
 </ul></li>
-<li>for both Amp and Kan stocks; 1 M was too concentrated for both, Amp
-also doesn’t have great solubility in 100% ethanol</li>
-<li>Instead; made both Amp and Kan stocks to 1000X concentrations (“1X”
-= 125 <span class="math inline"><em>μ</em></span>g/mL for Amp, = 50
-<span class="math inline"><em>μ</em></span>g/mL for Kan) and made both
-in filtered MilliQ H2O</li>
+<li>for both Amp and Kan stocks; 1 M was too concentrated for both, Amp also doesn’t have great solubility in 100% ethanol</li>
+<li>Instead; made both Amp and Kan stocks to 1000X concentrations (“1X” = 125 <span class="math inline">\(\mu\)</span>g/mL for Amp, = 50 <span class="math inline">\(\mu\)</span>g/mL for Kan) and made both in filtered MilliQ H2O</li>
 </ul></li>
 <li>“1000X” Amp = 625 mg Ampicillin in 5 mL filtered MilliQ H2O</li>
 <li>“1000X” Kan = 250 mg Kanamycin in 5 mL filtered MilliQ H2O</li>
 </ul>
-<h4 id="lc-day-2-res-design-manuscript">7/30/2025: LC Day 2, res design
-manuscript</h4>
+<h4 class="unnumbered" id="lc-day-2-res-design-manuscript">7/30/2025: LC Day 2, res design manuscript</h4>
 <ul>
-<li>Supplemental soution prep for large cultures, concerned about lack
-of SC growth for AFP III wt (see above for explanation)
+<li>Supplemental soution prep for large cultures, concerned about lack of SC growth for AFP III wt (see above for explanation)
 <ul>
-<li>1 M MgSO4 = 0.602 g in 5 mL filtered MilliQ H2O, add 1 mL to reach 2
-mM conc in LC</li>
-<li>20% glucose = 2 g in 10 mL filtered MilliQ H2O, add 8.75 mL reach
-0.35% in LC</li>
-<li>Also add 500 <span class="math inline"><em>μ</em></span>L 1000X Kan
-(1X in LC) made day prior</li>
+<li>1 M MgSO4 = 0.602 g in 5 mL filtered MilliQ H2O, add 1 mL to reach 2 mM conc in LC</li>
+<li>20% glucose = 2 g in 10 mL filtered MilliQ H2O, add 8.75 mL reach 0.35% in LC</li>
+<li>Also add 500 <span class="math inline">\(\mu\)</span>L 1000X Kan (1X in LC) made day prior</li>
 </ul></li>
-<li>Inoculate LCs with 10 mL SCs, only continuing with N8C mutant
-because wt didn’t grow. Monitor with OD measurements 1pm - 4:25 pm, 1 hr
-to 30 min intervals, 1 cm cuvette OD measurements throughout growth
+<li>Inoculate LCs with 10 mL SCs, only continuing with N8C mutant because wt didn’t grow. Monitor with OD measurements 1pm - 4:25 pm, 1 hr to 30 min intervals, 1 cm cuvette OD measurements throughout growth
 <ul>
 <li>OD reached 0.66</li>
 </ul></li>
-<li>Induce with 100 mM IPTG, make with 0.2383 g IPTG in 10 mL filtered
-MilliQ H2O
+<li>Induce with 100 mM IPTG, make with 0.2383 g IPTG in 10 mL filtered MilliQ H2O
 <ul>
 <li>add 5 mL 100 mM IPTG to LC, final conc of 1 mM in LC solution</li>
 </ul></li>
-<li>Res Design: Issue with software license on VM resolved, more focused
-on finishing coupled parametric lorentzian figure for updating
-manuscript results</li>
+<li>Res Design: Issue with software license on VM resolved, more focused on finishing coupled parametric lorentzian figure for updating manuscript results</li>
 </ul>
-<h4
-id="pelleting-pause-before-lysis-res-design-manuscript-dissertation-self-assessment-for-su">7/31/2025:
-Pelleting (pause before lysis), res design manuscript, dissertation
-self-assessment for SU</h4>
+<h4 class="unnumbered" id="pelleting-pause-before-lysis-res-design-manuscript-dissertation-self-assessment-for-su">7/31/2025: Pelleting (pause before lysis), res design manuscript, dissertation self-assessment for SU</h4>
 <ul>
 <li>Samples for post-induction, monitor ODs after overnights
 <ul>
-<li>save for PAGE gel after gravity column separation during
-purification steps</li>
+<li>save for PAGE gel after gravity column separation during purification steps</li>
 </ul></li>
-<li>Pelleted in large poylpropylene bottles in large centrifuge, massing
-pellets, separated LC into equal masses between polypropylene
-bottles</li>
-<li>Resuspend pellets in 20 mL filtered MilliQ H2O, transferring to 50
-mL conical tubes. 10 mL resuspend + 10 mL wash of reminents inside PP
-bottles</li>
-<li>Continue working on res design manuscript, updating results/figures
-and introduction for any still needed changes</li>
-<li>Continue dissertation self-assessment for SU, also need to send to
-JF for review/comments</li>
+<li>Pelleted in large poylpropylene bottles in large centrifuge, massing pellets, separated LC into equal masses between polypropylene bottles</li>
+<li>Resuspend pellets in 20 mL filtered MilliQ H2O, transferring to 50 mL conical tubes. 10 mL resuspend + 10 mL wash of reminents inside PP bottles</li>
+<li>Continue working on res design manuscript, updating results/figures and introduction for any still needed changes</li>
+<li>Continue dissertation self-assessment for SU, also need to send to JF for review/comments</li>
 </ul>
-<h2 id="august-2025">August 2025</h2>
-<h4
-id="submit-updated-res.-design-manuscript-to-jf-work-on-dissertation-self-assessment">8/1/2025:
-Submit updated res. design manuscript to JF, work on dissertation
-self-assessment</h4>
+<h2 class="unnumbered" id="august-2025">August 2025</h2>
+<h4 class="unnumbered" id="submit-updated-res.-design-manuscript-to-jf-work-on-dissertation-self-assessment">8/1/2025: Submit updated res. design manuscript to JF, work on dissertation self-assessment</h4>
 <ul>
-<li>pausing purification because of lack of large filters, Pravin
-ordering separate filters as well as reusable one</li>
-<li>Finalise resonator design manuscriot to send to JF for
-comments/edits</li>
+<li>pausing purification because of lack of large filters, Pravin ordering separate filters as well as reusable one</li>
+<li>Finalise resonator design manuscriot to send to JF for comments/edits</li>
 <li>Han Lab group meeting</li>
-<li>Rereading old notes spurred further edits to manuscript at the end
-of the day</li>
+<li>Rereading old notes spurred further edits to manuscript at the end of the day</li>
 </ul>
-<h4 id="working-on-self-assessment-afp-reading">8/4/2025: working on
-self-assessment, AFP reading</h4>
+<h4 class="unnumbered" id="working-on-self-assessment-afp-reading">8/4/2025: working on self-assessment, AFP reading</h4>
 <ul>
-<li>Going through slack and notebooks of the past year back to June 2024
-to summarize work that I’ve done over this time period and how each
-thing relates towards completing my dissertation.</li>
+<li>Going through slack and notebooks of the past year back to June 2024 to summarize work that I’ve done over this time period and how each thing relates towards completing my dissertation.</li>
 <li>Continue AFP readings, focus more on AFP type III</li>
 </ul>
-<h4 id="h2o-subgroup-testing-olympus-microscope">8/5/2025: H2O Subgroup,
-Testing Olympus microscope</h4>
+<h4 class="unnumbered" id="h2o-subgroup-testing-olympus-microscope">8/5/2025: H2O Subgroup, Testing Olympus microscope</h4>
 <ul>
 <li>H2O subgroup:
 <ul>
 <li>goal of trying modified splat assay at end of current expression
 <ul>
-<li>test new microscope, use a PVA solution to try to recreate existing
-images</li>
+<li>test new microscope, use a PVA solution to try to recreate existing images</li>
 <li>capture pictures while thermocycling</li>
 </ul></li>
 </ul></li>
-<li>Setting up using new microscope, trying to connect communication
-between camera and temperature control system.</li>
+<li>Setting up using new microscope, trying to connect communication between camera and temperature control system.</li>
 </ul>
-<h4
-id="lysis-and-gravity-column-of-n8-sample-meeting-with-jf-around-eigenmode-manuscript-and-self-assessment">8/6/2025:
-Lysis and gravity column of N8 sample, Meeting with JF around eigenmode
-manuscript and self-assessment</h4>
+<h4 class="unnumbered" id="lysis-and-gravity-column-of-n8-sample-meeting-with-jf-around-eigenmode-manuscript-and-self-assessment">8/6/2025: Lysis and gravity column of N8 sample, Meeting with JF around eigenmode manuscript and self-assessment</h4>
 <ul>
 <li>Meeting with JF:
 <ul>
 <li>Resonator Design manuscript:
 <ul>
-<li>more citations needed; helix modes, coupling/adding transmission
-line (check out Eatons)</li>
+<li>more citations needed; helix modes, coupling/adding transmission line (check out Eatons)</li>
 <li>attempt 3D plot wrt Qs</li>
-<li>PML addition serves as a bridge to adding coupling within the
-benefit of the eigenmode setup</li>
+<li>PML addition serves as a bridge to adding coupling within the benefit of the eigenmode setup</li>
 </ul></li>
 <li>Correlation Alignment code/manuscript:
 <ul>
-<li>rethink current PR; want to modify (already started)
-<code>rough_table_of_integrals</code> function to be
-<code>table_of_integrals</code> to then separate processing inside
-function to be used both for a rough or correlated alignment in
-processing</li>
-<li>change current proc_align example script to just run this function,
-make more flexible and shorter, dont want any unecessary processing done
-inside</li>
+<li>rethink current PR; want to modify (already started) <code>rough_table_of_integrals</code> function to be <code>table_of_integrals</code> to then separate processing inside function to be used both for a rough or correlated alignment in processing</li>
+<li>change current proc_align example script to just run this function, make more flexible and shorter, dont want any unecessary processing done inside</li>
 </ul></li>
 </ul></li>
 <li>Start of AFP N8C purification:
 <ul>
 <li>spin down frozen pellets</li>
-<li>resuspend in lysis buffer (made with protease inhibitor tablet + 1
-flake DNAse in HEPES buffer)</li>
+<li>resuspend in lysis buffer (made with protease inhibitor tablet + 1 flake DNAse in HEPES buffer)</li>
 <li>follow (Pravin’s modified) protocol for lysis
 <ul>
-<li>need to use Meade lab centrifuge for separating protein into lysate
-supernatant</li>
+<li>need to use Meade lab centrifuge for separating protein into lysate supernatant</li>
 </ul></li>
 <li>make imidazole wash and elution buffers in HEPES buffer</li>
 <li>setup and use of gravity column for protein chromatography</li>
 </ul></li>
 <li>Filling in more of self-assessment</li>
-<li>T type probe compare with K type probe measurements @ -20 °C (bc
-freezer in use for other samples, issues with other -20 °C freezer)</li>
+<li>T type probe compare with K type probe measurements @ -20 °C (bc freezer in use for other samples, issues with other -20 °C freezer)</li>
 </ul>
-<h4
-id="a280nm-measurements-of-fractions-page-gels-on-expressionpurification-progress-plan-out-pva-cosulote-solutions-for-modified-splat-assay-attempt">8/7/2025:
-A280nm measurements of fractions + PAGE gels on expression/purification
-progress, Plan out PVA + cosulote solutions for modified splat assay
-attempt</h4>
+<h4 data-number="0.0.0.1" id="a280nm-measurements-of-fractions-page-gels-on-expressionpurification-progress-plan-out-pva-cosulote-solutions-for-modified-splat-assay-attempt"><span class="header-section-number">0.0.0.1</span> 8/7/2025: A280nm measurements of fractions + PAGE gels on expression/purification progress, Plan out PVA + cosulote solutions for modified splat assay attempt</h4>
 <ul>
 <li>made small commits for correlation alignment PR</li>
-<li>PAGE gel results matched expectations from A280nm measurements of
-fractions</li>
-<li>Looking into SE (FPLC) protocol to attempt tommorrow on combined +
-concentrated fractions</li>
+<li>PAGE gel results matched expectations from A280nm measurements of fractions</li>
+<li>Looking into SE (FPLC) protocol to attempt tommorrow on combined + concentrated fractions</li>
 <li>self-assessment (ontinued filling in)</li>
 </ul>
-<h4
-id="start-of-se-prep-concentration-gradient-solutions-for-modified-splat-assay-tests-wth-pva-sucrose-group-meeting-self-assessment">8/8/2025:
-Start of SE, Prep concentration gradient solutions for modified splat
-assay tests wth PVA + sucrose, Group Meeting, self-assessment</h4>
+<h4 data-number="0.0.0.2" id="start-of-se-prep-concentration-gradient-solutions-for-modified-splat-assay-tests-wth-pva-sucrose-group-meeting-self-assessment"><span class="header-section-number">0.0.0.2</span> 8/8/2025: Start of SE, Prep concentration gradient solutions for modified splat assay tests wth PVA + sucrose, Group Meeting, self-assessment</h4>
 <ul>
-<li>Started concentrating protein for SE, stopped because of pause for
-group meeting and conflict with another researcher needing concentrator
+<li>Started concentrating protein for SE, stopped because of pause for group meeting and conflict with another researcher needing concentrator
 <ul>
 <li>Shifted plan to concentrate and do SE next day</li>
 </ul></li>
@@ -406,13 +428,11 @@ group meeting and conflict with another researcher needing concentrator
 <ul>
 <li>vacuum grease</li>
 <li>cover slips (x2)</li>
-<li>solution of interest (1 mg/mL PVA + 0.576 M sucrose in HEPES
-buffer)</li>
+<li>solution of interest (1 mg/mL PVA + 0.576 M sucrose in HEPES buffer)</li>
 </ul></li>
 <li>Slide prep:
 <ul>
-<li>Border slide with vacuum grease using pipette tip (look for better
-utensil for this)</li>
+<li>Border slide with vacuum grease using pipette tip (look for better utensil for this)</li>
 <li>Pipette on slide with vacuum grease</li>
 <li>Top with 2nd cover slip to seal</li>
 </ul></li>
@@ -420,25 +440,21 @@ utensil for this)</li>
 <ol type="1">
 <li>Purge line with 40 °C heated N₂ before each run
 <ul>
-<li>this clears the line of any remaining H2O that may be in the
-system</li>
+<li>this clears the line of any remaining H2O that may be in the system</li>
 <li>done for 5 min (no time specified in supp. material)</li>
 </ul></li>
-<li>Rapid flash-freeze @ 40 °C/min to -50 °C, hold for 5 min (is this
-too long?)</li>
+<li>Rapid flash-freeze @ 40 °C/min to -50 °C, hold for 5 min (is this too long?)</li>
 <li>Increase to -6 °C @ 10 °C/min</li>
 <li>Hold @ -6 °C for 130 min, capture images @ 0 min + every 5 min</li>
 </ol></li>
 </ul></li>
 <li>Installed drivers for Lumenera Infinity camera
 <ul>
-<li>8/19 = learned from Jim @ McCrone that we need an additional module
-to be able to use this camera with the Link software</li>
+<li>8/19 = learned from Jim @ McCrone that we need an additional module to be able to use this camera with the Link software</li>
 </ul></li>
 <li>worked more on self-assessment goals and outlook</li>
 </ul>
-<h4 id="prepare-protein-and-start-se-fplc">8/9/2025: Prepare protein and
-start SE (FPLC)</h4>
+<h4 data-number="0.0.0.3" id="prepare-protein-and-start-se-fplc"><span class="header-section-number">0.0.0.3</span> 8/9/2025: Prepare protein and start SE (FPLC)</h4>
 <ul>
 <li>Concentrate protein at 10 min intervals, 4500 rcf @ 4 °C</li>
 <li>pipette to mix after each cycle, visually checking volume</li>
@@ -446,370 +462,200 @@ start SE (FPLC)</h4>
 <li>also made another 1 L of HEPES buffer for use with FPL</li>
 <li>Finished initial draft of self-assessment and sent to JF</li>
 </ul>
-<h4 id="fpl-results-modified-splat-assay">8/11/2025: FPL results,
-Modified splat assay</h4>
+<h4 data-number="0.0.0.4" id="fpl-results-modified-splat-assay"><span class="header-section-number">0.0.0.4</span> 8/11/2025: FPL results, Modified splat assay</h4>
 <ul>
 <li>took A280 measurements of all 70 fractions from FPL
 <ul>
-<li>protein not observed in any fractions UV failed during run (or may
-have not been working before)</li>
-<li>Still not certain where protein went, may have passed to waste
-container, checking tubing connections protein passing directly to the
-waste doesn’t seem to be the case</li>
-<li>want to try a run of different proteins in mixture to use for
-calibration (known proteins like lysozyme, human insulin recombinant
-enzyme, BSA (or analogous equivalent), fetuin?)</li>
+<li>protein not observed in any fractions UV failed during run (or may have not been working before)</li>
+<li>Still not certain where protein went, may have passed to waste container, checking tubing connections protein passing directly to the waste doesn’t seem to be the case</li>
+<li>want to try a run of different proteins in mixture to use for calibration (known proteins like lysozyme, human insulin recombinant enzyme, BSA (or analogous equivalent), fetuin?)</li>
 </ul></li>
 <li>Reading microscope and camera manuals</li>
-<li>Using made PVA stocks to try modified splat assay again, error for
-‘stage temperature sensor’ happened. Tried to resolve but couldn’t
-following instructions with error + online</li>
+<li>Using made PVA stocks to try modified splat assay again, error for ‘stage temperature sensor’ happened. Tried to resolve but couldn’t following instructions with error + online</li>
 </ul>
-<h4
-id="contact-mccrone-rep-for-microscope-and-linkam-system-h2o-subgroup-start-new-expression">8/12/2025:
-Contact McCrone rep for microscope and Linkam system, H2O subgroup,
-start new expression</h4>
+<h4 data-number="0.0.0.5" id="contact-mccrone-rep-for-microscope-and-linkam-system-h2o-subgroup-start-new-expression"><span class="header-section-number">0.0.0.5</span> 8/12/2025: Contact McCrone rep for microscope and Linkam system, H2O subgroup, start new expression</h4>
 <ul>
 <li>H2O subgroup meeting:
 <ul>
-<li>Need to contact Olympus and BioRad reps about current
-issues/repairs</li>
-<li>Keep on readings about AFP, start to outline AFP paper, especially
-focus on plan for ODNP and related experiments</li>
-<li>Showed freezer info with K type vs T type probe comparisons, SH
-wants me to “hack” freezer to stay in a more consistent feedback loop
-closer to a more consistent -6 <span
-class="math inline"><sup>∘</sup></span>C measurement, involves breaking
-open freezer circuitry to modify freezer’s thermostat</li>
-<li>SH agreed with trying a mixture of protein standards through the FPL
-for checking issue of what might not be working</li>
-<li>Start new expression, make sure to also do wt (not just N8C
-mutant)</li>
+<li>Need to contact Olympus and BioRad reps about current issues/repairs</li>
+<li>Keep on readings about AFP, start to outline AFP paper, especially focus on plan for ODNP and related experiments</li>
+<li>Showed freezer info with K type vs T type probe comparisons, SH wants me to “hack” freezer to stay in a more consistent feedback loop closer to a more consistent -6 <span class="math inline">\(^\circ\)</span>C measurement, involves breaking open freezer circuitry to modify freezer’s thermostat</li>
+<li>SH agreed with trying a mixture of protein standards through the FPL for checking issue of what might not be working</li>
+<li>Start new expression, make sure to also do wt (not just N8C mutant)</li>
 </ul></li>
-<li>Contacted Jim (James J.) Bristol, jbristol@mccrone.com, who is tech
-and sales rep from McCrone for the Olympus microscope, Linkam
-temperature stage and Infinity 8 camera, contacted regarding error
-message from 8/11</li>
-<li>start SCs for wt and N8C, still didn’t know about difference between
-regular wt and GB1 wt wrt Amp vs Kan resistance so wt SC didn’t grow O/N
-again</li>
-<li>Cleaned FPLC with manual run, 700 mL wash using 30 % ethanol
-solution</li>
+<li>Contacted Jim (James J.) Bristol, jbristol@mccrone.com, who is tech and sales rep from McCrone for the Olympus microscope, Linkam temperature stage and Infinity 8 camera, contacted regarding error message from 8/11</li>
+<li>start SCs for wt and N8C, still didn’t know about difference between regular wt and GB1 wt wrt Amp vs Kan resistance so wt SC didn’t grow O/N again</li>
+<li>Cleaned FPLC with manual run, 700 mL wash using 30 % ethanol solution</li>
 </ul>
-<h4
-id="lc-of-afp-expr-n8c-mutant-repeat-sc-for-wt-correctly-self-assessment-edits-rcr-training">8/13/2025:
-LC of AFP expr (N8C mutant), repeat SC for wt correctly, self-assessment
-edits, RCR training</h4>
+<h4 data-number="0.0.0.6" id="lc-of-afp-expr-n8c-mutant-repeat-sc-for-wt-correctly-self-assessment-edits-rcr-training"><span class="header-section-number">0.0.0.6</span> 8/13/2025: LC of AFP expr (N8C mutant), repeat SC for wt correctly, self-assessment edits, RCR training</h4>
 <ul>
-<li>inoculate and monitor LC for N8C mutant (11 am - 3 pm, 1hr to 30 min
-monitoring intervals)</li>
-<li>made plan with Pravin for what to do for FPLC run with protein
-standards, not doing today as Will needs for MagLOV</li>
-<li>again saw wt SC not grow, talking with Pravin, learned of different
-wt stocks (regular AFP III wt and GB1 tagged AFP III wt) -all GB1 tagged
-protein for AFP have Kan resistance, the “normal” AFP III wt is encoded
-with an Amp resistance tag to its plasmid instead</li>
-<li>JF sent edits for self-assessment, started working on these to send
-back 8/14 AM (self-assessment due EOD 8/15)</li>
+<li>inoculate and monitor LC for N8C mutant (11 am - 3 pm, 1hr to 30 min monitoring intervals)</li>
+<li>made plan with Pravin for what to do for FPLC run with protein standards, not doing today as Will needs for MagLOV</li>
+<li>again saw wt SC not grow, talking with Pravin, learned of different wt stocks (regular AFP III wt and GB1 tagged AFP III wt) -all GB1 tagged protein for AFP have Kan resistance, the “normal” AFP III wt is encoded with an Amp resistance tag to its plasmid instead</li>
+<li>JF sent edits for self-assessment, started working on these to send back 8/14 AM (self-assessment due EOD 8/15)</li>
 <li>started working on RCR trainings through out day</li>
 </ul>
-<h4
-id="self-assessment-edits-lc-monitoring-for-wt-induced-monitoring-pelleting-lysis-for-n8c">8/14/2025:
-self-assessment edits, LC monitoring for wt, Induced monitoring +
-Pelleting + Lysis for N8C</h4>
+<h4 data-number="0.0.0.7" id="self-assessment-edits-lc-monitoring-for-wt-induced-monitoring-pelleting-lysis-for-n8c"><span class="header-section-number">0.0.0.7</span> 8/14/2025: self-assessment edits, LC monitoring for wt, Induced monitoring + Pelleting + Lysis for N8C</h4>
 <ul>
-<li>sent back modified self-assessment to JF, some back-forth during the
-day making small changes</li>
-<li>solution prep and enrichment of LC LB media, also taking and ODing
-‘day after’ induction samples of N8C for PAGE (100 <span
-class="math inline"><em>μ</em></span>L samples)</li>
+<li>sent back modified self-assessment to JF, some back-forth during the day making small changes</li>
+<li>solution prep and enrichment of LC LB media, also taking and ODing ‘day after’ induction samples of N8C for PAGE (100 <span class="math inline">\(\mu\)</span>L samples)</li>
 <li>inoculated and monitored wt LC (10 am - 1:30 pm)</li>
-<li>Induced wt LC @ 6:45 pm, taking 100 <span
-class="math inline"><em>μ</em></span>L sample for PAGE</li>
-<li>Pelleted N8C induced LC after monitoring, started Lysis using Lysis
-buffer noted on 8/6
+<li>Induced wt LC @ 6:45 pm, taking 100 <span class="math inline">\(\mu\)</span>L sample for PAGE</li>
+<li>Pelleted N8C induced LC after monitoring, started Lysis using Lysis buffer noted on 8/6
 <ul>
 <li>sonicated</li>
 <li>Lysis pelleted after (Meade group centrifuge, high speed rotor)</li>
-<li>Ni-NTA column using imidazole solutions, elution into 20 ~1 mL
-fractions</li>
+<li>Ni-NTA column using imidazole solutions, elution into 20 ~1 mL fractions</li>
 </ul></li>
 <li>RCR trainings while monitoring LC</li>
 </ul>
-<h4
-id="submitted-self-assessment-induced-monitoring-pelleting-lysis-for-wt-gel-of-n8c-fracs-gm-kt-and-sm-defense-practices">8/15/2025:
-Submitted self-assessment, Induced monitoring + pelleting + lysis for
-wt, gel of N8C fracs, GM (KT and SM defense practices)</h4>
+<h4 data-number="0.0.0.8" id="submitted-self-assessment-induced-monitoring-pelleting-lysis-for-wt-gel-of-n8c-fracs-gm-kt-and-sm-defense-practices"><span class="header-section-number">0.0.0.8</span> 8/15/2025: Submitted self-assessment, Induced monitoring + pelleting + lysis for wt, gel of N8C fracs, GM (KT and SM defense practices)</h4>
 <ul>
-<li>A<span class="math inline"><sub>280</sub></span> nm measurements of
-N8C fractions, had to redo later because of nanodrop miscalibration</li>
+<li>A<span class="math inline">\(_280\)</span> nm measurements of N8C fractions, had to redo later because of nanodrop miscalibration</li>
 <li>took 14 hr and 16 hr induced LC samples for wt</li>
-<li>Pelleted wt in 2 separate container (large PP bottles), acquired
-pellet masses of 1.64 g and 2.34 g</li>
+<li>Pelleted wt in 2 separate container (large PP bottles), acquired pellet masses of 1.64 g and 2.34 g</li>
 <li>Lysis for N8C, this went into GM time but finished before end of GM
 <ul>
-<li>Had to do lysis before 5 PM as I needed to use the Meade group
-centrifuge and want to make sure to have it available for the final
-steps of lysis (pelleting remaining dead cell parts and recovering
-protein in lysate supernatant)</li>
+<li>Had to do lysis before 5 PM as I needed to use the Meade group centrifuge and want to make sure to have it available for the final steps of lysis (pelleting remaining dead cell parts and recovering protein in lysate supernatant)</li>
 </ul></li>
-<li>GM: both KT and SM have slides on ODNP, tried to help explain and
-offered advice for presenting smoothly (“time-dependent measure that
-relies on molecular motion”)</li>
-<li>reran A<span class="math inline"><sub>280</sub></span> nm
-measurements of N8C, prepped samples to run gel on all fractions +
-induced LC + Lysate supernatant + gravity column wash samples
+<li>GM: both KT and SM have slides on ODNP, tried to help explain and offered advice for presenting smoothly (“time-dependent measure that relies on molecular motion”)</li>
+<li>reran A<span class="math inline">\(_280\)</span> nm measurements of N8C, prepped samples to run gel on all fractions + induced LC + Lysate supernatant + gravity column wash samples
 <ul>
 <li>this amounts to needing to run 3 gels in total</li>
 </ul></li>
-<li>Started gels at 7 pm, gels do not run at even rates in chamber, much
-better rates for 2 gels in direct contact with power supply through gel
-chamber terminals instead of the lids extenders
+<li>Started gels at 7 pm, gels do not run at even rates in chamber, much better rates for 2 gels in direct contact with power supply through gel chamber terminals instead of the lids extenders
 <ul>
-<li>gel power supply also kept forcing run with constant amperage
-instead of constant voltage, not sure why or if this is due to running
-with &gt; 2 gels and using the circuit extenders as a part of the
-chambers lid</li>
+<li>gel power supply also kept forcing run with constant amperage instead of constant voltage, not sure why or if this is due to running with &gt; 2 gels and using the circuit extenders as a part of the chambers lid</li>
 </ul></li>
 <li>gravity column of wt:
 <ul>
-<li>used new beads, saving used N8C combined in 50 mL falcon tube in
-fridge with other used beads from last expression</li>
-<li>2 equilibrations, not sure why as I believe I only did 1
-equilibration the last expression. Looking at notes I don’t see what I
-did that was different and all volumes I used (particularly the Lysis
-buffer volume as this is what determines the lysate supernatant volume
-after pelleting was the same. Ask PT if we concentrate the Lysate
-supernatant before running the gravity column for next time. -saved
-equilibration flow-throughs in separate falcon tube than wash buffer
-flow-throughs to see difference in gels</li>
+<li>used new beads, saving used N8C combined in 50 mL falcon tube in fridge with other used beads from last expression</li>
+<li>2 equilibrations, not sure why as I believe I only did 1 equilibration the last expression. Looking at notes I don’t see what I did that was different and all volumes I used (particularly the Lysis buffer volume as this is what determines the lysate supernatant volume after pelleting was the same. Ask PT if we concentrate the Lysate supernatant before running the gravity column for next time. -saved equilibration flow-throughs in separate falcon tube than wash buffer flow-throughs to see difference in gels</li>
 <li>eluted into 20 fractions</li>
 </ul></li>
 <li>RCR trainings at EOD while running gels and gravity column</li>
 </ul>
-<h4
-id="talked-with-pt-about-pva-project-gels-for-wt-fractions-rcr-trainings">8/16/2025:
-Talked with PT about PVA project, gels for wt fractions, RCR
-trainings</h4>
+<h4 data-number="0.0.0.9" id="talked-with-pt-about-pva-project-gels-for-wt-fractions-rcr-trainings"><span class="header-section-number">0.0.0.9</span> 8/16/2025: Talked with PT about PVA project, gels for wt fractions, RCR trainings</h4>
 <ul>
-<li>A<span class="math inline"><sub>280</sub></span> nm measurements of
-wt fractions, prepped frac samples for gel</li>
-<li>needed to make more 1X MES SDS PAGE buffer solution (made 1 L from
-20X stock)</li>
-<li>after getting gel started; took images of N8C gels from day
-prior</li>
-<li>saw similar issues to day prior with gels taking long time to run,
-constant amp vs constant voltage, differences in gel run times relative
-to distance from gel chamber terminals</li>
+<li>A<span class="math inline">\(_280\)</span> nm measurements of wt fractions, prepped frac samples for gel</li>
+<li>needed to make more 1X MES SDS PAGE buffer solution (made 1 L from 20X stock)</li>
+<li>after getting gel started; took images of N8C gels from day prior</li>
+<li>saw similar issues to day prior with gels taking long time to run, constant amp vs constant voltage, differences in gel run times relative to distance from gel chamber terminals</li>
 <li>ordered more PAGE gel ladder</li>
-<li>RCR trainings still… (15 modules in total and each take 1-2
-hours)</li>
+<li>RCR trainings still… (15 modules in total and each take 1-2 hours)</li>
 <li>purchased flashdrive on way home</li>
 </ul>
-<h4
-id="came-in-for-short-time-1-hr-to-image-wt-gels-and-consolidate-all-gels-into-single-container-in-fridge">8/17/2025:
-Came in for short time (~1 hr) to image wt gels and consolidate all gels
-into single container in fridge</h4>
+<h4 data-number="0.0.0.10" id="came-in-for-short-time-1-hr-to-image-wt-gels-and-consolidate-all-gels-into-single-container-in-fridge"><span class="header-section-number">0.0.0.10</span> 8/17/2025: Came in for short time (~1 hr) to image wt gels and consolidate all gels into single container in fridge</h4>
 <ul>
 <li>saved all gels I have ran to new flashdrive</li>
 </ul>
-<h4
-id="plan-for-fplc-test-microscope-for-modified-splat-assay-meeting-with-jf-about-res-design-manuscript">8/18/2025:
-Plan for FPLC test, microscope for modified splat assay, meeting with JF
-about res design manuscript</h4>
+<h4 data-number="0.0.0.11" id="plan-for-fplc-test-microscope-for-modified-splat-assay-meeting-with-jf-about-res-design-manuscript"><span class="header-section-number">0.0.0.11</span> 8/18/2025: Plan for FPLC test, microscope for modified splat assay, meeting with JF about res design manuscript</h4>
 <ul>
-<li>shopping for/ planning for freezer, looking up what to do to
-manually modifiy in meantime</li>
-<li>tried modified splat assay again, couldn’t get temperature stage to
-work (still having issue with misconnection)
+<li>shopping for/ planning for freezer, looking up what to do to manually modifiy in meantime</li>
+<li>tried modified splat assay again, couldn’t get temperature stage to work (still having issue with misconnection)
 <ul>
-<li>broke lid glass at EOD when doing later tries to try to focus at 40X
-magnification, VERY BAD</li>
+<li>broke lid glass at EOD when doing later tries to try to focus at 40X magnification, VERY BAD</li>
 </ul></li>
 <li>annotated 6 gels from weekend</li>
-<li>prepped for subgroup meeting on 8/19 (ended up doing SM practice
-instead)</li>
-<li>I went with PT to Meade group to ask about potentially using their
-FPLC, they have multi wavelength detector but no sample collector for
-fractions</li>
+<li>prepped for subgroup meeting on 8/19 (ended up doing SM practice instead)</li>
+<li>I went with PT to Meade group to ask about potentially using their FPLC, they have multi wavelength detector but no sample collector for fractions</li>
 <li>Almost finished all RCR trainings</li>
 </ul>
-<h4
-id="digital-lab-notebook-finished-rcr-trainings-sm-defense-practice-kt-defense-su-form">8/19/2025:
-Digital lab notebook, finished RCR trainings, SM defense practice, KT
-defense, SU form</h4>
+<h4 data-number="0.0.0.12" id="digital-lab-notebook-finished-rcr-trainings-sm-defense-practice-kt-defense-su-form"><span class="header-section-number">0.0.0.12</span> 8/19/2025: Digital lab notebook, finished RCR trainings, SM defense practice, KT defense, SU form</h4>
 <ul>
-<li>filling in digital lab notebook, made a new repo to type out in
-markdown and share with PT</li>
-<li>finished last 1.5 modules of RCR trainings, email with completetion
-certificate</li>
+<li>filling in digital lab notebook, made a new repo to type out in markdown and share with PT</li>
+<li>finished last 1.5 modules of RCR trainings, email with completetion certificate</li>
 <li>tried modifying freezer manually, made slightly worse and reverted
 <ul>
-<li>ordered external thermostat to use instead as well as propylene
-glycol as liquid solution to also use for temperature calibration with
-both probes</li>
+<li>ordered external thermostat to use instead as well as propylene glycol as liquid solution to also use for temperature calibration with both probes</li>
 </ul></li>
 </ul>
-<h4
-id="shopping-for-bio-rad-fplc-led-uv-lamp-and-glass-window-replacement-for-linkam-stage-ct-defense-digital-lab-notebook-res-design-manuscript-edits">8/20/2025:
-Shopping for Bio Rad FPLC LED UV lamp and glass window replacement for
-Linkam stage, CT defense, Digital lab notebook, Res design manuscript
-edits</h4>
+<h4 data-number="0.0.0.13" id="shopping-for-bio-rad-fplc-led-uv-lamp-and-glass-window-replacement-for-linkam-stage-ct-defense-digital-lab-notebook-res-design-manuscript-edits"><span class="header-section-number">0.0.0.13</span> 8/20/2025: Shopping for Bio Rad FPLC LED UV lamp and glass window replacement for Linkam stage, CT defense, Digital lab notebook, Res design manuscript edits</h4>
 <ul>
-<li>Tried Linkam support system to request replacement window piece for
-stage</li>
-<li>combined N8C and wt fractions based on gel results with protein into
-separate falcon tubes, now in fridge</li>
-<li>dicussed with PT about FPLC plan/scheduling and what to do for Bio
-Rad UV lamp/ detector</li>
+<li>Tried Linkam support system to request replacement window piece for stage</li>
+<li>combined N8C and wt fractions based on gel results with protein into separate falcon tubes, now in fridge</li>
+<li>dicussed with PT about FPLC plan/scheduling and what to do for Bio Rad UV lamp/ detector</li>
 <li>CT defense in afternoon</li>
-<li>editting resonator design manuscript, fcusing on edits to
-introduction</li>
+<li>editting resonator design manuscript, fcusing on edits to introduction</li>
 </ul>
-<h4
-id="mccrone-tech-communication-digital-lab-notebook-reading-about-quarter-wavestop-characteristics-res-design-reading-about-afphydrogelspva-rheology-studies-contacted-bio-rad-support-about-fplc-sm-defense">8/21/2025:
-McCrone tech communication, digital lab notebook, reading about quarter
-wavestop characteristics (res design), reading about AFP/hydrogels/PVA +
-rheology studies, contacted Bio Rad support about FPLC, SM defense</h4>
+<h4 data-number="0.0.0.14" id="mccrone-tech-communication-digital-lab-notebook-reading-about-quarter-wavestop-characteristics-res-design-reading-about-afphydrogelspva-rheology-studies-contacted-bio-rad-support-about-fplc-sm-defense"><span class="header-section-number">0.0.0.14</span> 8/21/2025: McCrone tech communication, digital lab notebook, reading about quarter wavestop characteristics (res design), reading about AFP/hydrogels/PVA + rheology studies, contacted Bio Rad support about FPLC, SM defense</h4>
 <ul>
-<li>researching + shopping for in-line/flow UV detectors that could
-substitute current NGC UV module in FPLC system</li>
+<li>researching + shopping for in-line/flow UV detectors that could substitute current NGC UV module in FPLC system</li>
 <li>edits to resonator design manuscript
 <ul>
-<li>quarter wavestop and relation to iris screw in waveguide behaving
-similar, periodicity of spikes in coupling with iris screw follow 1/2
-<span
-class="math inline"><em>λ</em><sub><em>g</em><em>u</em><em>i</em><em>d</em><em>e</em></sub></span>
-length in height of waveguide away from the coupling hole</li>
-<li>Reading about ENDOR and ENDOR resonators, especially those with
-helix/solenoid probes</li>
+<li>quarter wavestop and relation to iris screw in waveguide behaving similar, periodicity of spikes in coupling with iris screw follow 1/2 <span class="math inline">\(\lambda_{guide}\)</span> length in height of waveguide away from the coupling hole</li>
+<li>Reading about ENDOR and ENDOR resonators, especially those with helix/solenoid probes</li>
 </ul></li>
 <li>Updating digital lab notebook, was super backlogged</li>
-<li>Emails with Jim at McCrone very helpful, should be nothing wrong
-with Linkam stage but waiting for 2nd feedback from Linakm and he says
-not to worroy too much about getting glass replced, still need to get
-quote for glass though (<code>jbristol@mccrone.com</code>)</li>
+<li>Emails with Jim at McCrone very helpful, should be nothing wrong with Linkam stage but waiting for 2nd feedback from Linakm and he says not to worroy too much about getting glass replced, still need to get quote for glass though (<code>jbristol@mccrone.com</code>)</li>
 </ul>
-<h4
-id="test-new-thermostat-shopping-for-flowin-line-uv-detectors-digital-lab-notebook-resonator-design-manuscript">8/22/2025:
-Test new thermostat, shopping for flow/in-line UV detectors, digital lab
-notebook, resonator design manuscript</h4>
+<h4 data-number="0.0.0.15" id="test-new-thermostat-shopping-for-flowin-line-uv-detectors-digital-lab-notebook-resonator-design-manuscript"><span class="header-section-number">0.0.0.15</span> 8/22/2025: Test new thermostat, shopping for flow/in-line UV detectors, digital lab notebook, resonator design manuscript</h4>
 <ul>
-<li>set up new thermostat in PM, ran O/N with datalogger to test for
-improved temperature cycling while still trying to stay within the
-freezer’s compressor limits, set at -6 <span
-class="math inline"><sup>∘</sup></span>C with 0.3 <span
-class="math inline"><sup>∘</sup></span>C High and Low differentials.
-Freezer set to -10 <span class="math inline"><sup>∘</sup></span>C</li>
-<li>reading about AFP in hydrogel studies, including one with
-rheology</li>
+<li>set up new thermostat in PM, ran O/N with datalogger to test for improved temperature cycling while still trying to stay within the freezer’s compressor limits, set at -6 <span class="math inline">\(^\circ\)</span>C with 0.3 <span class="math inline">\(^\circ\)</span>C High and Low differentials. Freezer set to -10 <span class="math inline">\(^\circ\)</span>C</li>
+<li>reading about AFP in hydrogel studies, including one with rheology</li>
 <li>further updating lab notebook</li>
 <li>edits to resonator design manuscript</li>
-<li>more back and forth with PT about UV lamps/detector and what to
-do</li>
+<li>more back and forth with PT about UV lamps/detector and what to do</li>
 </ul>
-<h4
-id="finally-get-lab-notebook-up-to-date-test-fplc-with-hsa-and-lysozyme-using-wss-20-mm-tris-buffer-check-new-thermostat">8/23/2025:
-Finally get lab notebook up-to-date, test FPLC with HSA and lysozyme
-using WS’s 20 mM Tris buffer, check new thermostat</h4>
+<h4 data-number="0.0.0.16" id="finally-get-lab-notebook-up-to-date-test-fplc-with-hsa-and-lysozyme-using-wss-20-mm-tris-buffer-check-new-thermostat"><span class="header-section-number">0.0.0.16</span> 8/23/2025: Finally get lab notebook up-to-date, test FPLC with HSA and lysozyme using WS’s 20 mM Tris buffer, check new thermostat</h4>
 <ul>
-<li>New thermostat works GREAT, much better with tight +/- 1 <span
-class="math inline"><sup>∘</sup></span>C</li>
+<li>New thermostat works GREAT, much better with tight +/- 1 <span class="math inline">\(^\circ\)</span>C</li>
 <li>final updates to catch up lab notebok through today</li>
 <li>FPLC test:
 <ul>
 <li>made 250 mL of 20 mM tris, 150 mM NaCl buffer</li>
-<li>5 mg lysozyme, 5 mg Human Serum-derived Albumin in tris buffer (1
-mL)</li>
-<li>washed loop (2 mL) with MilliQ H2O then equilibrated with Tris
-buffer</li>
+<li>5 mg lysozyme, 5 mg Human Serum-derived Albumin in tris buffer (1 mL)</li>
+<li>washed loop (2 mL) with MilliQ H2O then equilibrated with Tris buffer</li>
 <li>started typical run (1.5 mL fractions) for SEC</li>
 </ul></li>
 </ul>
-<h4 id="throughout-825---830">Throughout 8/25 - 8/30:</h4>
+<h4 data-number="0.0.0.17" id="throughout-825---830"><span class="header-section-number">0.0.0.17</span> Throughout 8/25 - 8/30:</h4>
 <ul>
-<li>Worked on eigenmode paper edits, intro and theory, throughout week,
-inbetween other things in the lab</li>
+<li>Worked on eigenmode paper edits, intro and theory, throughout week, inbetween other things in the lab</li>
 <li>Meeting with JF on 8/25 about starting edits to theory section</li>
 </ul>
-<h4
-id="patent-review-results-lack-of-from-first-fplc-with-known-proteins-test-rerun-fplc-test">8/25/2025:
-Patent review, results (lack of) from first FPLC with known proteins
-test, rerun FPLC test</h4>
+<h4 data-number="0.0.0.18" id="patent-review-results-lack-of-from-first-fplc-with-known-proteins-test-rerun-fplc-test"><span class="header-section-number">0.0.0.18</span> 8/25/2025: Patent review, results (lack of) from first FPLC with known proteins test, rerun FPLC test</h4>
 <ul>
-<li>autosampler didn’t seem to work as expected for test over the
-weekend
+<li>autosampler didn’t seem to work as expected for test over the weekend
 <ul>
 <li>only collected fractions 36, 39-71 in eppendorfs</li>
-<li>intereste din potentially recalibrating autosampler for
-fractions</li>
+<li>intereste din potentially recalibrating autosampler for fractions</li>
 </ul></li>
 <li>cleaned out loop with tris, made new BSA + lysozyme sample
 <ul>
 <li>restarted run with Pravin assistance</li>
 </ul></li>
-<li>after second attempt at test finished, nanodroped all fractions,
-recorded volume collected per fraction as well
+<li>after second attempt at test finished, nanodroped all fractions, recorded volume collected per fraction as well
 <ul>
 <li>did not see any protein present!</li>
 </ul></li>
-<li>reviewed patent submission, looked at before and after PT edits, met
-with KT and PT throughout day about patent</li>
+<li>reviewed patent submission, looked at before and after PT edits, met with KT and PT throughout day about patent</li>
 </ul>
-<h4
-id="h2o-subgroup-meeting-clean-fplc-lines-with-urea-prep-for-another-fplc-test-initially-planned-for-meade-group-fplc">8/26/2025:
-H2O subgroup meeting, clean FPLC lines with urea, prep for another FPLC
-test (initially planned for Meade group FPLC)</h4>
+<h4 data-number="0.0.0.19" id="h2o-subgroup-meeting-clean-fplc-lines-with-urea-prep-for-another-fplc-test-initially-planned-for-meade-group-fplc"><span class="header-section-number">0.0.0.19</span> 8/26/2025: H2O subgroup meeting, clean FPLC lines with urea, prep for another FPLC test (initially planned for Meade group FPLC)</h4>
 <ul>
 <li>Subgroup:
 <ul>
-<li>showed good tuning of freezer, talked about potentially insulating
-freezer from the outside to further improve cycling rate (longer on/off
-cycling)</li>
+<li>showed good tuning of freezer, talked about potentially insulating freezer from the outside to further improve cycling rate (longer on/off cycling)</li>
 <li>do propylene glycol test as well to verify actually set temp</li>
-<li>talked about FPLC issues, plans for cleaning the lines and running
-test on Meade lab FPLC since they have working multi-wavelength
-detector</li>
-<li>microscope -&gt; first worry about gettin gfixed and working than
-expected, look into more about tuning before removing 40X mag</li>
+<li>talked about FPLC issues, plans for cleaning the lines and running test on Meade lab FPLC since they have working multi-wavelength detector</li>
+<li>microscope -&gt; first worry about gettin gfixed and working than expected, look into more about tuning before removing 40X mag</li>
 </ul></li>
-<li>Worked with Bio Rad to show LED lamp still on warrenty, able to
-order replacement no charge</li>
-<li>made 1L of 7M urea and ran through NGC line overnight (not column
-obviously)</li>
+<li>Worked with Bio Rad to show LED lamp still on warrenty, able to order replacement no charge</li>
+<li>made 1L of 7M urea and ran through NGC line overnight (not column obviously)</li>
 </ul>
-<h4
-id="xepr-compare-with-qesr-processing-for-dmpo-generation-paper-new-led-lamp-for-fplc-protein-solution-and-buffer-prep-for-828-replace-microscope-window-and-new-stage-tests-images">8/27/2025:
-XEPR compare with QESR processing for DMPO generation paper, new LED
-lamp for FPLC, protein solution and buffer prep for 8/28, replace
-microscope window and new stage tests + images</h4>
+<h4 data-number="0.0.0.20" id="xepr-compare-with-qesr-processing-for-dmpo-generation-paper-new-led-lamp-for-fplc-protein-solution-and-buffer-prep-for-828-replace-microscope-window-and-new-stage-tests-images"><span class="header-section-number">0.0.0.20</span> 8/27/2025: XEPR compare with QESR processing for DMPO generation paper, new LED lamp for FPLC, protein solution and buffer prep for 8/28, replace microscope window and new stage tests + images</h4>
 <ul>
 <li>new LED lamp arrived, replaced with PT assist</li>
-<li>made new BSA + lysozyme stock, 100 <span
-class="math inline"><em>μ</em></span>M BSA and 700 <span
-class="math inline"><em>μ</em></span>M lysozyme, nanodropped before to
-ensure high A280 nm (30.19)</li>
-<li>replaced glass window on THMS600 stage with cover slip, worked. With
-resealed stage, ran temperature profiles and recorded images/videos with
-1 mg/mL PVA and ~0.6 M sucrose in HEPES buffer solution with blue dye
-added</li>
+<li>made new BSA + lysozyme stock, 100 <span class="math inline">\(\mu\)</span>M BSA and 700 <span class="math inline">\(\mu\)</span>M lysozyme, nanodropped before to ensure high A280 nm (30.19)</li>
+<li>replaced glass window on THMS600 stage with cover slip, worked. With resealed stage, ran temperature profiles and recorded images/videos with 1 mg/mL PVA and ~0.6 M sucrose in HEPES buffer solution with blue dye added</li>
 </ul>
-<h4
-id="bsa-lysozyme-test-success-prep-for-afp-columns-on-829-and-830-new-lamp-works-great-xepr-interest-for-dmpo-collab-paper">8/28/2025:
-BSA-lysozyme test success, prep for AFP columns on 8/29 and 8/30, new
-lamp works great, XEPR interest for DMPO collab paper</h4>
+<h4 data-number="0.0.0.21" id="bsa-lysozyme-test-success-prep-for-afp-columns-on-829-and-830-new-lamp-works-great-xepr-interest-for-dmpo-collab-paper"><span class="header-section-number">0.0.0.21</span> 8/28/2025: BSA-lysozyme test success, prep for AFP columns on 8/29 and 8/30, new lamp works great, XEPR interest for DMPO collab paper</h4>
 <ul>
-<li>With cleaned column lines, retried BSA-lysozyme test, saw peaks
-matching expectations using new LED lamp</li>
+<li>With cleaned column lines, retried BSA-lysozyme test, saw peaks matching expectations using new LED lamp</li>
 <li>rinsed line with water as well as prepared for HEPES buffer O/N</li>
-<li>Reprocessed and some back and forth with JF for review of
-collaborator’s paper involving DMPO generation and my help doing
-ESRs</li>
+<li>Reprocessed and some back and forth with JF for review of collaborator’s paper involving DMPO generation and my help doing ESRs</li>
 </ul>
-<h4
-id="concentrating-combined-fractions-from-gravity-column-both-wt-and-n8c-group-meeting-sec-of-gb1-afp-iii-wt">8/29/2025:
-concentrating combined fractions from gravity column (both wt and N8C),
-group meeting, SEC of GB1 AFP III wt</h4>
+<h4 data-number="0.0.0.22" id="concentrating-combined-fractions-from-gravity-column-both-wt-and-n8c-group-meeting-sec-of-gb1-afp-iii-wt"><span class="header-section-number">0.0.0.22</span> 8/29/2025: concentrating combined fractions from gravity column (both wt and N8C), group meeting, SEC of GB1 AFP III wt</h4>
 <ul>
 <li>Concentrated both wt and N8C in 3k MWCO</li>
 <li>Cleaned 5 mL FPLC loop and washed with HEPES buffer</li>
@@ -819,86 +665,93 @@ group meeting, SEC of GB1 AFP III wt</h4>
 <li>GM now at 1 pm on Fridays</li>
 <li>Update LabArchive</li>
 <li>Backup current data to Han Exchange</li>
-<li>Finances Situation =&gt; I need to talk with Syracuse about
-defending and timeline, talk with JF first</li>
+<li>Finances Situation =&gt; I need to talk with Syracuse about defending and timeline, talk with JF first</li>
 </ul></li>
 <li>Started SEC of wt, filtered and spun down sample beforehand</li>
 </ul>
-<h4
-id="start-sec-of-gb1-afp-iii-n8c-mutant-updating-lab-notebook-new-fridgefreezer-monitoring">8/30/2025:
-Start SEC of GB1 AFP III N8C mutant, updating lab notebook, new
-fridge/freezer monitoring</h4>
+<h4 data-number="0.0.0.23" id="start-sec-of-gb1-afp-iii-n8c-mutant-updating-lab-notebook-new-fridgefreezer-monitoring"><span class="header-section-number">0.0.0.23</span> 8/30/2025: Start SEC of GB1 AFP III N8C mutant, updating lab notebook, new fridge/freezer monitoring</h4>
 <ul>
 <li>monitored new freezer, temperature setting works fine</li>
-<li>started filling in last week for lab notebook, finished on 9/1 for
-current</li>
-<li>filtered, spun down N8C sample and ran on own following SEC
-protocol</li>
+<li>started filling in last week for lab notebook, finished on 9/1 for current</li>
+<li>filtered, spun down N8C sample and ran on own following SEC protocol</li>
 </ul>
-<h2 id="september-2025">September 2025</h2>
-<h4
-id="sds-page-gels-x2-each-wt-and-n8c-updating-lab-notebook">9/1/2025:
-SDS-PAGE gels (x2 each, wt and N8C), updating lab notebook</h4>
+<h2 data-number="0.1" id="september-2025"><span class="header-section-number">0.1</span> September 2025</h2>
+<h4 data-number="0.1.0.1" id="sds-page-gels-x2-each-wt-and-n8c-updating-lab-notebook"><span class="header-section-number">0.1.0.1</span> 9/1/2025: SDS-PAGE gels (x2 each, wt and N8C), updating lab notebook</h4>
 <ul>
-<li>Prepped and ran 4 gels (2 for wt, 2 for N8C) on certain fractions
-based on observed peaks after SEC along with initial samples</li>
-<li>prepped new destaining buffer, used 1X used MES SDS running buffer
-as there was much left over
+<li>Prepped and ran 4 gels (2 for wt, 2 for N8C) on certain fractions based on observed peaks after SEC along with initial samples</li>
+<li>prepped new destaining buffer, used 1X used MES SDS running buffer as there was much left over
 <ul>
-<li>this worked fine and the gel ran better tha observed last time with
-good contact in container</li>
+<li>this worked fine and the gel ran better tha observed last time with good contact in container</li>
 </ul></li>
-<li>need to order more 10 well premade gels, can order things
-tomorrow</li>
+<li>need to order more 10 well premade gels, can order things tomorrow</li>
 </ul>
-<h4
-id="image-gels-h2o-subgroup-media-prep-start-sc-combine-sec-fractions-prep-sucrose-and-pva-solutions-for-microscope">9/2/2025:
-Image gels, H2O subgroup, media prep, start SC, combine SEC fractions,
-prep sucrose and PVA solutions for microscope</h4>
+<h4 data-number="0.1.0.2" id="image-gels-h2o-subgroup-media-prep-start-sc-combine-sec-fractions-prep-sucrose-and-pva-solutions-for-microscope"><span class="header-section-number">0.1.0.2</span> 9/2/2025: Image gels, H2O subgroup, media prep, start SC, combine SEC fractions, prep sucrose and PVA solutions for microscope</h4>
 <ul>
-<li>gels show wt protein in fractions 32-38, N8C protein in fractions
-31-38, good separation between all peaks in SEC UVs</li>
+<li>gels show wt protein in fractions 32-38, N8C protein in fractions 31-38, good separation between all peaks in SEC UVs</li>
 <li>H2O subgroup:
 <ul>
 <li>need distance measurements/legend for gel images</li>
-<li>help PT with rheology studies (videos/images), contact Jacqueliene
-if he hasn’t already</li>
+<li>help PT with rheology studies (videos/images), contact Jacqueliene if he hasn’t already</li>
 <li>rough cryoEM training w- KT next week (9/12)</li>
-<li>contact mech. engineering prof who does stress tests on polymers
-about what test we can do to further characterize hydrogels</li>
-<li>want to learn PFG-NMR alongside PT for diffusivity measurements
-along with 17O NMRs</li>
-<li>want ‘compelling’ figures for hydrogel paper, show off results in a
-strong way</li>
-<li>Use 100 kDa PVA to repeat rheology(?) tests with a high-density
-hydrogel</li>
+<li>contact mech. engineering prof who does stress tests on polymers about what test we can do to further characterize hydrogels</li>
+<li>want to learn PFG-NMR alongside PT for diffusivity measurements along with 17O NMRs</li>
+<li>want ‘compelling’ figures for hydrogel paper, show off results in a strong way</li>
+<li>Use 100 kDa PVA to repeat rheology(?) tests with a high-density hydrogel</li>
 </ul></li>
-<li>made fresh 0.576 M sucrose in HEPES buffer stock, also made
-eppendorf with added 10% PVA (+ blue dye for visual)</li>
+<li>made fresh 0.576 M sucrose in HEPES buffer stock, also made eppendorf with added 10% PVA (+ blue dye for visual)</li>
 <li>Starting new expression:
 <ul>
 <li>2 samples: E25C and no GB1 wt</li>
 <li>Use M9 for LCs</li>
-<li>want to test wt without GB1 tag for expression and size differences
-with GB1 tagged wt, mass spec will be useful</li>
+<li>want to test wt without GB1 tag for expression and size differences with GB1 tagged wt, mass spec will be useful</li>
 </ul></li>
-<li>Combined fractions from SEC for wt and N8C into single tube, good
-separation by FPLC UVs and gels of relevant fractions</li>
+<li>Combined fractions from SEC for wt and N8C into single tube, good separation by FPLC UVs and gels of relevant fractions</li>
 </ul>
-<h4
-id="mini-meeting-for-pva-hydrogel-paper-prep-and-monitor-lc-growth-microscope-testing">9/3/2025:
-Mini-meeting for PVA hydrogel paper, prep and monitor LC growth,
-microscope testing</h4>
+<h4 data-number="0.1.0.3" id="mini-meeting-for-pva-hydrogel-paper-prep-and-monitor-lc-growth-microscope-testing"><span class="header-section-number">0.1.0.3</span> 9/3/2025: Mini-meeting for PVA hydrogel paper, prep and monitor LC growth, microscope testing</h4>
 <ul>
 <li>PVA hydrogel paper meeting:
 <ul>
 <li>Need to define scope; hydrogel tuning by IRI</li>
-<li>For me -&gt; start getting hydrogel images on microscope, meet with
-Candice about questions/improvements, help PT with 17O NMRs and
-reproducing Miriam’s data, Assist B.Peters with spacers to be used with
-coverslips, draw up schematic of freezer and external controls</li>
-<li>look up PFG for diffusivity, what tests need to be done for
-characterizing physical properties</li>
+<li>For me -&gt; start getting hydrogel images on microscope, meet with Candice about questions/improvements, help PT with 17O NMRs and reproducing Miriam’s data, Assist B.Peters with spacers to be used with coverslips, draw up schematic of freezer and external controls</li>
+<li>look up PFG for diffusivity, what tests need to be done for characterizing physical properties</li>
+</ul></li>
+<li>Microscope test:
+<ul>
+<li>10% PVA solution in 18% sucrose-HEPES
+<ul>
+<li>learned this is too conc for PVA solution, also want to use water vs buffer, save using buffer for protein</li>
 </ul></li>
 <li>figured out how to include distance measurement annotation</li>
+<li>still learning microscope; taking videos and running profiles</li>
+</ul></li>
+<li>prep and inoculate LCs - expr for no GB1 wt and GB1 E25C -monitor LCs throughout day, induced at 8 pm</li>
 </ul>
+<h4 data-number="0.1.0.4" id="pelleting-lysis-and-ni-affinity-elution-of-afp"><span class="header-section-number">0.1.0.4</span> 9/4/2025: Pelleting, lysis, and Ni-affinity elution of AFP, ??</h4>
+<ul>
+<li>sampling induced samples</li>
+<li>pelleting + lysis + elution performed for GB1 E25C and no GB1 wt</li>
+<li>check JF lab notebook for other work done</li>
+</ul>
+<h4 data-number="0.1.0.5" id="gels-for-ni-affinity-column-fractions-microscope-for-pva-solution"><span class="header-section-number">0.1.0.5</span> 9/5/2025: Gels for Ni-affinity column fractions, microscope for PVA solution</h4>
+<ul>
+<li>images for 0.1 % PVA in 0.576 M sucrose solution
+<ul>
+<li>still practicing modified splat assay, was still seeing temp issue (see 10/8)</li>
+</ul></li>
+<li>nanodropped Ni-NTA affinity column fractions for E25C and no GB1 wt, ran gel on high 280 nm absorbance fractions as well as expression monitoring samples (induced LC samples, lysate supernatant, Ni-NTA bead equilibrium flow-through and wash buffer flow-through collections).</li>
+<li>Preparing FPLC column for SEC (water and HEPES buffer equilibration)</li>
+</ul>
+<h4 data-number="0.1.0.6" id="fplc-for-wt-and-e25c-purified-analyzing-gels"><span class="header-section-number">0.1.0.6</span> 9/6/2025: FPLC for wt and E25C purified, analyzing gels</h4>
+<ul>
+<li>concentrating samples, working on computer (updating lab notebook, resonator manuscript edits)</li>
+</ul>
+<h4 data-number="0.1.0.7" id="gels-for-sec-fractions-comms-with-jb-at-mccrone-about-microscope-prep-sucrose-control-solutions-for-modified-splat-assay"><span class="header-section-number">0.1.0.7</span> 9/8/2025: Gels for SEC fractions, Comms with JB at McCrone about microscope, prep sucrose control solutions for modified splat assay</h4>
+<ul>
+<li>recovered remaining fractions for wt and E25C to rerun SEC (misreading of gel)</li>
+<li>saving all fractions to potentially combien for full recovery if possible</li>
+<li>MURI report for Songi; talked with Shiny about AsLOV in PVA hyrdogel, looking for mechanical motion</li>
+</ul>
+<h2 data-number="0.2" id="gels-of-second-sec-fractions-for-wt-and-e25c-assisting-freeze-thaw-cycles-w--and-w-out-annealing-testinmg-microscope-still-seeing-temp-diff-at-this-time"><span class="header-section-number">0.2</span> #### 9/9/2025: Gels of second SEC fractions for wt and E25C, assisting freeze-thaw cycles (w- and w-out annealing), testinmg microscope (still seeing temp diff at this time)</h2>
+<h4 data-number="0.2.0.1" id="section"><span class="header-section-number">0.2.0.1</span> </h4>
+</body>
+</html>
