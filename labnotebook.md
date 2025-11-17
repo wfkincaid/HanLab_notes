@@ -374,7 +374,7 @@ Meeting notes
 - started filling in last week for lab notebook, finished on 9/1 for current
 - filtered, spun down N8C sample and ran on own following SEC protocol
 
-## September 2025
+## September 2025 {-}
 
 #### 9/1/2025: SDS-PAGE gels (x2 each, wt and N8C), updating lab notebook
 - Prepped and ran 4 gels (2 for wt, 2 for N8C) on certain fractions based on observed peaks after SEC along with initial samples
@@ -434,4 +434,12 @@ Meeting notes
 #### 9/9/2025: Gels of second SEC fractions for wt and E25C, assisting freeze-thaw cycles (w- and w-out annealing), testinmg microscope (still seeing temp diff at this time)
 - 
 
-#### 
+#### 9/10/2025: Gel analysis from SEC (wt and E25C), start AFP III expression (testing GB1 less tag of wt and P12C [first time with this mutant]), finish freeze-thaw for anneal hydrogel w- PT, orders
+#### 9/11/2025: 
+
+## October 2025 {-}
+
+#### 10/1/2025: Pelleting Large Cultures, field expressions with JF, issue with SU OneDrive, Water subgroup meeting, assembling drip test platform
+- running files for H1y field terms (coupled) to finish filling in spreadsheet
+
+## November 2025 {-}
