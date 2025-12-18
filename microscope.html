@@ -1,73 +1,247 @@
-<h2
-id="notes-and-new-protocol-for-using-linkam-thms600-stage-with-microscope">Notes
-and new protocol for using Linkam THMS600 stage with microscope</h2>
-<p>run ‘pandoc microscope.md -o microscope.html’ followed by ‘pydifft
-cpb microscope.md’ to update and view as an html document to print as a
-pdf.</p>
-<p>This does not yet auto-update with the saving of the .md file</p>
-<h2 id="notebook---olympus-microscope">Notebook - Olympus
-Microscope</h2>
-<h3 id="reworked-modified-splat-assay-tests-108">Reworked Modified Splat
-Assay tests 10/8</h3>
-<p>Jim from McCrone (Sales rep/ Technician) came into the lab: -
-Aligning stage using the pinhole and centering using the eyepieces first
-before transitioning to the camera - how to calibrate the eyepieces to
-make focus with the camera - went through steps for setting up the
-stage, preparing and inserting the sample - discussed wet-mounting and
-using ring with smaller coverslips instead of balancing the larger
-coverslips on top of the ring</p>
-<h4 id="candices-protcol-out-of-date">Candice’s protcol:
-Out-of-date</h4>
-<ol type="1">
-<li>40 <span class="math inline"><sup><em>o</em></sup></span>C/min, 40
-<span class="math inline"><sup><em>o</em></sup></span>C, manually adjust
-LNP;
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Warren Kincaid" />
+  <title>Microscope Notebook</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+    <script id="MathJax-script" async src="MathJax-3.1.2/es5/tex-mml-chtml.js"></script>
+    <script>
+        // When the page is about to be unloaded, save the current scroll position
+        window.addEventListener('beforeunload', function() {
+            sessionStorage.setItem('scrollPosition', window.scrollY);
+        });
+
+        // When the page has loaded, scroll to the previous scroll position
+        window.addEventListener('load', function() {
+            var scrollPosition = sessionStorage.getItem('scrollPosition');
+            if (scrollPosition) {
+                window.scrollTo(0, scrollPosition);
+                sessionStorage.removeItem('scrollPosition');
+            }
+        });
+    </script>
+</head>
+    
+<body>
+<header id="title-block-header">
+<h1 class="title">Microscope Notebook</h1>
+<p class="author">Warren Kincaid</p>
+</header>
+<nav id="TOC" role="doc-toc">
 <ul>
-<li>Purge line and chamber of water vapor, perform manual ‘burp’ of
-system</li>
-<li>Need to use PTC connecting pieces to open (and thereby close)
-valves</li>
+<li><a href="#notes-and-new-protocol-for-using-linkam-thms600-stage-with-microscope"><span class="toc-section-number">0.1</span> Notes and new protocol for using Linkam THMS600 stage with microscope</a></li>
+<li><a href="#example-modified-splat-assay-protocol-to-use-with-linkam-stage"><span class="toc-section-number">0.2</span> Example Modified Splat assay protocol to use with Linkam stage</a></li>
+<li><a href="#modified-splat-assay-protocol"><span class="toc-section-number">0.3</span> Modified Splat Assay protocol</a></li>
+<li><a href="#notebook---olympus-microscope"><span class="toc-section-number">0.4</span> Notebook - Olympus Microscope</a>
+<ul>
+<li><a href="#reworked-modified-splat-assay-tests-108">Reworked Modified Splat Assay tests 10/8</a></li>
+</ul></li>
+</ul>
+</nav>
+<h2 data-number="0.1" id="notes-and-new-protocol-for-using-linkam-thms600-stage-with-microscope"><span class="header-section-number">0.1</span> Notes and new protocol for using Linkam THMS600 stage with microscope</h2>
+<p>run ‘pandoc microscope.md -o microscope.html’ to generate the .html file (only needed the first time) followed by ‘pydifft cpb microscope.md’ to update and view as an html document to print as a pdf.</p>
+<p>This does now auto-update with the saving of the .md file</p>
+<h2 data-number="0.2" id="example-modified-splat-assay-protocol-to-use-with-linkam-stage"><span class="header-section-number">0.2</span> Example Modified Splat assay protocol to use with Linkam stage</h2>
+<ol>
+<li><u>Step 1: Warmed N<span class="math inline">\(_2\)</span> gas to clear line of residual H<span class="math inline">\(_2\)</span>O vapor</u></li>
+</ol>
+<ul>
+<li>rate = 40 <span class="math inline">\(\frac{^oC}{min}\)</span>, hold temperature = 40 <span class="math inline">\(^oC\)</span>, hold time = 3:00 min (can be longer), LNP speed set to auto</li>
+<li>“Burp” stage while doing this, holding air outlets (including defogging hose)</li>
+</ul>
+<h2 data-number="0.3" id="modified-splat-assay-protocol"><span class="header-section-number">0.3</span> Modified Splat Assay protocol</h2>
+<h2 data-number="0.4" id="notebook---olympus-microscope"><span class="header-section-number">0.4</span> Notebook - Olympus Microscope</h2>
+<h3 class="unnumbered" id="reworked-modified-splat-assay-tests-108">Reworked Modified Splat Assay tests 10/8</h3>
+<p>Jim from McCrone (Sales rep/ Technician) came into the lab: - Aligning stage using the pinhole and centering using the eyepieces first before transitioning to the camera - how to calibrate the eyepieces to make focus with the camera - went through steps for setting up the stage, preparing and inserting the sample - discussed wet-mounting and using ring with smaller coverslips instead of balancing the larger coverslips on top of the ring</p>
+<h4 class="unnumbered" id="candices-protcol-out-of-date">Candice’s protcol: Out-of-date</h4>
+<ol type="1">
+<li>40 <span class="math inline">\(^o\)</span>C/min, 40 <span class="math inline">\(^o\)</span>C, manually adjust LNP;
+<ul>
+<li>Purge line and chamber of water vapor, perform manual ‘burp’ of system</li>
+<li>Need to use PTC connecting pieces to open (and thereby close) valves</li>
 <li>This will take 5-10 minutes to perform
 <ul>
-<li>I have come to realize this also uses quite a bit of N<span
-class="math inline"><sub>2</sub></span></li>
+<li>I have come to realize this also uses quite a bit of N<span class="math inline">\(_2\)</span></li>
 </ul></li>
 </ul></li>
-<li>40 <span class="math inline"><sup><em>o</em></sup></span>C/min, -50
-<span class="math inline"><sup><em>o</em></sup></span>C, 5 min LNP auto;
+<li>40 <span class="math inline">\(^o\)</span>C/min, -50 <span class="math inline">\(^o\)</span>C, 5 min LNP auto;
 <ul>
 <li>Longer flash-freeze step, rapid cooling</li>
 </ul></li>
-<li>10 <span class="math inline"><sup><em>o</em></sup></span>C/min, -6
-<span class="math inline"><sup><em>o</em></sup></span>C, no hold LNP
-auto;
+<li>10 <span class="math inline">\(^o\)</span>C/min, -6 <span class="math inline">\(^o\)</span>C, no hold LNP auto;
 <ul>
-<li>Relatively rapid warming * This is what was contributing to the
-temperature discrepencies seen recently</li>
-<li>This confounded with lack of airflow due to me trying to raise cover
-slips up inside of chamber (This is my current speculation)</li>
+<li>Relatively rapid warming * This is what was contributing to the temperature discrepencies seen recently</li>
+<li>This confounded with lack of airflow due to me trying to raise cover slips up inside of chamber (This is my current speculation)</li>
 </ul></li>
-<li>10 <span class="math inline"><sup><em>o</em></sup></span>C/min, -6
-<span class="math inline"><sup><em>o</em></sup></span>C, 125 min (2 hr
-5min) hold LNP auto
+<li>10 <span class="math inline">\(^o\)</span>C/min, -6 <span class="math inline">\(^o\)</span>C, 125 min (2 hr 5min) hold LNP auto
 <ul>
-<li>This and the above step could be combined, also has the issue of the
-above step with too high of a rate</li>
+<li>This and the above step could be combined, also has the issue of the above step with too high of a rate</li>
 </ul></li>
 </ol>
-<h4 id="updated-modified-splat-assay-on-1082025">Updated Modified Splat
-Assay (on 10/8/2025)</h4>
+<h4 class="unnumbered" id="updated-modified-splat-assay-on-1082025">Updated Modified Splat Assay (on 10/8/2025)</h4>
+<p>Beyond modifying the protocol,</p>
 <ol type="1">
-<li>40 <span class="math inline"><sup><em>o</em></sup></span>C/min, 40
-<span class="math inline"><sup><em>o</em></sup></span>C, 3 min hold LNP
-auto;
+<li>40 <span class="math inline">\(^o\)</span>C/min, 40 <span class="math inline">\(^o\)</span>C, 3 min hold LNP auto;
 <ul>
 <li>same as original first step</li>
 <li>a protocol for this is also in the Linkam THMS600 User Guide
 <ul>
-<li><a
-href="MANUAL_CONTINUUM_IN10_DXR_LINKAM_FTIR600_THMS600_AND_HFS600_USERGUIDE.pdf">View
-PDF</a></li>
+<li><a href="MANUAL_CONTINUUM_IN10_DXR_LINKAM_FTIR600_THMS600_AND_HFS600_USERGUIDE.pdf">View Manual</a></li>
 </ul></li>
+</ul></li>
+<li>40 <span class="math inline">\(^o\)</span>C/min, -50 <span class="math inline">\(^o\)</span>C, 1 min hold LNP auto;
+<ul>
+<li></li>
+</ul></li>
+<li>5 <span class="math inline">\(^o\)</span>C/min, -25 <span class="math inline">\(^o\)</span>C, no hold LNP auto;
+<ul>
+<li>for heating/thawing, want slower rate of temerature change. Better for confidenc ein temperature sensor reading to make intended temperature</li>
 </ul></li>
 </ol>
+</body>
+</html>

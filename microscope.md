@@ -4,13 +4,22 @@ author: Warren Kincaid
 ---	 
 Notes and new protocol for using Linkam THMS600 stage with microscope
 ------------------------------
- run 'pandoc microscope.md -o microscope.html' followed by 'pydifft cpb microscope.md' to update and view as an html document to print as a pdf.
+ run 'pandoc microscope.md -o microscope.html' to generate the .html file (only needed the first time) followed by 'pydifft cpb microscope.md' to update and view as an html document to print as a pdf.
 
- This does not yet auto-update with the saving of the .md file
+ This does now auto-update with the saving of the .md file
+
+## Example Modified Splat assay protocol to use with Linkam stage
+
+#. <u>Step 1: Warmed N$_2$ gas to clear line of residual H$_2$O vapor</u>
+- rate = 40 $\frac{^oC}{min}$, hold temperature = 40 $^oC$, hold time = 3:00 min (can be longer), LNP speed set to auto
+- "Burp" stage while doing this, holding air outlets (including defogging hose)
+
+
+## Modified Splat Assay protocol
 
 ## Notebook - Olympus Microscope
 
-### Reworked Modified Splat Assay tests 10/8
+### Reworked Modified Splat Assay tests 10/8 {-}
 
 Jim from McCrone (Sales rep/ Technician) came into the lab:
 - Aligning stage using the pinhole and centering using the eyepieces first before transitioning to the camera
@@ -18,7 +27,7 @@ Jim from McCrone (Sales rep/ Technician) came into the lab:
 - went through steps for setting up the stage, preparing and inserting the sample
 - discussed wet-mounting and using ring with smaller coverslips instead of balancing the larger coverslips on top of the ring
 
-#### Candice's protcol: Out-of-date
+#### Candice's protcol: Out-of-date {-}
 1. 40 $^o$C/min, 40 $^o$C, manually adjust LNP;
 	- Purge line and chamber of water vapor, perform manual 'burp' of system
 	- Need to use PTC connecting pieces to open (and thereby close) valves
@@ -32,7 +41,7 @@ Jim from McCrone (Sales rep/ Technician) came into the lab:
 4. 10 $^o$C/min, -6 $^o$C, 125 min (2 hr 5min) hold LNP auto
 	- This and the above step could be combined, also has the issue of the above step with too high of a rate
 
-#### Updated Modified Splat Assay (on 10/8/2025)
+#### Updated Modified Splat Assay (on 10/8/2025) {-}
 Beyond modifying the protocol, 
 
 1. 40 $^o$C/min, 40 $^o$C, 3 min hold LNP auto;
