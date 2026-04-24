@@ -1,0 +1,36 @@
+open("C:/Users/WarrenKincaid/git/notebook_wk_hanlab/ImageJProcessing/Tre_PVA_Images/03_13_24_trial1/Images_w_scale_bar/Process_405_T0001.tif");
+//setTool("rectangle");
+makeRectangle(1328, 1140, 260, 48);
+makeRectangle(1328, 1139, 260, 49);
+makeRectangle(1328, 1139, 260, 61);
+run("To Selection");
+makeRectangle(1334, 1139, 254, 61);
+makeRectangle(1334, 1139, 254, 61);
+makeRectangle(1334, 1139, 249, 61);
+//setTool("line");
+makeLine(1332, 1151, 1332, 1151);
+makeLine(1337, 1155, 1580, 1155);
+makeLine(1337, 1155, 1580, 1155);
+run("Set Scale...", "distance=242.5001 known=100.000 unit=?m");
+  <<warning: the options string contains one or more non-ascii characters>>
+run("Original Scale");
+run("Duplicate...", " ");
+run("Set Scale...", "distance=2.4250 known=1 unit=?m");
+  <<warning: the options string contains one or more non-ascii characters>>
+saveAs("Tiff", "C:/Users/WarrenKincaid/git/notebook_wk_hanlab/ImageJProcessing/Tre_PVA_Images/03_13_24_trial1/AutoProc/T0001_5min_setscale.tif");
+//setTool("oval");
+makeOval(613, 397, 530, 543);
+run("Specify...", "width=400 height=400 x=800 y=600 oval centered");
+run("Duplicate...", " ");
+run("Split Channels");
+selectImage("T0001_5min_setscale-1.tif (red)");
+selectImage("T0001_5min_setscale-1.tif (green)");
+selectImage("T0001_5min_setscale-1.tif (blue)");
+close;
+close;
+saveAs("Tiff", "C:/Users/WarrenKincaid/git/notebook_wk_hanlab/ImageJProcessing/Tre_PVA_Images/03_13_24_trial1/AutoProc/T0001_5min_setscale_select_red.tif");
+run("Despeckle");
+run("Enhance Contrast...", "saturated=0.35 normalize equalize");
+run("Auto Threshold", "method=Intermodes ignore_white white show");
+run("Watershed");
+saveAs("Tiff", "C:/Users/WarrenKincaid/git/notebook_wk_hanlab/ImageJProcessing/Tre_PVA_Images/03_13_24_trial1/AutoProc/T0001_5min_setscale_select_red_im_ws.tif");
