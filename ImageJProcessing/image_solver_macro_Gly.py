@@ -35,11 +35,11 @@ def generate_results_macro(
     trial_num_str = str(trial_number)
 
     if trial_number == 1:
-        trial_folders = r"Tre_PVA_Images/03_13_24_trial1/"
+        trial_folders = r"Gly_PVA_Images/03_04_24_trial1/"
     if trial_number == 2:
-        trial_folders = r"Tre_PVA_Images/12_12_23_trial2/"
+        trial_folders = r"Gly_PVA_Images/03_14_24_trial2/"
     if trial_number == 3:
-        trial_folders = r"Tre_PVA_Images/03_13_24_trial3/"
+        trial_folders = r"Gly_PVA_Images/03_14_24_trial3/"
     
     if threshold_method == "Intermodes":
         trhd_str = "im"
