@@ -8,12 +8,13 @@ import pandas as pd
 # proc_directory = "C:/Users/WarrenKincaid/git/notebook_wk_hanlab/ImageJProcessing/"
 
 def modify_macro(
+    cosolute_prefix,
     filenumber,
     time_stamp,
     trial_number,
     save_configs = None,
     selectIm_color_configs = None,
-    macro_file = f"Modsplat_autothreshold_updated_um_thrshd.ijm",
+    macro_file = f"Modsplat_autothreshold_updated_um_thrshd_new.ijm",
 ):
     """
     Primer
@@ -44,23 +45,84 @@ def modify_macro(
                 
         Requires path to macro file being modified
     """
+
     with open(macro_file, "r") as file:
         macro_content = file.read()
             
     file_num_str = f"{int(filenumber):04d}"
     time_stamp_str = str(time_stamp)
+    trial_dates = []
+    process_numbers = []
 
-    if trial_number == 1:
-        trial_folders = r"Tre_PVA_Images/03_13_24_trial1/"
-        process_number = r"405"
-    if trial_number == 2:
-        trial_folders = r"Tre_PVA_Images/12_12_23_trial2/"
-        process_number = r"337"
-    if trial_number == 3:
-        trial_folders = r"Tre_PVA_Images/03_13_24_trial3/"
-        process_number = r"406"
+    if cosolute_prefix == "Gly":
+        if trial_number == 1:
+            t_date = "03_04_24"
+            trial_folders = f"{cosolute_prefix}_PVA_Images/{t_date}_trial1/"
+            pnum = 402      #Tre = 405, Suc = 329, Gly = 402
+            trial_dates.extend(t_date)
+            process_numbers.extend(str(pnum))
+        if trial_number == 2:
+            t_date = "03_14_24"
+            trial_folders = f"{cosolute_prefix}_PVA_Images/{t_date}_trial2/"
+            pnum = 408   #Tre = 337, Suc = 334, Gly = 408
+            trial_dates.extend(t_date)
+            process_numbers.extend(str(pnum))
+        if trial_number == 3:
+            t_date = "03_14_24"
+            trial_folders = f"{cosolute_prefix}_PVA_Images/{t_date}_trial3/"
+            pnum = 407   #Tre = 406, Suc = 404, Gly = 407
+            trial_dates.extend(t_date)
+            process_numbers.extend(str(pnum))
+    
+    if cosolute_prefix == "Suc":
+        if trial_number == 1:
+            t_date = "12_01_23"
+            trial_folders = f"{cosolute_prefix}_PVA_Images/{t_date}_trial1/"
+            pnum = 329      #Tre = 405, Suc = 329, Gly = 402
+            trial_dates.extend(t_date)
+            process_numbers.extend(str(pnum))
+        if trial_number == 2:
+            t_date = "12_08_23"
+            trial_folders = f"{cosolute_prefix}_PVA_Images/{t_date}_trial2/"
+            pnum = 334   #Tre = 337, Suc = 334, Gly = 408
+            trial_dates.extend(t_date)
+            process_numbers.extend(str(pnum))
+        if trial_number == 3:
+            t_date = "03_06_24"
+            trial_folders = f"{cosolute_prefix}_PVA_Images/{t_date}_trial3/"
+            pnum = 404   #Tre = 406, Suc = 404, Gly = 407
+            trial_dates.extend(t_date)
+            process_numbers.extend(str(pnum))
+        #   Add because sucrose has a 4th trial
+        if trial_number == 4:
+            t_date = "03_06_24"
+            trial_folders = f"{cosolute_prefix}_PVA_Images/{t_date}_trial4/"
+            pnum = 403
+            trial_dates.extend(t_date)
+            process_numbers.extend(str(pnum))
+    
+    if cosolute_prefix == "Tre":
+        if trial_number == 1:
+            t_date = "03_13_24"
+            trial_folders = f"{cosolute_prefix}_PVA_Images/{t_date}_trial1/"
+            pnum = 405    #Tre = 405, Suc = 329, Gly = 402
+            trial_dates.extend(t_date)
+            process_numbers.extend(str(pnum))
+        if trial_number == 2:
+            t_date = "12_12_23"
+            trial_folders = f"{cosolute_prefix}_PVA_Images/{t_date}_trial2/"
+            pnum = 337   #Tre = 337, Suc = 334, Gly = 408
+            trial_dates.extend(t_date)
+            process_numbers.extend(str(pnum))
+        if trial_number == 3:
+            t_date = "03_13_24"
+            trial_folders = f"{cosolute_prefix}_PVA_Images/{t_date}_trial3/"
+            pnum = 406   #Tre = 406, Suc = 404, Gly = 407
+            trial_dates.extend(t_date)
+            process_numbers.extend(str(pnum))
 
-    open_counter = 0of save_configs is None:
+    open_counter = 0
+    if save_configs is None:
         save_configs = [
                 {'suffix': f'_{time_stamp_str}min_setscale'},                       # 1st saveAs
                 {'suffix': f'_{time_stamp_str}min_setred'},                         # 2nd saveAs
@@ -76,7 +138,7 @@ def modify_macro(
         open_counter += 1
         
         format_prefix = match.group(1)
-        trial_dir_outer = match.group(2)
+        solute_trial_dir_outer = match.group(2)
         trial_dir_inner = match.group(3)
         proc_number = match.group(4)
         T_literal = match.group(5)
@@ -85,14 +147,16 @@ def modify_macro(
 
         original_line = match.group(0)
         print(f"\nProcessing open() line: {original_line[:80]}...")
-        print(f"    Found trial: {trial_dir_outer[6:]}")
+        print(f"    For solute: {solute_trial_dir_outer[:5]}")
+        print(f"    For the trial: {solute_trial_dir_outer[6:]}")
         print(f"    Which has process number: {proc_number}")
         print(f"    and T number: {T_number}")
+        print(f"    Replacing with solute: {trial_folders[:5]}...")
         print(f"    Replacing with trial number: {trial_folders[6:]}...")
-        print(f"    Which has process number: {process_number}")
+        print(f"    Which has process number: {pnum}")
         print(f"    And the new T number: {file_num_str}")
         
-        return f'{format_prefix}{trial_folders}{trial_dir_inner}{process_number}{T_literal}{file_num_str}{file_ext}'
+        return f'{format_prefix}{trial_folders}{trial_dir_inner}{str(pnum)}{T_literal}{file_num_str}{file_ext}'
     
     modified_macro = re.sub(open_pattern, open_replace, macro_content)
     
@@ -126,10 +190,12 @@ def modify_macro(
         new_number = file_num_str
         extension_instance = config['suffix']
         print(f"\nProcessing saveAs() instance #{save_counter}, line: {original_line[:80]}...")
+        print(f"    Original solute: {trial_dir[:5]}")
         print(f"    Original trial number: {trial_dir[6:]}")
         print(f"    with T number of: {T_number}")
+        print(f"    Replacing with solute: {trial_folders[:5]}")
         print(f"    Replacing with trial: {trial_folders[6:]}")
-        print(f"    and T number: {new_number}")
+        print(f"    and replacing with T number: {new_number}")
         print(f"    Original suffixes: '{original_insertions}'")
         print(f"    Replacing with: '{extension_instance}'")
 
@@ -199,6 +265,7 @@ def modify_macro(
 
     print(f"\n{'='*50}\n")
     print(f"Modified macro summary:")
+    print(f"    Solute used: {trial_folders[:5]}")
     print(f"    Trial folders used: {trial_folders[6:]}")
     print(f"    File number used: {file_num_str}")
     print(f"    Time stamp used: {time_stamp_str}min")
@@ -219,9 +286,10 @@ def modify_macro(
     return modified_macro
 
 # I now want to loop this for filenumbers 1, 4, 8, 12, 20, 24 and their corresponding times
+cosolutes = ["Gly", "Suc", "Tre"]
 filenumbers = [1, 4, 8, 12, 16, 20, 24]
 timestamps = [5, 20, 40, 60, 80, 100, 120]
-trials = [1, 2, 3]
+trials = []
 
 # If you just want to generate one macro file
 # New_macro = modify_macro(
@@ -235,45 +303,58 @@ trials = [1, 2, 3]
 # Full modified_macro_path - this needs to match the pattern of output_path in the function above?
 
 def create_expt_dataframe(
+    list_cosolutes,
     file_numbers,
     time_stamps,
-    trial_numbers
+    trial_numbers,
 ):
     """
     Create a DataFrame for better tracking for each set of desired filenumbers,
     timestamps, and trials for better experiment tracking
     """
+    cosolutes_list = list_cosolutes
     fnum_list = file_numbers
     ts_list = time_stamps
     trial_list = trial_numbers
     data = []
 
-    for trial in trial_list:
-        for fnum, ts in zip(fnum_list, ts_list):
-            data.append({
-                'trial_number': trial,
-                'filenumber': fnum,
-                'time_stamp': ts,
-                'run_id': f"T{trial}_File{fnum}_{ts}min"
-            })
+    for solute in cosolutes_list:
+        if solute == "Suc":
+            trial_list = [1, 2, 3, 4]
+        else:
+            trial_list = [1, 2, 3]
+        trials.extend(trial_list)
+        for trial in trial_list:
+            for fnum, ts in zip(fnum_list, ts_list):
+                data.append({
+                    'cosolute': solute,
+                    'trial_number': trial,
+                    'filenumber': fnum,
+                    'time_stamp': ts,
+                    'run_id': f"{solute}_T{trial}_File{fnum}_{ts}min"
+                })
 
     df = pd.DataFrame(data)
     
     return df
 
 expt_df = create_expt_dataframe(
+    list_cosolutes = cosolutes,
     file_numbers = filenumbers,
     time_stamps = timestamps,
     trial_numbers = trials,
     )
 
 print(f"\n{'='*50}\n")
+for prefix in cosolutes:
+    print(f"For Cosolute {prefix} + PVA with trials numbers {trials}")
 print(f"DataFrame looks like:")
 print(expt_df.head(10))
 print(f"\n{'='*50}\n")
 
 for _, row in expt_df.iterrows():
     modify_macro(
+        cosolute_prefix = row['cosolute'],
         filenumber = row['filenumber'],
         time_stamp = row['time_stamp'],
         trial_number = row['trial_number'],
