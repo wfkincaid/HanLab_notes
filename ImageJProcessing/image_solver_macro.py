@@ -5,15 +5,224 @@ from pathlib import Path
 import pandas as pd
 
 # Want script capable of taking "*_grey.tif" from first half of processing
+# Rearranging for testing for generating results macros
+
+# First: make experimental df
+
+filenumbers = [1, 4, 8, 12, 16, 20, 24]
+timestamps = [5, 20, 40, 60, 80, 100, 120]
+solutes = ["Glycerol", "Sucrose"]   #, "Trehalose"]
+
+trials_map = {
+    "Glycerol": [1, 2, 3],
+    "Sucrose": [1, 2, 3, 4],
+}
+
+def create_expt_dataframe(
+    cosolutes,
+    file_numbers,
+    time_stamps,
+):
+    """
+    Create a DataFrame for better tracking for each set of desired filenumbers,
+    timestamps, and trials for better experiment tracking
+    """
+    fnum_list = file_numbers
+    ts_list = time_stamps
+    cosol_list = cosolutes
+    data = []
+
+    for sol in cosolutes:
+        if sol in trials_map:
+            trials = trials_map[sol]
+        for trial in trials:
+            for fnum, ts in zip(fnum_list, ts_list):
+                data.append({
+                    'run_id': f"Trial{trial}_File-T{int(fnum):04d}_{ts}min",
+                    'cosolute': sol,
+                    'trial number': trial,
+                    'T number': fnum,
+                    'time stamp': ts,
+                })
+
+    df = pd.DataFrame(data)
+    
+    return df
+
+expt_df = create_expt_dataframe(
+    cosolutes = solutes,
+    file_numbers = filenumbers,
+    time_stamps = timestamps,
+    )
+
+print(f"\n{'='*50}\n")
+print(f"The initial DataFrame looks like:")
+print(expt_df.head(10))
+print(f"\n{'='*50}\n")
+
+# quit()
+
+def determine_proc_methods(
+    df, #default to the intended df
+):
+    """
+    Use for determining thresholds used and if watershed applied per processed file
+    """
+    copy_df = df.copy()
+
+    # "C:/Users/WarrenKincaid/git/notebook_wk_hanlab/ImageJProcessing/Tre_PVA_Images/03_13_24_trial1/AutoProc/T0001_5min_trhd-im_ws_grey.tif"
+
+    copy_df["trial folder"] = None
+    
+    trial_folder_map = {
+        ("Glycerol", 1): r'Gly_PVA_Images/03_04_24_trial1/',
+        ("Glycerol", 2): r'Gly_PVA_Images/03_14_24_trial2/',
+        ("Glycerol", 3): r'Gly_PVA_Images/03_14_24_trial3/',
+        ("Sucrose", 1): r'Suc_PVA_Images/12_01_23_trial1/',
+        ("Sucrose", 2): r'Suc_PVA_Images/03_06_24_trial2/',
+        ("Sucrose", 3): r'Suc_PVA_Images/03_06_24_trial3/',
+        ("Sucrose", 4): r'Suc_PVA_Images/12_08_23_trial4/',
+    }
+    #   if copy_df["cosolute"] == "Trehalose":
+    #       if copy_df["trial number"] == 1:
+    #           trial_folder = r'Tre_PVA_Images\/03_13_24_trial1\/'
+    #       if copy_df["trial number"] == 2:
+    #           trial_folder = r'Tre_PVA_Images\/12_12_23_trial2\/'
+    #       if copy_df["trial number"] == 3:
+    #           trial_folder = r'Tre_PVA_Images\/03_13_24_trial3\/'
+
+    #    copy_df["trial folder"] = copy_df["trial number"].map(trial_folder)
+    
+    copy_df["threshold"] = None
+    copy_df["method"] = None
+    copy_df["watershed"] = None
+
+    threshold_map = {
+        r'im': "Intermodes",
+        r'id': "IsoData",
+        r're': "RenyiEntropy",
+        r'ot': "Otsu",
+        r'h2': "Huang2",
+        r'min': "Minimum",
+    }
+    
+    method_lookup = {abv: method for abv, method in threshold_map.items()}
+    
+    print(f"\n{'='*50}\n")
+    print(f"The current DataFrame looks like:")
+    print(copy_df.head(10))
+    print(f"\n{'='*50}\n")
+
+    for (cosolute, trial), folder in trial_folder_map.items():
+        mask = (copy_df['cosolute'] == cosolute) & (copy_df['trial number'] == trial)
+        copy_df.loc[mask, 'trial folder'] = folder
+        
+        dir_patterns = [
+            r'C:/Users/WarrenKincaid/git/notebook_wk_hanlab/ImageJProcessing/',     # Group 1, base directories 
+            folder,                                                                         # Group 2, set above
+            r'AutoProc/',                                                                # Group 3, inner trial directory
+        ]
+
+        directory = f"{''.join(dir_patterns)}"
+        print(f"directory is equal to: \n {directory} \n With type of {type(directory)}")
+        directory_pat = re.compile(directory)
+        print(f"The pattern for directory is equal to: \n {directory_pat} \n With type of {type(directory_pat)}")
+        dir_path = Path(directory)
+
+        file_groups = r'(T)(\d+)_(\d+)min_trhd-([^_]+)_(ws|no-ws)_grey\.tif'
+        #file_suffix = f"_{time_stamp_str}min_trhd-{trhd_str}_{watershed_str}_grey"
+        file_pattern = re.compile(file_groups)
+
+        matches = []
+
+#
+        file_info = {}
+        for file_path in dir_path.glob("*.tif"):
+            match = file_pattern.search(file_path.name)
+            if match:
+                trial_num = int(match.group(2))  # Assuming T_number is the trial
+                time_num = int(match.group(3))
+                threshold_abbrv = match.group(4)
+                watershed_abbrv = match.group(5)
+        
+            if threshold_abbrv in method_lookup:
+                file_info[(trial_num, time_num)] = {
+                    'method': method_lookup[threshold_abbrv],
+                    'threshold': threshold_abbrv,
+                    'watershed': watershed_abbrv
+                }
+#
+
+
+        for file_path in dir_path.glob("*.tif"):
+            filenames = file_path.name
+            match = file_pattern.search(filenames)
+            
+            if match is None:
+                continue  # Skip unmatched files
+
+            print(match)
+
+            #Need to loop through each time / T number
+            if match:
+                original_line = match.group(0)
+                T_literal = match.group(1)
+                T_number = match.group(2)
+                time_number = match.group(3)
+                threshold_abbrv = match.group(4)
+                watershed_abbrv = match.group(5)
+                
+                file_num = int(T_number)
+
+                if threshold_abbrv in method_lookup:
+                    print(f"Found threshold abbreviation: {threshold_abbrv}")
+                    method = method_lookup[threshold_abbrv]
+                    
+                    row_mask = (copy_df["T number"] == file_num) & (copy_df["time stamp"] == time_number)
+                    print(f"Found T number is: {file_num}, \nFound time is: {time_number}")
+                    #print(f"This should match df T: {copy_df["T number"]}, \nAnd df time: {copy_df["time stamp"]}")
+                    copy_df.loc[row_mask, 'method'] = method
+                    copy_df.loc[row_mask, 'threshold'] = threshold_abbrv
+                    copy_df.loc[row_mask, 'watershed'] = watershed_abbrv
+                    print(f"Updated trial {trial} with method: {method}, watershed: {watershed_abbrv}")
+
+                match_dict = {
+                    'trial folder': folder,
+                    'trial number': trial,
+                    'T number': file_num,
+                    'time stamp': time_number,
+                    'threshold': threshold_abbrv,
+                    'watershed': watershed_abbrv,
+                }
+                matches.append(match_dict)
+  
+        postproc_df = pd.DataFrame(matches)     
+
+        final_df = pd.concat([copy_df, postproc_df], ignore_index=True).drop_duplicates()
+
+    return final_df
+
+updated_df = determine_proc_methods(expt_df)
+
+print(f"\n{'='*50}\n")
+print(f"The final DataFrame looks like:")
+print(updated_df.head(10))
+print("........")
+print(updated_df.tail(10))
+print(f"\n{'='*50}\n")
+
+quit()
 
 def generate_results_macro(
+    cosolute,
+    trial_number,
     filenumber,
     time_stamp,
-    trial_number,
-    threshold_method = "Intermodes",  # default to Intermodes,
+    trial_folder,
+    threshold,
+    watershed,
     saveAs_configs = None,
-    selectIm_configs = None,
-    results_macro_file = f"ModSplat_ResultsMacro.ijm",
+    results_macro_file = f"ModSplat_ResultsMacro_new.ijm",
 ):
     """
     Primer
@@ -30,67 +239,55 @@ def generate_results_macro(
     with open(results_macro_file, "r") as file:
         results_macro = file.read()
     
+    trial_num_str = str(trial_number)
     file_num_str  = f"{int(filenumber):04d}"
     time_stamp_str = str(time_stamp)
-    trial_num_str = str(trial_number)
-
-    if trial_number == 1:
-        trial_folders = r"Tre_PVA_Images/03_13_24_trial1/"
-    if trial_number == 2:
-        trial_folders = r"Tre_PVA_Images/12_12_23_trial2/"
-    if trial_number == 3:
-        trial_folders = r"Tre_PVA_Images/03_13_24_trial3/"
-    
-    if threshold_method == "Intermodes":
-        trhd_str = "im"
-    if threshold_method == "Huang2":
-        trhd_str = "h2"
-    if threshold_method == "Otsu":
-        trhd_str = "ot"
-    if threshold_method == "RenyiEntropy":
-        trhd_str = "re"
     
     open_counter = 0
-    open_pattern = r'(open\(\s*".*?ImageProcessing\/)(.*?_trial\d+\/)(.*?\/T)(\d+)(.*?_grey)(\.\w+"\);)'
+    open_pattern = r'(open\(\s*".*?ImageJProcessing\/)(.*?_trial\d+\/)(.*?\/T)(\d+)(_\d+min_trhd)(.*?_grey)(\.\w+"\);)'
 
     def open_result(match):
         nonlocal open_counter
         open_counter += 1
 
-        open_suffix = f"_{time_stamp_str}min_trhd-{trhd_str}_ws_grey"
+        new_time_suffix = f"_{time_stamp_str}min_trhd"
+        new_trhd_suffix = f"-{threshold}_{watershed}_grey"
 
         open_command = match.group(1)
         trial_dir_outer = match.group(2)
         trial_dir_inner_T = match.group(3)
         T_number = match.group(4)
-        original_suffixes = match.group(5)
-        file_exten = match.group(6)
+        time_suffix = match.group(5)
+        trhd_suffixes = match.group(6)
+        file_exten = match.group(7)
         
         original_line = match.group(0)
         print(f"\nProcessing open() line: {original_line[:80]}")
         print(f"    Found trial: {trial_dir_outer[4:]}")
         print(f"    Found T number: {T_number}")
-        print(f"    Found threshold method used to be: {original_suffixes[6:]}")
-        print(f"    Replacing with trial: {trial_folders[4:]}")
+        print(f"    Found time: {time_suffix[3:]}")
+        print(f"    Found threshold method and watershed used to be: {trhd_suffixes[5:]}")
+        print(f"    Replacing with trial: {trial_folder}")
         print(f"    and updated T number: {file_num_str}")
-        print(f"    and updating threshold method to be: {threshold_method}")
+        print(f"    and updating time to be: {time_stamp_str}")
+        print(f"    and updating threshold and watershed to be: {threshold} and {watershed}")
 
-        return f'{open_command}{trial_folders}{trial_dir_inner_T}{file_num_str}{open_suffix}{file_exten}'
+        return f'{open_command}{trial_folder}{trial_dir_inner_T}{file_num_str}{new_time_suffix}{new_trhd_suffix}{file_exten}'
     
     modified_macro = re.sub(open_pattern, open_result, results_macro)
     
     if saveAs_configs is None:
         saveAs_configs = [
                 {'filetype': 'Results', 'suffix': f'Summary_T{file_num_str}_{time_stamp_str}min_trial{trial_num_str}'},                         # saveAs instances 1, Summary.csv
-                {'filetype': 'Tiff', 'suffix': f'drawing_T{file_num_str}_{time_stamp_str}min_trial{trial_num_str}'},                            # saveAs instances 2, Drawing of Outlines
+                {'filetype': 'Tiff', 'suffix': f'drawing_T{file_num_str}_{time_stamp_str}min_trhd-{threshold}_{watershed}_trial{trial_num_str}'},                            # saveAs instances 2, Drawing of Outlines
                 {'filetype': 'Results', 'suffix': f'Results_T{file_num_str}_{time_stamp_str}min_trial{trial_num_str}'},                        # saveAs instance 3, Results.csv
-                {'filetype': 'Tiff', 'suffix': f'T{file_num_str}_{time_stamp_str}min_trhd-{trhd_str}_ws_grey_trial{trial_num_str}_proc'},       # saveAs instances 4, final image (after threshold and "Analyze Particles..")
+                {'filetype': 'Tiff', 'suffix': f'T{file_num_str}_{time_stamp_str}min_trhd-{threshold}_{watershed}_grey_trial{trial_num_str}_proc'},       # saveAs instances 4, final image (after threshold and "Analyze Particles..")
                 {'filetype': 'Tiff', 'suffix': f'AreaDistribution_T{file_num_str}_{time_stamp_str}min_trial{trial_num_str}'},                   # saveAs instance 5, Area Distribution image
                 {'filetype': 'Results', 'suffix': f'AreaDistribution_T{file_num_str}_{time_stamp_str}min_trial{trial_num_str}_list'},           # saveAs instance 6, Area Distribution list
             ] 
     
     saveAs_counter = 0
-    saveAs_pattern = r'(saveAs\(")([^"]+)("\s*, \s*".*?ImageJProcessing\/)(.*?_trial\d+\/)(.*?T)(\d+)([^"]*?)(\.\w+"\);)'
+    saveAs_pattern = r'(saveAs\(")([^"]+)("\s*, \s*".*?ImageJProcessing\/)(.*?_trial\d+\/)(AutoProc\/)([\w-]+)(\.\w+"\);)'
     
     def saveAs_results(match):
         nonlocal saveAs_counter
@@ -103,10 +300,9 @@ def generate_results_macro(
         saveAs_type = match.group(2)        # "Results" or "Tiff", group itself not including quotes
         base_directory = match.group(3)
         trial_directories = match.group(4)
-        autoproc_T_literal = match.group(5)
-        T_number = match.group(6)
-        original_insertions = match.group(7)
-        file_exten = match.group(8)
+        autoproc = match.group(5)
+        base_filename_insertion = match.group(6)
+        file_exten = match.group(7)
 
         original_line = match.group(0)
         filesave_insertion = config['filetype']
@@ -114,14 +310,13 @@ def generate_results_macro(
         print(f"\nProcessing saveAs() instance #{saveAs_counter}, line: {original_line[:80]}")
         print(f"    Original file type: {saveAs_type}")
         print(f"    Original trial number: {trial_directories[4:]}")
-        print(f"    Original T number: {T_number}")
-        print(f"    Original extensions: {original_insertions}")
+        print(f"    Original filename: {base_filename_insertion}")
         print(f"    Replacing file type with: {filesave_insertion}")
-        print(f"    Replacing with trial number: {trial_folders[4:]}")
+        print(f"    Replacing with trial number: {trial_folder}")
         print(f"    Replacing with T number: {file_num_str}")
         print(f"    Modifying extensions to be: {suffixes_insertion}")
         
-        return f'{saveAs_func_prefix}{filesave_insertion}{base_directory}{trial_folders}{autoproc_T_literal}{file_num_str}{suffixes_insertion}{file_exten}'
+        return f'{saveAs_func_prefix}{filesave_insertion}{base_directory}{trial_folder}{autoproc}{suffixes_insertion}{file_exten}'
 
     modified_macro = re.sub(saveAs_pattern, saveAs_results, modified_macro)
 
@@ -132,7 +327,7 @@ def generate_results_macro(
         nonlocal selectIm_counter
         selectIm_counter += 1
         
-        selectIm_suffix = f"_{time_stamp_str}min_trhd-{trhd_str}_ws_grey"
+        selectIm_suffix = f"_{time_stamp_str}min_trhd-{threshold}_{watershed}_grey"
 
         selectImage_prefix = match.group(1)
         T_number = match.group(2)
@@ -152,15 +347,16 @@ def generate_results_macro(
 
     print(f"\n{'='*50}\n")
     print(f"Modified macro summary:")
-    print(f"    Trial folders used: {trial_folders}")
+    print(f"    Trial folders used: {trial_folder}")
     print(f"    File number used: {file_num_str}")
     print(f"    Time stamp used: {time_stamp_str}min")
-    print(f"    Threshold method used: {threshold_method}")
+    print(f"    Threshold method used: {threshold}")
+    print(f"    Note on watershed: {watershed}")
     print(f"    Number of saveAs instances modified: {saveAs_counter}")
     print(f"\n{'='*50}\n")
     
     output_file = results_macro_file.replace('.ijm', f'_{time_stamp_str}min.ijm')
-    output_path = f'{trial_folders}{output_file}'
+    output_path = f'{trial_folder}{output_file}'
     print(f"The local path for the modified macro is:\n {output_path}\n")
     # This path needs to be the same as the output path used below
     with open(output_path, "w") as file:
@@ -172,54 +368,15 @@ def generate_results_macro(
     
     return modified_macro
 
-# I now want to examine this for filenumbers 1, 4, 8, 12, 20, 24 and their corresponding times for all 3 trials
-filenumbers = [1, 4, 8, 12, 16, 20, 24]
-timestamps = [5, 20, 40, 60, 80, 100, 120]
-trials = [1, 2, 3]
-
-def create_expt_dataframe(
-    file_numbers,
-    time_stamps,
-    trial_numbers
-):
-    """
-    Create a DataFrame for better tracking for each set of desired filenumbers,
-    timestamps, and trials for better experiment tracking
-    """
-    fnum_list = file_numbers
-    ts_list = time_stamps
-    trial_list = trial_numbers
-    data = []
-
-    for trial in trial_list:
-        for fnum, ts in zip(fnum_list, ts_list):
-            data.append({
-                'trial_number': trial,
-                'filenumber': fnum,
-                'time_stamp': ts,
-                'run_id': f"T{trial}_File{fnum}_{ts}min"
-            })
-
-    df = pd.DataFrame(data)
-    
-    return df
-
-expt_df = create_expt_dataframe(
-    file_numbers = filenumbers,
-    time_stamps = timestamps,
-    trial_numbers = trials,
-    )
-
-print(f"\n{'='*50}\n")
-print(f"DataFrame looks like:")
-print(expt_df.head(10))
-print(f"\n{'='*50}\n")
-
-for _, row in expt_df.iterrows():
+for _, row in updated_df.iterrows():
     generate_results_macro(
-        filenumber = row['filenumber'],
-        time_stamp = row['time_stamp'],
-        trial_number = row['trial_number'],
+        cosolute = row['cosolute'],
+        trial_number = row['trial number'],
+        filenumber = row['T number'],
+        time_stamp = row['time stamp'],
+        trial_folder = row['trial folder'],
+        threshold = row['threshold'],
+        watershed = row['watershed'],
     )
     
 
