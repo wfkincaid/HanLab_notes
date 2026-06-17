@@ -38,7 +38,7 @@ def create_expt_dataframe(
         for trial in trials:
             for fnum, ts in zip(fnum_list, ts_list):
                 data.append({
-                    'run_id': f"Trial{trial}_File-T{int(fnum):04d}_{ts}min",
+                    'run_id': f"Solute-{sol}_Trial-{trial}_File-T{int(fnum):04d}_{ts}-min",
                     'cosolute': sol,
                     'trial number': trial,
                     'T number': fnum,
@@ -93,9 +93,6 @@ def determine_proc_methods(
 
     #    copy_df["trial folder"] = copy_df["trial number"].map(trial_folder)
     
-    copy_df["threshold"] = None
-    copy_df["method"] = None
-    copy_df["watershed"] = None
 
     threshold_map = {
         r'im': "Intermodes",
@@ -112,6 +109,8 @@ def determine_proc_methods(
     print(f"The current DataFrame looks like:")
     print(copy_df.head(10))
     print(f"\n{'='*50}\n")
+    
+    exten_data = []
 
     for (cosolute, trial), folder in trial_folder_map.items():
         mask = (copy_df['cosolute'] == cosolute) & (copy_df['trial number'] == trial)
@@ -128,42 +127,15 @@ def determine_proc_methods(
         directory_pat = re.compile(directory)
         print(f"The pattern for directory is equal to: \n {directory_pat} \n With type of {type(directory_pat)}")
         dir_path = Path(directory)
-
+        
         file_groups = r'(T)(\d+)_(\d+)min_trhd-([^_]+)_(ws|no-ws)_grey\.tif'
         #file_suffix = f"_{time_stamp_str}min_trhd-{trhd_str}_{watershed_str}_grey"
         file_pattern = re.compile(file_groups)
-
-        matches = []
-
-#
-        file_info = {}
+        
         for file_path in dir_path.glob("*.tif"):
             match = file_pattern.search(file_path.name)
-            if match:
-                trial_num = int(match.group(2))  # Assuming T_number is the trial
-                time_num = int(match.group(3))
-                threshold_abbrv = match.group(4)
-                watershed_abbrv = match.group(5)
-        
-            if threshold_abbrv in method_lookup:
-                file_info[(trial_num, time_num)] = {
-                    'method': method_lookup[threshold_abbrv],
-                    'threshold': threshold_abbrv,
-                    'watershed': watershed_abbrv
-                }
-#
-
-
-        for file_path in dir_path.glob("*.tif"):
-            filenames = file_path.name
-            match = file_pattern.search(filenames)
-            
             if match is None:
                 continue  # Skip unmatched files
-
-            print(match)
-
-            #Need to loop through each time / T number
             if match:
                 original_line = match.group(0)
                 T_literal = match.group(1)
@@ -173,32 +145,32 @@ def determine_proc_methods(
                 watershed_abbrv = match.group(5)
                 
                 file_num = int(T_number)
+                print(f"Found T number is: {file_num}, \nFound time is: {time_number}")
+                print(f"Found threshold abbreviation: {threshold_abbrv}")
+                print(f"Found watershed abbreviation: {watershed_abbrv}")
 
                 if threshold_abbrv in method_lookup:
-                    print(f"Found threshold abbreviation: {threshold_abbrv}")
                     method = method_lookup[threshold_abbrv]
-                    
-                    row_mask = (copy_df["T number"] == file_num) & (copy_df["time stamp"] == time_number)
-                    print(f"Found T number is: {file_num}, \nFound time is: {time_number}")
-                    #print(f"This should match df T: {copy_df["T number"]}, \nAnd df time: {copy_df["time stamp"]}")
-                    copy_df.loc[row_mask, 'method'] = method
-                    copy_df.loc[row_mask, 'threshold'] = threshold_abbrv
-                    copy_df.loc[row_mask, 'watershed'] = watershed_abbrv
-                    print(f"Updated trial {trial} with method: {method}, watershed: {watershed_abbrv}")
+                    exten_data.append({
+                            'run_id': f"Solute-{cosolute}_Trial-{trial}_File-T{int(file_num):04d}_{time_number}-min",
+                            'method': method,
+                            'threshold': threshold_abbrv,
+                            'watershed': watershed_abbrv,
+                            })
 
-                match_dict = {
-                    'trial folder': folder,
-                    'trial number': trial,
-                    'T number': file_num,
-                    'time stamp': time_number,
-                    'threshold': threshold_abbrv,
-                    'watershed': watershed_abbrv,
-                }
-                matches.append(match_dict)
-  
-        postproc_df = pd.DataFrame(matches)     
+                print(
+                    f"---------\n    For solute: {cosolute},"
+                    f"\n        trial: {trial},"
+                    f"\n        T number: T{T_number},"
+                    f"\n        for time: {time_number}min,"
+                    f"\n        Updated threshold method: {method},"
+                    f"\n        Updated threshold abv: {threshold_abbrv},"
+                    f"\n        Updated watershed note: {watershed_abbrv}"
+                )
+    exten_df = pd.DataFrame(exten_data)
+    print(exten_df.head(10))
 
-        final_df = pd.concat([copy_df, postproc_df], ignore_index=True).drop_duplicates()
+    final_df = pd.merge(copy_df, exten_df, on='run_id', how='left')
 
     return final_df
 
@@ -206,12 +178,10 @@ updated_df = determine_proc_methods(expt_df)
 
 print(f"\n{'='*50}\n")
 print(f"The final DataFrame looks like:")
-print(updated_df.head(10))
+print(updated_df.head(15))
 print("........")
-print(updated_df.tail(10))
+print(updated_df.tail(20))
 print(f"\n{'='*50}\n")
-
-quit()
 
 def generate_results_macro(
     cosolute,
@@ -279,9 +249,9 @@ def generate_results_macro(
     if saveAs_configs is None:
         saveAs_configs = [
                 {'filetype': 'Results', 'suffix': f'Summary_T{file_num_str}_{time_stamp_str}min_trial{trial_num_str}'},                         # saveAs instances 1, Summary.csv
-                {'filetype': 'Tiff', 'suffix': f'drawing_T{file_num_str}_{time_stamp_str}min_trhd-{threshold}_{watershed}_trial{trial_num_str}'},                            # saveAs instances 2, Drawing of Outlines
+                {'filetype': 'Tiff', 'suffix': f'drawing_T{file_num_str}_{time_stamp_str}min_trhd-{threshold}_{watershed}_trial{trial_num_str}_proc'},                            # saveAs instances 2, Drawing of Outlines
                 {'filetype': 'Results', 'suffix': f'Results_T{file_num_str}_{time_stamp_str}min_trial{trial_num_str}'},                        # saveAs instance 3, Results.csv
-                {'filetype': 'Tiff', 'suffix': f'T{file_num_str}_{time_stamp_str}min_trhd-{threshold}_{watershed}_grey_trial{trial_num_str}_proc'},       # saveAs instances 4, final image (after threshold and "Analyze Particles..")
+                {'filetype': 'Tiff', 'suffix': f'T{file_num_str}_{time_stamp_str}min_trhd-{threshold}_{watershed}_trial{trial_num_str}_proc'},       # saveAs instances 4, final image (after threshold and "Analyze Particles..")
                 {'filetype': 'Tiff', 'suffix': f'AreaDistribution_T{file_num_str}_{time_stamp_str}min_trial{trial_num_str}'},                   # saveAs instance 5, Area Distribution image
                 {'filetype': 'Results', 'suffix': f'AreaDistribution_T{file_num_str}_{time_stamp_str}min_trial{trial_num_str}_list'},           # saveAs instance 6, Area Distribution list
             ] 
