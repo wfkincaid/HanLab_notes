@@ -1,0 +1,11 @@
+*.ijm
+Gly_PVA_Images
+Suc_PVA_Images
+Tre_PVA_Images
+paper
+**/*.html
+**/*.txt
+**/.Image*
+**/IRI*
+*swp
+.
