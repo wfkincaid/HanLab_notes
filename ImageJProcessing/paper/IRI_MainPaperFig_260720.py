@@ -5,6 +5,7 @@ from tkinter.font import BOLD
 import cv2
 import numpy as np
 import pandas as pd
+from brokenaxes import brokenaxes
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 from matplotlib.colors import to_rgb
@@ -206,13 +207,12 @@ def set_axis_title(ax, text, fontsize=11, x=0.5, y=1.02):
         fontsize=fontsize, fontweight="bold"
     )
 
-# Do not use
-# def lighten(color, factor=0.82):
-#    r, g, b = to_rgb(color)
-#    return (1 - factor) + factor * r, (1 - factor) + factor * g, (1 - factor) + factor * b
+def lighten(color, factor=0.82):
+    r, g, b = to_rgb(color)
+    return (1 - factor) + factor * r, (1 - factor) + factor * g, (1 - factor) + factor * b
 
-def annotate_bars_across_break(top_ax, bot_ax, xs, ys, yerrs, fmt="{:,.0f}", pad_frac=0.02):
-    colors = ["#1f77b4", "#2ca02c"]  # buffer, PVA
+def annotate_bars_across_break(top_ax, bot_ax, buffcolor, pvacolor, xs, ys, yerrs, fmt="{:,.0f}", pad_frac=0.02):
+    # colors = ["#1f77b4", "#2ca02c"]  # buffer, PVA
     for i, (x, y) in enumerate(zip(xs, ys)):
         err = float(yerrs[i])
         y = float(y)
@@ -229,48 +229,9 @@ def annotate_bars_across_break(top_ax, bot_ax, xs, ys, yerrs, fmt="{:,.0f}", pad
             f"{fmt.format(y)} ± {err:.1f}",
             ha="center", va="bottom",
             fontsize=8.4, fontweight="bold",
-            color=colors[0] if x < 0.5 else colors[1],
+            color=buffcolor if x < 0.5 else pvacolor,
             clip_on=False, zorder=8
         )
-
-
-#This will now be old
-def plot_first_row_from_csv(ax, trial_dfs, summary_df, title,
-                            colors=("C0", "C1", "C2"),
-                            trial_labels=("Trial 1", "Trial 2", "Trial 3")):
-    """Experimental points + b=0 fitted lines; legend includes R2_b0."""
-    trial_dfs = [d for d in trial_dfs if d is not None]
-
-    # Try to map R2 by trial name if summary has "trial" column; else row order.
-    r2_map = {}
-    if ("trial" in summary_df.columns) and ("R2_b0" in summary_df.columns):
-        r2_map = dict(zip(summary_df["trial"].astype(str), summary_df["R2_b0"].astype(float)))
-
-    for i, df_i in enumerate(trial_dfs):
-        # trial name
-        if "trial" in df_i.columns:
-            tr = str(df_i["trial"].iloc[0])
-        else:
-            tr = trial_labels[i] if i < len(trial_labels) else f"Trial {i+1}"
-
-        # r2 value
-        if r2_map:
-            r2 = r2_map.get(tr, np.nan)
-        else:
-            r2_vals = summary_df["R2_b0"].values if ("R2_b0" in summary_df.columns) else [np.nan]
-            r2 = r2_vals[i] if i < len(r2_vals) else np.nan
-
-        ax.plot(df_i["time_min"], df_i["R3_exp_nm3"], "o",
-                color=colors[i % len(colors)], markersize=6,
-                label=f"{tr} (R²={r2:.4f})")
-
-        ax.plot(df_i["time_min"], df_i["R3_fit_b0_nm3"], "-",
-                color=colors[i % len(colors)], linewidth=2, alpha=0.7)
-
-    ax.set_title(title, fontsize=14, fontweight="bold")
-    ax.set_xlabel("Time (min)", fontsize=12)
-    ax.grid(True, alpha=0.3, linestyle="--")
-    ax.legend(fontsize=9, loc="best", framealpha=0.9)
 
 # ---------------------------------------------------
 # 4) Figure layout
@@ -309,8 +270,8 @@ bar_gs = gridspec.GridSpecFromSubplotSpec( # Grid of right of top_corner, bar pl
 
 r3_gs = gridspec.GridSpecFromSubplotSpec( # Sub grid of bottom half, Make grids for r^3 plots
     1, 2, subplot_spec=gs[1],
-    wspace=0.2,
-    hspace=0.3
+    wspace=0.4,
+    hspace=0.7
 )
 
 # ---------------------------------------------------
@@ -403,7 +364,7 @@ for ax, lab in zip([ax for row in axes_img for ax in row], panel_labels):
     label_panel(ax, lab + ")", fs=16)
 
 # ---------------------------------------------------
-# 6) Broken-axis bar charts (J–L)
+# 6) Broken-axis bar charts NOW G-I - NEEDS FIX    (J–L)
 # ---------------------------------------------------
 error_params = dict(capsize=4, capthick=1.4, elinewidth=1.4, ecolor="black", fmt="none")
 bar_width = 0.12
@@ -427,7 +388,8 @@ if top_max < top_min + 500:
     top_max = top_min + 500
 top_ylim = (top_min, top_max)
 
-def add_broken_bar_simple(subplot_spec, buf_mean, buf_err, pva_mean, pva_err, sol_color, title, add_legend=False):
+# Add colors
+def add_broken_bar_simple(subplot_spec, buf_mean, buf_err, pva_mean, pva_err, buffcolor, pvacolor, title, add_legend=False):
     sub_gs = gridspec.GridSpecFromSubplotSpec(
         2, 1, subplot_spec=subplot_spec,
         height_ratios=[1, 3], hspace=0.05
@@ -435,12 +397,12 @@ def add_broken_bar_simple(subplot_spec, buf_mean, buf_err, pva_mean, pva_err, so
     top_ax = fig.add_subplot(sub_gs[0, 0])
     bot_ax = fig.add_subplot(sub_gs[1, 0], sharex=top_ax)
 
-    top_ax.bar(0.4, buf_mean, width=bar_width, color=,       #"#aec7e8",
+    top_ax.bar(0.4, buf_mean, width=bar_width, color= buffcolor,
                label="Buffer" if add_legend else None)
-    top_ax.bar(0.6, pva_mean, width=bar_width, color=,       #"#98df8a",
+    top_ax.bar(0.6, pva_mean, width=bar_width, color=pvacolor,
                label="PVA" if add_legend else None)
-    bot_ax.bar(0.4, buf_mean, width=bar_width, color=,       #"#aec7e8")
-    bot_ax.bar(0.6, pva_mean, width=bar_width, color=,       #"#98df8a")
+    bot_ax.bar(0.4, buf_mean, width=bar_width, color=buffcolor)
+    bot_ax.bar(0.6, pva_mean, width=bar_width, color=pvacolor)
 
     top_ax.errorbar([0.4, 0.6], [buf_mean, pva_mean], yerr=[buf_err, pva_err], **error_params)
     bot_ax.errorbar([0.4, 0.6], [buf_mean, pva_mean], yerr=[buf_err, pva_err], **error_params)
@@ -471,10 +433,11 @@ def add_broken_bar_simple(subplot_spec, buf_mean, buf_err, pva_mean, pva_err, so
 
     annotate_bars_across_break(
         top_ax, bot_ax,
+        buffcolor, pvacolor,
         xs=[0.4, 0.6],
         ys=[buf_mean, pva_mean],
         yerrs=[buf_err, pva_err],
-        pad_frac=0.02
+        pad_frac=0.02,
     )
 
     style_axis_with_frame(top_ax, lw=0.9)
@@ -482,9 +445,33 @@ def add_broken_bar_simple(subplot_spec, buf_mean, buf_err, pva_mean, pva_err, so
 
     return top_ax, bot_ax
 
-gly_top, gly_bot = add_broken_bar_simple(bar_gs[0], Gly_buff, Gly_buff_err, Gly_pva, Gly_pva_err, "Glycerol (5%)", add_legend=True)
-suc_top, suc_bot = add_broken_bar_simple(bar_gs[1], Suc_buff, Suc_buff_err, Suc_pva, Suc_pva_err, "Sucrose (18%)")
-tre_top, tre_bot = add_broken_bar_simple(bar_gs[2], Tre_buff, Tre_buff_err, Tre_pva, Tre_pva_err, "Trehalose (18%)")
+solutes = ["Glycerol", "Sucrose", "Trehalose"]
+
+broken_bar_colors = {
+    "Glycerol" : ["#208EA3", "#7A71F6"],
+    "Sucrose" : ["#E37CFF", "#FCA7EA"],
+    "Trehalose" : ["#A4C61A", "#37A862"],
+}
+
+for sol in solutes:
+    buffer_color = broken_bar_colors[sol][0]
+    pva_color = broken_bar_colors[sol][1]
+    
+    if sol == "Glycerol":
+        gly_top, gly_bot = add_broken_bar_simple(
+            bar_gs[0], Gly_buff, Gly_buff_err, Gly_pva, Gly_pva_err,
+            buffer_color, pva_color, "Glycerol (5%)", #add_legend=True,
+        )
+    if sol == "Sucrose":
+        suc_top, suc_bot = add_broken_bar_simple(
+            bar_gs[1], Suc_buff, Suc_buff_err, Suc_pva, Suc_pva_err,
+            buffer_color, pva_color, "Sucrose (18%)", add_legend=True,
+        )
+    if sol == "Trehalose":
+        tre_top, tre_bot = add_broken_bar_simple(
+            bar_gs[2], Tre_buff, Tre_buff_err, Tre_pva, Tre_pva_err,
+            buffer_color, pva_color, "Trehalose (18%)", #add_legend=True,
+        )
 
 suc_bot.set_ylabel("Average area ($\\mu m^2$)", fontsize=14, fontweight="bold")
 for ax in (suc_top, tre_top, tre_bot):
@@ -506,37 +493,80 @@ label_panel(tre_top, "I)") #"L)")
 # ---------------------------------------------------
 
 # --- New plotting funcs ---
+def gather_points_from_csv(sol, csv_dict):
+    """
+    """
+    trial_data_list = []
+    for df_i in csv_dict[sol]["trials"]:
+        t_vals, y_vals = [], []
+        if df_i is None:
+            continue
+        t_vals.extend(df_i["time_min"].astype(float).values.tolist())
+        y_vals.extend(df_i["R3_exp_nm3"].astype(float).values.tolist())
+        if len(t_vals) > 0 and len(y_vals) > 0:
+            trial_data_list.append((np.array(t_vals, float), np.array(y_vals, float)))
+
+    return trial_data_list
+
+def gather_points_with_pva(sol, dataset):
+    """
+    """
+    trial_data_list = []
+    for trial_name, trial_data in dataset[sol].items():
+        t_vals, y_vals = [], []
+        for (t,y) in trial_data:
+            t_vals.append(t)
+            y_vals.append(y)
+        if len(t_vals) > 0 and len(y_vals) > 0:
+            trial_data_list.append((np.array(t_vals, float), np.array(y_vals, float)))
+
+    return trial_data_list
+
 def plot_combined_solutes(ax, data_dict, title, color_dict, marker_dict, 
                           xlabel='', ylabel='', show_legend=True, 
                           alpha=0.90, lw=1.8):
     """
     """
-    
-    for solute, (x_data, y_data) in data_dict.items():
-        if x_data is None or y_data is None or len(x_data) == 0:
-            continue
-            
-        # Get color (use first color from the list)
-        colors = color_dict.get(solute, ["#000000"])
-        base_color = colors[0]  # Use primary color
-        
+    for solute, data in data_dict.items():
+        trial_datasets = data
+               
+        # Get the color_list for each solute
+        color_list = color_dict.get(solute, ["#000000", "#444444", "#888888"])
+       
         # Get marker configuration
         marker_cfg = marker_dict.get(solute, {})
-        marker = marker_cfg.get('marker', 'o')
-        mec = marker_cfg.get('mec', base_color)  # Default to base color if not specified
-        
-        # Plot the data
-        ax.plot(x_data, y_data, 
-                marker=marker, 
-                markersize=8,
-                color=base_color,
-                markerfacecolor=base_color, 
-                markeredgecolor=mec,
-                markeredgewidth=marker_cfg.get('mew', 0.3),
-                linestyle='-', 
-                linewidth=lw,
-                alpha=alpha,
-                label=solute)
+        marker_style = marker_cfg.get('marker', 'o')
+        mec = marker_cfg.get('mec', "#8D9F98")
+        mew = marker_cfg.get('mew', 0.3)
+
+        for trial_idx, trial_data in enumerate(trial_datasets):
+            if len(trial_data) != 2:
+                continue
+
+            x_data, y_data = trial_data
+            
+            print(f"------\n Trial data for {solute} #{trial_idx}:\n------", trial_data)
+
+            if x_data is None or y_data is None or len(x_data) == 0 or len(y_data) == 0:
+                continue
+            
+            color_idx = trial_idx % len(color_list)
+            current_color = color_list[color_idx]
+
+            if show_legend and trial_idx == 0:
+                label = solute
+            else:
+                label = ""
+            # Plot all data points for this solute
+            ax.scatter(x_data, y_data,
+                       marker=marker_style,
+                       s=35,  # Size of markers
+                       color=current_color,
+                       alpha=alpha,
+                       edgecolors=mec,
+                       linewidth=mew,
+                       label=solute,
+                       zorder=3)
     
     # Styling
     for spine in ax.spines.values():
@@ -556,38 +586,115 @@ def plot_combined_solutes(ax, data_dict, title, color_dict, marker_dict,
     # Set title
     ax.set_title(title, fontsize=12, fontweight="bold", pad=10)
     
-    # Legend
-    if show_legend:
-        ax.legend(loc='best', fontsize=10, framealpha=0.9)
-    
     return ax
 
+def plot_with_broken_yaxis(figure, gs_pos, data_dict, color_dict, marker_dict, panel_label, show_legend=True):
+    """
+    """
+    gs_sub = gridspec.GridSpecFromSubplotSpec(2, 1, subplot_spec=gs_pos,
+                                              height_ratios=[1,3], hspace=0.08)
 
-def plot_combined_panel(fig, gs_spec, csv_sources, pva_data, 
-                        base_colors, marker_info, panel_labels=['a', 'b']):
+    ax_top = figure.add_subplot(gs_sub[0])
+    ax_bot = figure.add_subplot(gs_sub[1])
+
+    y_range_bot = (0,75)
+    y_range_top = (800, 6500)
+
+    for solute, trial_datasets in data_dict.items():
+        if not trial_datasets or len(trial_datasets) == 0:
+            continue
+        
+        color_list = color_dict.get(solute, ["#000000", "#444444", "#888888"])
+        marker_cfg = marker_dict.get(solute, {})
+        marker_style = marker_cfg.get('marker', 'o')
+        mec = marker_cfg.get('mec', "#8D9F98")
+        mew = marker_cfg.get('mew', 0.3)
+
+        for trial_idx, trial_data in enumerate(trial_datasets):
+            print(f"Inside broken_axis, currently processing: {solute} trial {trial_idx}")
+            x_data, y_data = trial_data
+            if x_data is None or y_data is None or len(x_data) == 0:
+                continue
+            
+            color_idx = trial_idx % len(color_list)
+            current_color = color_list[color_idx]
+            if show_legend and trial_idx == 0:
+                label = solute
+            else:
+                label = ""
+
+            ax_bot.scatter(x_data, y_data,
+                           marker=marker_style,
+                           s=35,
+                           color=current_color,
+                           alpha=0.90,
+                           edgecolors=mec,
+                           linewidth=mew,
+                           label=label,
+                           zorder=3)
+
+            ax_top.scatter(x_data, y_data,
+                           marker=marker_style,
+                           s=35,
+                           color=current_color,
+                           alpha=0.90,
+                           edgecolors=mec,
+                           linewidth=mew,
+                           label=label,
+                           zorder=3)
+
+    ax_bot.set_ylim(y_range_bot)
+    ax_top.set_ylim(y_range_top)
+    ax_bot.spines['top'].set_visible(False)
+    ax_top.spines['bottom'].set_visible(False)
+    ax_top.tick_params(labelbottom=False, bottom=False)
+    ax_bot.tick_params(labelbottom=True, bottom=True)
+    d = 0.5
+    kwargs = dict(marker=[(-1, -d), (1, d)], markersize=12,
+                  linestyle="none", color='k', mec='k', mew=1, clip_on=False)
+    ax_top.plot([0, 1], [0, 0], transform=ax_top.transAxes, **kwargs)
+    ax_bot.plot([0, 1], [1, 1], transform=ax_bot.transAxes, **kwargs)
+
+    ax_bot.set_xlabel('Time (min)', fontsize=12)
+    ax_bot.set_ylabel(r'R^3 ($\mu$m$^3$)', fontsize=14, fontweight="bold")
+            
+    ax_top.set_title("With PVA", fontsize=12)
+
+    ax_top.text(0.02, 0.98, f"{panel_label}.)", transform=ax_top.transAxes,
+                        fontsize=12, fontweight="bold", va="top")
+    if show_legend and trial_idx == 0:
+        label = solute
+    else:
+        label = ""
+
+    for ax in [ax_top, ax_bot]:
+        for spine in ax.spines.values():
+            spine.set_alpha(0.35)
+        ax.grid(True, which="major", linestyle='--', linewidth=0.6, alpha=0.4)
+        ax.grid(True, which="major", linestyle=':', linewidth=0.5, alpha=0.12)
+        ax.minorticks_on()
+        ax.tick_params(axis="both", labelsize=9)
+
+    return ax_bot
+
+def plot_combined_panel(figure, gs_spec, csvdataset, pvadataset, 
+                        basecolors, marker_info, panel_labels=['a', 'b']):
     """
     """
-        ax_left = fig.add_subplot(gs_spec[0, 0])
-    ax_right = fig.add_subplot(gs_spec[0, 1])
-    
+    ax_left = figure.add_subplot(gs_spec[0, 0])
+        
     # Prepare data for "Without PVA" (left panel)
     without_pva_data = {}
-    for solute in csv_sources.keys():
-        # Extract data from CSV sources
-        # Adjust this based on your actual data structure
-        x_data = csv_sources[solute].get('time', None)  # Replace with actual key
-        y_data = csv_sources[solute].get('r3', None)    # Replace with actual key
-        without_pva_data[solute] = (x_data, y_data)
+    for solute in csvdataset.keys():
+        csv_R3_values = gather_points_from_csv(solute, csvdataset)
+        without_pva_data[solute] = (csv_R3_values)
     
     # Prepare data for "With PVA" (right panel)
-    with_pva_data = {}
-    for solute in pva_data.keys():
-        # Extract data from PVA sources
-        x_data = pva_data[solute].get('time', None)  # Replace with actual key
-        y_data = pva_data[solute].get('r3', None)    # Replace with actual key
-        with_pva_data[solute] = (x_data, y_data)
-    
-    # Plot left panel - Without PVA
+    with_pva_data= {}
+    for solute in pvadataset.keys():
+        data_R3_values = gather_points_with_pva(solute, pvadataset)
+        with_pva_data[solute] = (data_R3_values)
+
     plot_combined_solutes(
         ax_left, 
         without_pva_data,
@@ -605,43 +712,27 @@ def plot_combined_panel(fig, gs_spec, csv_sources, pva_data,
     ax_left.text(0.02, 0.98, f"{panel_labels[0]})", transform=ax_left.transAxes,
                  fontsize=12, fontweight='bold', va='top')
     
-    # Plot right panel - With PVA
-    plot_combined_solutes(
-        ax_right, 
-        with_pva_data,
-        title="With PVA",
-        color_dict=base_colors,
-        marker_dict=marker_info,
-        xlabel='Time (min)',
-        ylabel='',  # Remove ylabel for right panel
-        show_legend=False,  # Turn off if you want only one legend
-        alpha=0.90,
-        lw=1.8
-    )
-    
-    # Add panel label
-    ax_right.text(0.02, 0.98, f"{panel_labels[1]})", transform=ax_right.transAxes,
-                  fontsize=12, fontweight='bold', va='top')
-    
+    ax_right = plot_with_broken_yaxis(figure, gs_spec[0, 1], with_pva_data,
+                                      base_colors, marker_info, panel_labels[1])
+
+        
     # Optionally synchronize y-limits
-    ylim_left = ax_left.get_ylim()
-    ylim_right = ax_right.get_ylim()
-    ymin = min(ylim_left[0], ylim_right[0])
-    ymax = max(ylim_left[1], ylim_right[1])
-    ax_left.set_ylim(ymin, ymax)
-    ax_right.set_ylim(ymin, ymax)
+    #ylim_left = ax_left.get_ylim()
+    #ylim_right = ax_right.get_ylim()
+    #ymin = min(ylim_left[0], ylim_right[0])
+    #ymax = max(ylim_left[1], ylim_right[1])
+    #ax_left.set_ylim(ymin, ymax)
+    #ax_right.set_ylim(ymin, ymax)
     
+    #print("ylim_min is", ymin, " and ylim_max are:", ymax) 
+
     return ax_left, ax_right
    
---- --- --- --- --- ---
+#   --- --- --- --- --- ---
 
-
-data = {
+pva_data = {
     "With PVA": {
         "Glycerol": {
-            #"Trial 1": [(10,1290.038),(20,1550.049),(30,1697.384),(40,1658.181),(50,1772.072),(60,1722.100),(70,1826.649),(80,1779.004),(90,1835.586),(100,1865.447),(110,1834.890),(125,1798.182)],
-            #"Trial 2": [(10,1608.765),(20,2330.020),(30,2845.937),(40,2984.776),(50,3239.076),(60,3442.241),(70,3526.387),(80,3895.752),(90,4052.725),(100,4013.273),(110,4201.708),(125,4319.026)],
-            #"Trial 3": [(10,2077.640),(20,2895.841),(30,3818.276),(40,4162.645),(50,4459.466),(60,4668.042),(70,4666.494),(80,4952.710),(90,5200.761),(100,5364.308),(110,5389.444),(120,5398.939)],
             "Trial 1": [
                 (5,2166.093),
                 (20,2179.469),
@@ -671,15 +762,6 @@ data = {
             ],   
         },
         "Sucrose": {
-            #"Trial 1": [
-            #    (5,130.485),
-            #    (20,248.131),
-            #    (40,283.714),
-            #    (60,294.429),
-            #    (80,445.946),
-            #    (100,740.370),
-            #    (120,398.309),
-            #],
             "Trial 1": [     # Was Trial 2
                 (5,47.228),
                 (20,63.785),
@@ -707,16 +789,8 @@ data = {
                 (100,33.854),
                 (120,36.802),
             ]  
-            #"Trial 1": [(0,72.95),(10,97.64),(20,147.9),(30,148.9),(40,145.9),(55,187.0),(70,212.7),(85,224.0),(100,259.1),(120,293.0)]
-            #"Trial 1": [(5,18.746),(20,35.422),(40,48.633),(60,58.302),(80,64.732),(100,67.417),(120,85.029)],
-            #"Trial 2": [(5,9.083),(20,10.886),(40,11.769),(60,15.404),(80,16.395),(100,15.718),(120,16.085)],
-            #"Trial 3": [(5,22.109),(20,29.097),(40,35.803),(60,34.176),(80,35.074),(100,37.762),(120,34.613)],
         },
         "Trehalose": {
-            #"Trial 1": [(10,111.1),(20,106.3),(30,111.7),(40,103.3),(55,140.4),  # Older
-            #            (70,132.7),(85,148.8),(100,180.6),(110,184.8),(120,204.4)],
-            #"Trial 2": [(10,99.38),(20,99.38),(30,90.40),(40,112.93),(55,103.77),   # Older
-            #            (70,122.62),(85,134.22),(100,140.02),(110,144.21),(120,165.29)],
             "Trial 1": [
                 (5,24.152),
                 (20,30.384),
@@ -744,15 +818,50 @@ data = {
                 (100,34.427),
                 (120,37.165),
             ]
-            #"Trial 1": [(5,4.344),(20,5.228),(40,4.462),(60,3.503),(80,3.948),(100,3.781),(120,3.643)],
-            #"Trial 2": [(5,4.081),(20,5.132),(40,5.853),(60,6.260),(80,5.879),(100,5.370),(120,5.620)],
-            #"Trial 3": [(5,4.966),(20,5.084),(40,5.372),(60,5.190),(80,5.751),(100,5.499),(120,6.137)],
         }
     }
 }
 
-trial_alpha = 0.90
-trial_lw = 1.8
+
+# Using for debugging
+#withbuff_dataset = []
+#withpva_dataset = []
+#gly_sol = "Glycerol"
+
+#for df_i in csv_sources[gly_sol]["trials"]:
+#    buff_t_vals, buff_y_vals = [],[]
+#    if df_i is None:
+#        continue
+#    buff_t_vals.extend(df_i["time_min"].astype(float).values.tolist())
+#    buff_y_vals.extend(df_i["R3_exp_nm3"].astype(float).values.tolist())
+#    if len(buff_t_vals) > 0 and len(buff_y_vals) > 0:
+#        withbuff_dataset.append((np.array(buff_t_vals, float), np.array(buff_y_vals, float)))
+
+#for trial_name, trial_data in pva_data["With PVA"][gly_sol].items():
+#    pva_t_vals, pva_y_vals = [], []
+#    for (t,y) in trial_data:
+#        pva_t_vals.append(t)
+#        pva_y_vals.append(y)
+#    if len(pva_t_vals) > 0 and len(pva_y_vals) > 0:
+#        withpva_dataset.append((np.array(pva_t_vals, float), np.array(pva_y_vals, float)))
+
+#print("no PVA dataset looks like:", withbuff_dataset)
+#print("with PVA dataset looks like:", withpva_dataset)
+
+#without_pva_data = {}
+#without_pva_data[gly_sol] = (withbuff_dataset)
+    
+#with_pva_data= {}
+#with_pva_data[gly_sol] = (withpva_dataset)
+
+#print("without pva dict", without_pva_data)
+#print("with pva dict", with_pva_data)
+
+#Path(save_path).parent.mkdir(parents=True, exist_ok=True)
+#plt.savefig(save_path, bbox_inches="tight", facecolor="white")
+#plt.show()
+#quit()
+
 base_colors = {
         "Glycerol": ["#208EA3", "#4178BC", "#7A71F6"],
         "Sucrose": ["#E37CFF", "#EA4E9D", "#FCA7E4"],
@@ -761,113 +870,26 @@ base_colors = {
         # old: {"Glycerol": "#1f77b4", "Sucrose": "#ff7f0e", "Trehalose": "#2ca02c"}
 
 marker_info = {
-        "Glycerol": marker:'o', mec:"#8D9F9B", mew:0.3, #need mfc in loop (trial color)
-        "Sucrose": marker:'o', # Unnecess for fill? mec:'#', mew:, mfc:,
-        "Trehalose": marker:'D', mec:"#8D9F9B", mew:0.3, #need mfc in loop (trial color), mfc:'from bc',
+        "Glycerol": {'marker': 'o'},
+        "Sucrose": {'marker': 'o'},
+        "Trehalose": {'marker': 'D'}
         }
 
-# glycerol_colors = {"Trial 1": "
-
-def gather_points_from_csv(sol):
-    t_vals, y_vals = [], []
-    for df_i in csv_sources[sol]["trials"]:
-        if df_i is None:
-            continue
-        t_vals.extend(df_i["time_min"].astype(float).values.tolist())
-        y_vals.extend(df_i["R3_exp_nm3"].astype(float).values.tolist())
-    return np.array(t_vals, float), np.array(y_vals, float)
-
-def gather_points_with_pva(sol):
-    t_vals, y_vals = [], []
-    for trial_data in data["With PVA"][sol].values():
-        for (t, y) in trial_data:
-            t_vals.append(t)
-            y_vals.append(y)
-    return np.array(t_vals, float), np.array(y_vals, float)
-
-def plot_with_pva_raw_only(ax, sol, base_color, marker):
-    trials = list(data["With PVA"][sol].items())
-    #shades = np.linspace(0.70, 1.0, len(trials)) if trials else np.array([1.0])
-
-    for shade, (trial_name, trial_data) in zip(shades, trials):
-        trial_data = sorted(trial_data, key=lambda p: p[0])
-        t = [p[0] for p in trial_data]
-        y = [p[1] for p in trial_data]
-        ax.plot(
-            t, y, linestyle="none", marker="o", ms=4.8,
-            color=lighten(base_color, shade),
-            alpha=trial_alpha, lw=trial_lw,
-            label=trial_name, zorder=3
-        )
-    ax.legend(loc="best", fontsize=8.8, framealpha=0.9)
-
-solutes = ["Glycerol", "Sucrose", "Trehalose"]
-panel_tags = ["J", "K", "L", "M", "N", "O"]     #["M", "N", "O", "P", "Q", "R"]
-panel_i = 0
-
-
-
-#for col, sol in enumerate(solutes):
-#    base_color = base_colors[sol]
 #
-    # ---------- FIRST ROW: CSV-BASED (replace) ----------
-#    axTop = fig.add_subplot(r3_gs[0, col])
-    plot_first_row_from_csv(
-        axTop,
-        trial_dfs=csv_sources[sol]["trials"],
-        summary_df=csv_sources[sol]["summary"],
-        title=sol
-    )
+#   solutes = ["Glycerol", "Sucrose", "Trehalose"]
+#   panel_tags = ["J", "K", "L", "M", "N", "O"]     #["M", "N", "O", "P", "Q", "R"]
+#   panel_i = 0
 
-    if col == 0:
-        axTop.set_ylabel(r"$R^3$ (μm$^3$)", fontsize=14, fontweight="bold")
-    else:
-        axTop.set_ylabel("")
-
-    axTop.text(0.02, 0.95, "Without PVA", transform=axTop.transAxes,
-               fontsize=9.6, color="black", alpha=0.85, va="top")
-
-    # ---------- SECOND ROW: KEEP AS-IS ----------
-    axBot = fig.add_subplot(r3_gs[1, col])
-    plot_with_pva_raw_only(axBot, sol, base_color)
-    axBot.set_xlabel("Time (min)", fontsize=12)
-
-    if col == 0:
-        axBot.set_ylabel(r"$R^3$ (μm$^3$)", fontsize=14, fontweight="bold")
-    else:
-        axBot.set_ylabel("")
-
-    axBot.text(0.02, 0.95, "With PVA", transform=axBot.transAxes,
-               fontsize=9.6, color="black", alpha=0.85, va="top")
-
-    # ---- autoscale axes (top from CSV exp; bottom from raw With PVA) ----
-    tL, yL = gather_points_from_csv(sol)
-    tR, yR = gather_points_with_pva(sol)
-
-    if tL.size and yL.size:
-        xmin, xmax = float(np.min(tL)), float(np.max(tL))
-        ymin, ymax = float(np.min(yL)), float(np.max(yL))
-        axTop.set_xlim(xmin - 0.05*(xmax-xmin+1), xmax + 0.05*(xmax-xmin+1))
-        axTop.set_ylim(max(0.0, ymin - 0.10*(ymax-ymin+1)), ymax + 0.10*(ymax-ymin+1))
-
-    if tR.size and yR.size:
-        xmin, xmax = float(np.min(tR)), float(np.max(tR))
-        ymin, ymax = float(np.min(yR)), float(np.max(yR))
-        axBot.set_xlim(0, xmax + 0.05*(xmax-xmin+1)) # xmin - 0.05*(xmax-xmin+1), xmax + 0.05*(xmax-xmin+1))
-        axBot.set_ylim(0, ymax + 0.10*(ymax-ymin+1)) # max(0.0, ymin - 0.10*(ymax-ymin+1)), ymax + 0.10*(ymax-ymin+1))
-
-    # Styling consistent with your figure
-    for ax in (axTop, axBot):
-        for spine in ax.spines.values():
-            spine.set_alpha(0.35)
-        ax.grid(True, which="major", linestyle="--", linewidth=0.6, alpha=0.4)
-        ax.grid(True, which="minor", linestyle=":",  linewidth=0.5, alpha=0.12)
-        ax.minorticks_on()
-        ax.tick_params(axis="both", labelsize=9)
-
-    # Panel labels M–R
-    label_panel(axTop, panel_tags[panel_i] + ")"); panel_i += 1
-    label_panel(axBot, panel_tags[panel_i] + ")"); panel_i += 1
+# Create the combined plot
+ax_left, ax_right = plot_combined_panel(
+        figure=fig,
+        gs_spec=r3_gs,
+        csvdataset=csv_sources,
+        pvadataset=pva_data["With PVA"],
+        basecolors=base_colors,
+        marker_info=marker_info,
+        panel_labels=['a', 'b'],
+)
 
 # ---------------------------------------------------
 # 8) Save + show
