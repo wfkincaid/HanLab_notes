@@ -53,10 +53,10 @@ save_path = "./Figures/IRI_assay_gly_suc_tre_nice_current.pdf"
 # ---------------------------------
 # Load Chemdraw of PVA + solutes
 # ---------------------------------
-pva_sticks = cv2.imread("./Chemdraw/pva.png", cv2.IMREAD_UNCHANGED)
-glycerol_sticks = cv2.imread("./Chemdraw/glycerol.png", cv2.IMREAD_UNCHANGED)
-sucrose_chair = cv2.imread("./Chemdraw/sucrose.png", cv2.IMREAD_UNCHANGED)
-trehalose_chair = cv2.imread("./Chemdraw/trehalose.png", cv2.IMREAD_UNCHANGED)
+pva_sticks = cv2.imread("./Chemdraw/pva_nolabel.png", cv2.IMREAD_UNCHANGED)
+glycerol_sticks = cv2.imread("./Chemdraw/glycerol_nolabel.png", cv2.IMREAD_UNCHANGED)
+sucrose_chair = cv2.imread("./Chemdraw/sucrose_nolabel.png", cv2.IMREAD_UNCHANGED)
+trehalose_chair = cv2.imread("./Chemdraw/trehalose_nolabel.png", cv2.IMREAD_UNCHANGED)
 
 #path_b = './Baselines/'
 # ---------------------------------------------------
@@ -283,7 +283,7 @@ chem_drawings = [
     [trehalose_chair, pva_sticks],
 ]
 
-cd_zoom_x = 1.0
+cd_zoom_x = 0.7
 cd_zoom_y = 1.0
 cd_cropy = 0
 cd_cropx = 0

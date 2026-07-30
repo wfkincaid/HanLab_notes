@@ -48,7 +48,7 @@ plt.rcParams.update({
     #    "ytick.major.size": 4,
 })
 
-save_path = "./Figures/IRI_assay_gly_suc_tre_nice_WKpaper_260720.pdf"
+save_path = "./Figures/IRI_assay_gly_suc_tre_nice_WKpaper_260724.pdf"
 
 # ---------------------------------
 # Load Chemdraw of PVA + solutes
@@ -192,7 +192,7 @@ def style_axis_with_frame(ax, lw=0.85, color="#444444"):
         spine.set_edgecolor(color)
         spine.set_linewidth(lw)
 
-def label_panel(ax, text, x=0.012, y=1.0, fs=16):
+def label_panel(ax, text, x=0.012, y=1.0, fs=10):
     ax.text(
         x, y, text, transform=ax.transAxes,
         ha="left", va="bottom",
@@ -299,7 +299,7 @@ for r in range(2):
 
 panel_labels = ["A","B","C","D"]    # ,"E","F","G","H","I"]
 for ax, lab in zip([ax for row in cd_img_axes for ax in row], panel_labels):
-    label_panel(ax, lab + ")", fs=16)
+    label_panel(ax, lab + ")", fs=10)
 
 
 # ---------------------------------------------------
@@ -361,7 +361,7 @@ for r in range(3):
 
 panel_labels = ["E", "F", "G", "H", "I", "J"] # ,"G","H","I"]
 for ax, lab in zip([ax for row in axes_img for ax in row], panel_labels):
-    label_panel(ax, lab + ")", fs=16)
+    label_panel(ax, lab + ")", fs=10)
 
 # ---------------------------------------------------
 # 6) Broken-axis bar charts NOW G-I - NEEDS FIX    (J–L)
@@ -482,9 +482,9 @@ if handles:
     fig.legend(handles, labels_, loc="upper right",
                bbox_to_anchor=(0.90, 0.69), fontsize=11, frameon=False)
 
-label_panel(gly_top, "G)") #"J)")
-label_panel(suc_top, "H)") #"K)")
-label_panel(tre_top, "I)") #"L)")
+label_panel(gly_top, "K)") #"J)")
+label_panel(suc_top, "L)") #"K)")
+label_panel(tre_top, "M)") #"L)")
 
 # ---------------------------------------------------
 # 7) Bottom: R^3 plots (J-O) # was (M–R) 
@@ -597,8 +597,8 @@ def plot_with_broken_yaxis(figure, gs_pos, data_dict, color_dict, marker_dict, p
     ax_top = figure.add_subplot(gs_sub[0])
     ax_bot = figure.add_subplot(gs_sub[1])
 
-    y_range_bot = (0,75)
-    y_range_top = (800, 6500)
+    y_range_bot = (0,65)
+    y_range_top = (650, 7500)
 
     for solute, trial_datasets in data_dict.items():
         if not trial_datasets or len(trial_datasets) == 0:
@@ -660,8 +660,8 @@ def plot_with_broken_yaxis(figure, gs_pos, data_dict, color_dict, marker_dict, p
             
     ax_top.set_title("With PVA", fontsize=12)
 
-    ax_top.text(0.02, 0.98, f"{panel_label}.)", transform=ax_top.transAxes,
-                        fontsize=12, fontweight="bold", va="top")
+    ax_top.text(0.02, 0.98, f"{panel_label})", transform=ax_top.transAxes,
+                        fontsize=10, fontweight="bold", va="top")
     if show_legend and trial_idx == 0:
         label = solute
     else:
@@ -710,7 +710,7 @@ def plot_combined_panel(figure, gs_spec, csvdataset, pvadataset,
     
     # Add panel label
     ax_left.text(0.02, 0.98, f"{panel_labels[0]})", transform=ax_left.transAxes,
-                 fontsize=12, fontweight='bold', va='top')
+                 fontsize=10, fontweight='bold', va='top')
     
     ax_right = plot_with_broken_yaxis(figure, gs_spec[0, 1], with_pva_data,
                                       base_colors, marker_info, panel_labels[1])
@@ -888,7 +888,7 @@ ax_left, ax_right = plot_combined_panel(
         pvadataset=pva_data["With PVA"],
         basecolors=base_colors,
         marker_info=marker_info,
-        panel_labels=['a', 'b'],
+        panel_labels=['N', 'O'],
 )
 
 # ---------------------------------------------------
