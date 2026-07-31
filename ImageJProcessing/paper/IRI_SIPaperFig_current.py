@@ -56,7 +56,7 @@ def lighten(color, factor=0.82):
 # 4) Figure layout
 # ---------------------------------------------------
 plt.close("all")
-fig = plt.figure(figsize=(18, 18))
+fig = plt.figure(figsize=(24, 18))
 
 gs = gridspec.GridSpec(
     2, 1, figure=fig,
@@ -68,7 +68,7 @@ gs = gridspec.GridSpec(
 top_gs = gridspec.GridSpecFromSubplotSpec(
         1, 3, subplot_spec=gs[0],
         width_ratios=[1.0,1.0,1.0],
-        wspace=0.13
+        wspace=0.13,
 )
 
 count_area_subplot = gridspec.GridSpecFromSubplotSpec(
@@ -93,8 +93,8 @@ spheroid_vol_subplot = gridspec.GridSpecFromSubplotSpec(
 
 bottom_gs = gridspec.GridSpecFromSubplotSpec(
         1, 3, subplot_spec=gs[1],
-        width_ratios=[1.0, 1.0, 1.0]
-        wspace=0.13
+        width_ratios=[1.0, 1.0, 1.0],
+        wspace=0.13,
 )
 
 circ_subplot = gridspec.GridSpecFromSubplotSpec(
@@ -117,9 +117,6 @@ solidity_subplot = gridspec.GridSpecFromSubplotSpec(
 
 # ---------------------------------------------------
 # 7) Datasets for all plots
-#    FIRST ROW: "Particle Counts"
-#    SECOND ROW: "IRI Indicators"
-#    THIRD ROW: "Approx. Volumes (μm²)"
 # ---------------------------------------------------
 data = {
     "Image Population": {
@@ -236,7 +233,7 @@ data = {
                     (80,1316.333333),
                     (100,1286),
                     (120,1232.333333),
-]
+                ]
             }
         },
         "% Area - Ice": {
@@ -397,15 +394,6 @@ data = {
                 ]
             },
             "Sucrose": {
-                #"Trial 1": [
-                #    (5,0.8),
-                #    (20,0.808),
-                #    (40,0.673),
-                #    (60,0.573),
-                #    (80,0.37),
-                #    (100,0.372),
-                #    (120,0.37),
-                #],
                 "Trial 1": [
                     (5,0.782),
                     (20,0.713),
@@ -522,15 +510,6 @@ data = {
                 ]
             },
             "Sucrose": {
-                #"Trial 1": [
-                #    (5,0.912),
-                #    (20,0.929),
-                #    (40,0.892),
-                #    (60,0.857),
-                #    (80,0.733),
-                #    (100,0.737),
-                #    (120,0.713),
-                #],
                 "Trial 1": [
                     (5,0.881),
                     (20,0.863),
@@ -607,9 +586,9 @@ data = {
                 ]
             }
         },
-        "Aspect Ratio (Φ𝐹𝑚𝑎𝑥/Φ𝐹𝑚𝑖𝑛)": {
+        "Aspect Ratio": {
             "Glycerol": {
-       "Trial 1": [
+                "Trial 1": [
                     (5,1.903),
                     (20,1.717),
                     (40,1.818),
@@ -647,15 +626,6 @@ data = {
                 ]
             },
             "Sucrose": {
-                #"Trial 1": [
-                #    (5,1.398007645),
-                #    (20,1.393728555),
-                #    (40,1.426605923),
-                #    (60,1.440107672),
-                #    (80,1.618370694),
-                #    (100,1.606858945),
-                #    (120,1.459368651),
-                #],
                 "Trial 1": [
                     (5,1.488422097),
                     (20,1.440855522),
@@ -733,7 +703,7 @@ data = {
         }
     },
     "Volume Approximations": {
-        "Spherical, $V=(4/3)*pi*{r_{avg}}^3$ (μm³)": { # THESE NEED TO BE UPDATED, MULTIPLY BY PI!!!!!!!!! (Fixed)
+        "Spherical": { 
             "Glycerol": {
                 "Trial 1": [
                     (5,9073.307425),
@@ -773,15 +743,6 @@ data = {
                 ]
             },
             "Sucrose": {
-                #"Trial 1": [
-                #    (5,546.575461),
-                #    (20,1039.368274),
-                #    (40,1188.418722),
-                #    (60,1233.300063),
-                #    (80,1867.972327),
-                #    (100,3101.252914),
-                #    (120,1668.434641),
-                #],
                 "Trial 1": [
                     (5,197.8271673),
                     (20,267.1832171),
@@ -811,12 +772,12 @@ data = {
                 ],
                 "Average": [
                     (5,188.7458208),
-                    (20,409.9729279),
-                    (40,366.5305865),
-                    (60,365.5321379),
-                    (80,460.3548739),
-                    (100,638.7660414),
-                    (120,428.9441615),
+                    (20,247.1244031),
+                    (40,171.6771504),
+                    (60,162.9178314),
+                    (80,155.6500897),
+                    (100,148.2069528),
+                    (120,155.7257341),
                 ]
             },
             "Trehalose": {
@@ -858,7 +819,7 @@ data = {
                 ]
             }
         },
-        "Oblate Spheroid, $V=(1/6)*pi*Φ𝐹𝑚𝑎𝑥*Φ𝐹𝑚𝑖𝑛*Φ𝐹𝑚𝑖𝑛$ (μm³)": {
+        "Oblate Spheroid": {
             "Glycerol": {
                 "Trial 1": [
                     (5,6622.846605),
@@ -898,15 +859,6 @@ data = {
                 ]
             },
             "Sucrose": {
-                #"Trial 1": [
-                #    (5,470.9701597),
-                #    (20,842.8526685),
-                #    (40,987.452541),
-                #    (60,1043.839687),
-                #    (80,1778.327991),
-                #    (100,2966.920674),
-                #    (120,1601.732371),
-                #],
                 "Trial 1": [
                     (5,172.2380737),
                     (20,244.9390839),
@@ -934,14 +886,14 @@ data = {
                     (100,150.5027242),
                     (120,161.0995374),
                 ],
-                "Average": [
+                "Average": [ 
                     (5,170.944663),
-                    (20,328.3685987),
-                    (40,295.4275495),
-                    (60,290.0329914),
-                    (80,353.7212107),
-                    (100,432.2082476),
-                    (120,336.3475998),
+                    (20,221.3323186),
+                    (40,171.8643718),
+                    (60,161.2425535),
+                    (80,156.670635),
+                    (100,148.1344522),
+                    (120,154.9344871),                            
                 ]
             },
             "Trehalose": {
@@ -1130,7 +1082,7 @@ std_dev_data = {
                 ]
             }
         },
-        "Aspect Ratio (Φ𝐹𝑚𝑎𝑥/Φ𝐹𝑚𝑖𝑛)": {
+        "Aspect Ratio": {
             "Glycerol": {
                 "Average": [
                     (5,0.168446083),
@@ -1166,8 +1118,8 @@ std_dev_data = {
             }
         }
     },
-    "Volume Approximations (μm³)": {
-        "Spherical, $V=(4/3)*pi*{r_{avg}}^3$ (μm³)": {
+    "Volume Approximations": {
+        "Spherical": {
             "Glycerol": {
                 "Average": [
                     (5,2461.502831),
@@ -1202,7 +1154,7 @@ std_dev_data = {
                 ]
             }
         },
-        "Oblate Spheroid, $V=(1/6)*pi*Φ𝐹𝑚𝑎𝑥*Φ𝐹𝑚𝑖𝑛*Φ𝐹𝑚𝑖𝑛$ (μm³)": {
+        "Oblate Spheroid": {
             "Glycerol": {
                 "Average": [
                     (5,1809.88711),
@@ -1240,441 +1192,310 @@ std_dev_data = {
     }
 }
 
-trial_alpha = 0.90
+trial_alpha = 0.40
 trial_lw = 1.8
-
-print(list(data["IRI Indicators"].keys()))
-
-# for Particle Count points
-
-def gather_points_imagepop(dataset, param, solute):
-    imagepop_dict = {}
-    for trial_idx, trial_datasets in dataset["Image Population"][param][solute].items():
-        if trial_idx != "Average":
-            continue
-        t_vals, y_vals = [], []
-        for (t,y) in trial_datasets:
-            t_vals.append(t)
-            y_vals.append(y)
-        if len(t_vals) > 0 and len(y_vals) > 0:
-            imagepop_dict[(param, solute)] = (np.array(t_vals, float), np.array(y_vals, float))
-    
-    return imagepop_dict
-        
-def gather_points_volumes(dataset, param, solute):
-    volume_estms_list = []
-    for trial_idx, trial_datasets in dataset["IRI Indicators"][param][solute].items():
-        if trial_idx != "Average":
-            continue
-        t_vals, y_vals = [], []
-        for (t,y) in trial_datasets:
-            t_vals.append(t)
-            y_vals.append(y)
-        if len(t_vals) > 0 and len(y_vals) > 0:
-            volume_estms_list[(param, solute)] = (np.array(t_vals, float), np.array(y_vals, float))
-
-    return volume_estms_list
-
-def gather_points_IRI_indics(dataset, param, solute):
-    IRI_indic_list = []
-    for trial_idx, trial_datasets in dataset[""][param][solute].items():
-        t_vals, y_vals = [], []
-        for (t,y) in trial_datasets:
-            t_vals.append(t)
-            y_vals.append(y)
-        if len(t_vals) > 0 and len(y_vals) > 0:
-            IRI_indic_list.append((np.array(t_vals, float), np.array(y_vals, float)))
-
-    return IRI_indic_list
-
-def gather_points_counts(param, sol):
-    image_area_points = {}
-    for trial_idx, trial_data in data["Image Population"][param][sol].values():
-        for (t, y) in trial_data:
-            t_vals.append(t)
-            icepop_vals.append(y)
-    image_area_points[(param, sol)] = (np.array(t_vals, float), np.array(icepop_vals, float))
-    return iamge_area_points
-    
-# Func for IRI points
-
-def gather_points_IRI(indicator, sol):    # Note this returns the dictionary of arrays per indicator
-    IRI_datapoints = {}
-    for trial_data in data["IRI Indicators"][indicator][sol].values():
-        t_vals, IRI_vals = [], []
-        for (t, y) in trial_data:
-            t_vals.append(t)
-            IRI_vals.append(y)
-    IRI_datapoints.append[(indicator, sol)] = (np.array(t_vals, float), np.array(IRI_vals, float))
-    return IRI_datapoints
-
-# Func for Estm Vols points
-
-def gather_points_vols(volume, sol):    # Note this returns the dictionary of arrays per volume estimate
-    volume_datapoints = {}
-    for trial_data in data["Volume Approximations (μm³)"][volume][sol].values():
-        t_vals, vol_vals = [], []
-        for (t, y) in trial_data:
-            t_vals.append(t)
-            vol_vals.append(y)
-    volume_datapoints[(volume, sol)] = (np.array(t_vals, float), np.array(vol_vals, float))
-    return volume_datapoints
 
 # Func for Particle Count plot (simple x v y)
 
-def plot_counts_area_percent(ax, sol, base_color, markers):
-    left_param = ["Particle Counts"]
-    right_param = ["% Area - ice"]
-
-    area_params = list(data["Image Population"].keys())
-    marker_keys = list(data["Image Population"][
-    
-
-    ax2_y = ax.twinx()
-
-    for m, param in zip(markers, area_params):
-        trials = list(data["Image Population"][param][sol].items())
-        shades = np.linspace(0.60, 1.0, len(trials)) if trials else np.array([1.0])
-
-        if param in left_param:
-            current_ax = ax
-            y_label = r"Particle Counts"
-        if param in right_param:
-            current_ax = ax2_y
-            y_label = r"% Area - ice"
-
-        for shade, (trial_name, trial_data) in zip(shades, trials):
-            trial_data = sorted(trial_data, key=lambda p: p[0])
-            t = [p[0] for p in trial_data]
-            y = [p[1] for p in trial_data]
-            current_ax.plot(
-                t, y,
-                linestyle=":",
-                marker=m,
-                ms=4.8,
-                color=lighten(base_color, shade),
-                alpha=trial_alpha,
-                lw=trial_lw,
-                label=trial_name,
-                zorder=3
-            )
-
-    ax.set_ylabel(r"Particle Counts", fontsize=7)
-    ax2_y.set_ylabel(r"% Area - ice", fontsize=7)
-
-    lines1, labels1 = ax.get_legend_handles_labels()
-    lines2, labels2 = ax2_y.get_legend_handles_labels()
-    if lines1 or lines2:
-        ax.legend(
-            lines1 + lines2,
-            labels1 + labels2,
-            loc="best",
-            fontsize=8.8,
-            framealpha=0.9
-        )
-    
-# Func for IRI (cir and sol on x v y1, AR on x v y2)
-
-def plot_IRI_indicator_avgs(ax, indicator, sol, base_color, marker):
+def plot_counts_area_percent(ax, solute, colordict):
     """
     """
-    trials = list(data["IRI Indicators"][indicator][sol].items())
+    left_param = "Particle Counts"
+    right_param = "% Area - Ice"
+    left_marker = 'o'
+    right_marker = '^'
+    left_ls = '--' # dashed
+    right_ls = ':' # dotted
 
-    sorted_trials = sorted(trials)
-    shades = np.linspace(0.60, 1.0, len(sorted_trials)) if sorted_trials else np.array([1.0])
+    ax2 = ax.twinx()
 
-    for shade, (trial_name, trial_points) in zip(shades, sorted_trials):
-        sorted_points = sorted(trial_points, key=lambda p: p[0])
-        t = [p[0] for p in sorted_points]
-        y = [p[1] for p in sorted_points]
-        if trial_name != "Average":
-            continue
-        ax.plot(
-            t, y,
-            linestyle=":",
-            marker=marker,
-            ms=4.8,
-            color=lighten(base_color, shade),
-            alpha=trial_alpha,
-            lw=trial_lw,
-            label=f'{sol} - {trial_name}' if shade == shades[-1] else "",
-            zorder=3,
-        )
+    avg_color=colordict.get(solute, ["#000000"] * 4)[3] # default to black
+    
+    try:
+        avgparticle_data = data["Image Population"][left_param][solute]["Average"]
 
-    if indicator in ["Circularity", "Solidity"]:
-        ax.set_ylim(0, 1.0)
-    elif "Aspect" in indicator:
-        ax.set_ylim(1.0, None)
+        avg_data = sorted(avgparticle_data, key=lambda p: p[0])
+        t_vals = [p[0] for p in avg_data]
+        y_vals = [p[1] for p in avg_data]
 
-    lines1, labels1 = ax.get_legend_handles_labels()
-    ax.legend(lines1, labels1, loc="best", fontsize=8.8, framealpha=0.9)
+        ax.plot(t_vals, y_vals,
+                marker=left_marker,
+                linestyle=left_ls,
+                markersize=6,
+                color=avg_color,
+                linewidth=trial_lw,
+                label=f"{left_param} - {solute}",)
+    except KeyError:
+        pass
+           
+    try:
+        avgarea_data = data["Image Population"][right_param][solute]["Average"]
 
-# Func for Estm Vols (x v y, each vol on same x but sep. y)
+        avg_data = sorted(avgarea_data, key=lambda p: p[0])
+        t_vals = [p[0] for p in avg_data]
+        y_vals = [p[1] for p in avg_data]
 
-def plot_Vol_estimates(ax, markers, sol, base_color):
-    left_indicator = ["Spherical"]
-    right_indicator = ["Oblate Spheroid"]
-        
-    vol_params = list(data["Volume Approximations (μm³)"].keys())
+        ax2.plot(t_vals, y_vals,
+                 marker=right_marker,
+                 linestyle=right_ls,
+                 markersize=6,
+                 color=avg_color,
+                 linewidth=trial_lw,
+                 label=f"{right_param} - {solute}")
+    except KeyError:
+        pass
 
-    ax2_y = ax.twinx()
-        
-    for m, indic in zip(markers, vol_params):
-        trials = list(data["Volume Approximations (μm³)"][indic][sol].items()) # Use read list of indicators from data
-        shades = np.linspace(0.60, 1.0, len(trials)) if trials else np.array([1.0])
-        # trial_name is a string (solute string), trial_data is a tuple of 2 floats (time, value) 
+    ax.set_xlabel("Time (min)", fontsize=10)
+    ax.set_ylabel("Particle Counts", fontsize=10, color='black')
+    ax2.set_ylabel("% Area - Ice", fontsize=10, color='black')
 
-        if indic in left_indicator:
-            current_ax = ax
-            y_label = r"Spherical Volume (μm³)"
-        elif indic in right_indicator:
-            current_ax = ax2_y
-            y_label = r"Oblate Feret Spheroid Volume (μm³)"
-
-                
-        for shade, (trial_name, trial_data) in zip(shades, trials):
-            trial_data = sorted(trial_data, key=lambda p: p[0])
-            t = [p[0] for p in trial_data]
-            y = [p[1] for p in trial_data]
-            current_ax.plot(
-                t, y,
-                linestyle=":",
-                marker=m,
-                ms=4.8,
-                color=lighten(base_color, shade),
-                alpha=trial_alpha,
-                lw=trial_lw,
-                label=trial_name,
-                zorder=3
-            )
-        #if indic in left_indicator:
-        #    ax.set_ylim(0, 1.0)
-        #elif indic in right_indicator:
-        #    ax2_y.set_ylim(1.0, None)
-
-    ax.set_ylabel(r"Spherical Volume (μm³)", fontsize=7)
-    ax2_y.set_ylabel(r"Oblate Feret Spheroid Volume (μm³)", fontsize=7)
+    ax.tick_params(axis='y', colors='black')
+    ax2.tick_params(axis='y', colors='black')
 
     lines1, labels1 = ax.get_legend_handles_labels()
-    lines2, labels2 = ax2_y.get_legend_handles_labels()
+    lines2, labels2 = ax2.get_legend_handles_labels()
     if lines1 or lines2:
         ax.legend(lines1 + lines2, labels1 + labels2,
-                  loc="best", fontsize=8.8, framealpha=0.9)
-
-# -------- Func for standard deviation - IRI --------
-
-def plot_IRI_avg_dev(ax, indicator, sol, base_color, marker, std_multiplier=1.0):
-    """
-    """
-    avg_trials = None
-    avg_dev = None
-
-    for trial_name, trial_points in data["IRI Indicators"][indicator][sol].items():
-        if trial_name == "Average":
-            avg_trials = sorted(trial_points, key=lambda p: p[0])
-            break
-
-    for dev_name, dev_points in std_dev_data["IRI Indicators"][indicator][sol].items():
-        if dev_name == "Average":
-            avg_devs = sorted(dev_points, key=lambda p: p[0])
-            break
-
-    if avg_trials is None or avg_dev is None:
-        print(f"Warning: No 'Average' data found for {indicator} - {sol}")
-        return
-
-    t = [p[0] for p in avg_trials]
-    y = [p[1] for p in avg_trials]
-    y_dev = [p[1] * std_multiplier for p in avg_devs]
-
-    if len(t) != len(y_dev):
-        print(f"Warning: Time points mismatch for {indicator} - {sol}")
-
-    errorbar_kwargs = {
-        'x': t,
-        'y': y,
-        'yerr': y_dev,
-        'fmt': 'none',
-        'color': lighten(base_color, shade),
-        'capsize': 3,
-        'capthick': 1,
-        'elinewidth': 1,
-        'markersize': 4.8,
-        'linestyle': ':',
-        'label': f'{sol} - {std_multiplier}σ',
-        'zorder': 3,
-        'alpha': 0.8
-    }
-    
-    ax.errorbar(**errorbar_kwargs)
-
-# ------- Func for standard dev - Volumes -------
-
-def plot_Vol_avg_devs(ax, sol, base_color, markers, std_multiplier=1.0):
-    """
-    """
-    left_indicator = ["Spherical"]
-    right_indicator = ["Oblate Spheroid"]
-
-    vol_params = list(data["Volume Approximations (μm³)"].keys())
-
-    ax2_y = ax.twinx()
-        
-    avg_vols = None
-    avg_dev_vols = None
-    
-    for m, indic in zip(markers, vol_params):
-        trials = list(data["Volume Approximations (μm³)"][indic][sol].items()) # Use read list of indicators from data
-        trial_devs = list(std_dev_data["Volume Approximations (μm³)"][indic][sol].items())
-        shades = np.linspace(0.60, 1.0, len(trials)) if trials else np.array([1.0])
-        # trial_name is a string (solute string), trial_data is a tuple of 2 floats (time, value) 
-
-        if indic in left_indicator:
-            current_ax = ax
-            y_label = r"Spherical Volume (μm³)"
-        elif indic in right_indicator:
-            current_ax = ax2_y
-            y_label = r"Oblate Feret Spheroid Volume (μm³)"
-
-        for shade, (trial_name, trial_data) in zip(shades, trials):
-            if trial_name == "Average":
-                avg_vols = sorted(trial_data, key=lambda p: p[0])
-                break
-        for shade, (trial_dev_name, trial_dev_data) in zip(shades, trials):
-            if trial_dev_name == "Average":
-                avg_dev_vols = sorted(trial_dev_data, key=lambda p: p[0])
-                break
+                  loc='best', fontsize=6)
             
-        t = [p[0] for p in trial_data]
-        y = [p[1] for p in trial_data]
-        y_dev = [p[1] * std_multiplier for p in avg_dev_vols]
+    return ax, ax2
 
-        if len(t) != len(y_dev):
-            print(f"Warning: Time points mismatch for {indicator} - {sol}")
+def plot_vol_estms(figure, gridspec_sp, param, solute_list, colordict):
+    """
+    """
+    gs_sub = gridspec.GridSpecFromSubplotSpec(2, 1, subplot_spec=gridspec_sp,
+                                                   height_ratios=[1,3], hspace=0.08)
+    ax_top = figure.add_subplot(gs_sub[0])
+    ax_bot = figure.add_subplot(gs_sub[1])
     
-    errorbar_kwargs = {
-        'x': t,
-        'y': y,
-        'yerr': y_dev,
-        'fmt': 'none',
-        'color': lighten(base_color, shade),
-        'capsize': 3,
-        'capthick': 1,
-        'elinewidth': 1,
-        'markersize': 4.8,
-        'linestyle': ':',
-        'label': f'{sol} - {std_multiplier}σ',
-        'zorder': 3,
-        'alpha': 0.8
-    }
+    if param == "Spherical":
+        y_range_bot = (0,400)
+        y_range_top = (3000, 30000)
+    if param == "Oblate Spheroid":
+        y_range_bot = (0, 400)
+        y_range_top = (2000, 20000)
+
+    marker = 'o'
     
-    current_ax.errorbar(**errorbar_kwargs)
+    for solute in solute_list:
+        colors = colordict.get(solute, ["#000000"] * 4) # default to black
+        try:
+            volestm_data = data["Volume Approximations"][param][solute]
 
-# -------- Get to plotting --------
-
-solutes = ["Glycerol", "Sucrose", "Trehalose"]
-base_colors = {
-        "Glycerol": ["#208EA3", "#4178BC", "#7A71FC"],
-        "Sucrose": ["#E37CFF", "#EA4E9D", "#FCA7E4"],
-        "Trehalose":["#A4C61A", "#62BB35", "#37A862"],
-        } # Talk with Karen about best colors, want ones that change hue
-
-image_parameters = ["Particle Counts", "% Area - ice"]
-indicators = ["Circularity", "Solidity", "Aspect Ratio (Φ𝐹𝑚𝑎𝑥/Φ𝐹𝑚𝑖𝑛)"]
-volumes = ["Spherical", "Oblate Spheroid"]
-
-marker_info = {
-        "Glycerol": {'marker', 'o'},
-        "Sucrose": {'marker', 'X'},
-        "Trehalose": {'marker', 'd'}
-        }
-
-panel_tags = ["A", "B", "C", "D", "E", "F"]
-panel_i = 0
-
-# ----- First Row: Particle Counts -----
-for col, sol in enumerate(solutes):
-    axTop = fig.add_subplot(count_area_subplot[0, col])
-    base_color = base_colors[sol]
-    plot_counts_area_percent(axTop, sol, base_color, vol_markers)
-
-    #if col == 0:
-    #    axTop.set_ylabel(r"Particle Counts", fontsize=12, fontweight="bold")
-    #else:
-    #    axTop.set_ylabel(r"")
-
-    axTop.text(0.02, 0.98, panel_tags[panel_i]+")", transform=axTop.transAxes,
-               fontsize=12, fontweight='bold', va='top')
-    panel_i += 1
-
-# ----- Second Row: IRI indicators -----
-for idx, indic in enumerate(indicators):
-    axMid = fig.add_subplot(IRI_subplots[0, idx])
-
-    for col, sol in enumerate(solutes):
-        base_color = base_colors[sol]
-        plot_IRI_indicator_avgs(axMid, indic, sol, base_color, IRI_markers[idx])
-        plot_IRI_avg_dev(axMid, indic, sol, base_color, IRI_markers[idx])
-
-    axMid.set_ylabel(indic, fontsize=12, fontweight="bold")
+            legend_handles = []
+            legend_labels = []
     
-    axMid.text(0.02, 0.98, panel_tags[panel_i]+")", transform=axMid.transAxes, 
-               fontsize=14, fontweight='bold', va='top')
-    panel_i += 1
-        
-
-# ----- Third Row: Volume Estimations -----
-for col, sol in enumerate(solutes):
-    axBot = fig.add_subplot(volume_subplots[0, col])
-    base_color = base_colors[sol]
-    plot_Vol_estimates(axBot, vol_markers, sol, base_color)
-    plot_Vol_avg_devs(axBot, sol, base_color, vol_markers)
-
-    if col == 0:
-        axBot.set_ylabel(r"Volume (µm³)", fontsize=12, fontweight="bold")
-    else:
-        axBot.set_ylabel(r"")
-
-    axBot.set_xlabel("Time (minutes)", fontsize=12, fontweight="bold")
-
-    axBot.text(0.02, 0.98, panel_tags[panel_i]+")", transform=axBot.transAxes,
-               fontsize=14, fontweight='bold', va='top')
-    panel_i += 1
-
-
-    # ----- Use if autoscaling axes necessary -----
-#    t_top, y_counts = gather_points_counts(sol)
-#    mid_axes = gather_points_IRI(
-
+            for trial_idx, trial_key in enumerate(trial_keys):
+                if trial_key in volestm_data:
+                    trial_points = sorted(volestm_data[trial_key], key=lambda p: p[0])
+                    t_vals = [p[0] for p in trial_points]
+                    y_vals = [p[1] for p in trial_points]
     
-    # ---- autoscale axes (top from CSV exp; bottom from raw With PVA) ----
-#    tL, yL = gather_points_from_csv(sol)
-#    tR, yR = gather_points_with_pva(sol)
+                    color = colors[trial_idx] if trial_idx < len(colors) else colors[-1]
+    
+                    scatter_bot = ax_bot.scatter(t_vals, y_vals,
+                                                 marker=marker,
+                                                 linestyle=':',
+                                                 color=color,
+                                                 edgecolors='none',
+                                                 linewidth=trial_lw,
+                                                 label=f"{solute} - {trial_key}",
+                                                 zorder=3)
 
-#    if tL.size and yL.size:
-#        xmin, xmax = float(np.min(tL)), float(np.max(tL))
-#        ymin, ymax = float(np.min(yL)), float(np.max(yL))
-#        axTop.set_xlim(xmin - 0.05*(xmax-xmin+1), xmax + 0.05*(xmax-xmin+1))
-#        axTop.set_ylim(max(0.0, ymin - 0.10*(ymax-ymin+1)), ymax + 0.10*(ymax-ymin+1))
+                    scatter_top = ax_top.scatter(t_vals, y_vals,
+                                                 marker=marker,
+                                                 linestyle=':',
+                                                 color=color,
+                                                 edgecolors='none',
+                                                 linewidth=trial_lw,
+                                                 label=f"{solute} - {trial_key}",
+                                                 zorder=3)
+                
+                    legend_handles.append(scatter_top)
+                    legend_handles.append(scatter_bot)
+                    legend_labels.append(f"{solute} - {trial_key}")
+            
+                    if trial_key == "Average":
+                        z = np.polyfit(t_vals, y_vals, 1)
+                        p = np.poly1d(z)
+            
+                        t_smooth = np.linspace(min(t_vals), max(t_vals), 100)
+                        y_trend = p(t_smooth)
 
-#    if tR.size and yR.size:
-#        xmin, xmax = float(np.min(tR)), float(np.max(tR))
-#        ymin, ymax = float(np.min(yR)), float(np.max(yR))
-#        axBot.set_xlim(0, xmax + 0.05*(xmax-xmin+1)) # xmin - 0.05*(xmax-xmin+1), xmax + 0.05*(xmax-xmin+1))
-#        axBot.set_ylim(0, ymax + 0.10*(ymax-ymin+1)) # max(0.0, ymin - 0.10*(ymax-ymin+1)), ymax + 0.10*(ymax-ymin+1))
+                        ax_top.plot(t_smooth, y_trend,
+                                    linestyle='--',
+                                    linewidth=trial_lw,
+                                    alpha=trial_alpha,
+                                    color=color)
+                        ax_bot.plot(t_smooth, y_trend,
+                                    linestyle='--',
+                                    linewidth=trial_lw,
+                                    alpha=trial_alpha,
+                                    color=color)
+        except KeyError as e:
+            print(f"Warning: Could not find {param} data for {solute}: {e}")
+    
+    ax_bot.set_ylim(y_range_bot)
+    ax_top.set_ylim(y_range_top)
+    ax_bot.spines['top'].set_visible(False)
+    ax_top.spines['bottom'].set_visible(False)
+    ax_top.tick_params(labelbottom=False, bottom=False)
+    ax_bot.tick_params(labelbottom=True, bottom=True)
+    d = 0.5
+    kwargs = dict(marker='+', markersize = 1,
+                  linestyle="none", color='k', mec='k',
+                  mew=1, clip_on=False)
+    ax_top.plot([0, 1], [0, 0], transform=ax_top.transAxes, **kwargs)
+    ax_bot.plot([0, 1], [1, 1], transform=ax_bot.transAxes, **kwargs)
 
-    # Styling consistent with your figure
-    for ax in (axTop, axMid, axBot):
+    units = "$\mu m^3$"
+    if param == "Spherical":
+        ylabel = f"{param} Vol, $V=(4/3) * \pi * (r\_avg)^3$, ({units})"
+        panel_label = "B"
+    if param == "Oblate Spheroid":
+        ylabel = f"{param} Vol, $V=(1/6) * \pi * (\Phi F\_min)^2 * \Phi F\_max$, ({units})"
+        panel_label = "C"
+    ax_bot.set_xlabel("Time (s)", fontsize=8)
+    ax_bot.set_ylabel(ylabel, fontsize=8, color='black')
+
+    ax_bot.tick_params(axis='y', colors='black')
+    ax_top.tick_params(axis='y', colors='black')
+    
+    if legend_handles:
+        ax_top.legend(legend_handles, legend_labels, loc='best', fontsize=6)
+    
+    for ax in [ax_top, ax_bot]:
         for spine in ax.spines.values():
             spine.set_alpha(0.35)
-        ax.grid(True, which="major", linestyle="--", linewidth=0.6, alpha=0.4)
-        ax.grid(True, which="minor", linestyle=":",  linewidth=0.5, alpha=0.12)
-        ax.minorticks_on()
+        ax.grid(True, which='major', linestyle='--', linewidth=0.6, alpha=0.4)
+        ax.grid(True, which='major', linestyle=':', linewidth=0.5, alpha=0.12)
         ax.tick_params(axis="both", labelsize=9)
+    
+    add_panel_label(ax_top, panel_label)
 
-# ---------------------------------------------------
-# 8) Save + show
-# ---------------------------------------------------
+    return ax_bot, ax_top
+
+def plot_IRI_indics(ax, param, solute, colordict, deviation_data):
+    """
+    """
+    marker='o'
+    avg_color=colordict.get(solute, ["#000000"] * 4)[3] # default to black
+    
+    try:
+        avgiri_data = data["IRI Indicators"][param][solute]["Average"]
+
+        avg_data = sorted(avgiri_data, key=lambda p: p[0])
+        t_vals = [p[0] for p in avg_data]
+        y_vals = [p[1] for p in avg_data]
+   
+        dev_vals = None
+        if deviation_data is not None:
+            try:
+                stdev_iri_data = deviation_data["IRI Indicators"][param][solute]["Average"]
+
+                dev_data = sorted(stdev_iri_data, key=lambda p: p[0])
+                dev_vals= [p[1] for p in dev_data]
+            except (KeyError, IndexError):
+                std_vals = None
+
+        if dev_vals is not None and len(dev_vals) == len(y_vals):
+            ax.errorbar(t_vals, y_vals,
+                        yerr=dev_vals,
+                        marker=marker,
+                        linestyle='',
+                        markersize=6,
+                        color=avg_color,
+                        capsize=3,
+                        capthick=1,
+                        elinewidth=1,
+                        label=f"{param} - {solute}")
+        else:
+            ax.plot(t_vals, y_vals,
+                    marker=marker,
+                    linestyle='',
+                    markersize=6,
+                    color=avg_color,
+                    linewidth=trial_lw,
+                    label=f"{param} - {solute}")
+
+        if len(t_vals) > 1:
+            z = np.polyfit(t_vals, y_vals, 1)
+            p = np.poly1d(z)
+            
+            t_smooth = np.linspace(min(t_vals), max(t_vals), 100)
+            y_trend = p(t_smooth)
+
+            ax.plot(t_smooth, y_trend,
+                    linestyle='--',
+                    linewidth=trial_lw,
+                    alpha=trial_alpha,
+                    color=avg_color,
+                    label=f"{param} - {solute} fit")
+
+    except KeyError:
+        pass        
+
+    if param == "Circularity":
+        ylabel = f"{param} - $C=4*\pi*(Area/(Perimeter)^2)$"
+    if param == "Solidity":
+        ylabel = f"{param} - $S=(Area/Convex hull area)$"
+    if param == "Aspect Ratio":
+        ylabel = f"{param} - $\Phi F\_max/\Phi F\_min$" 
+
+    ax.set_xlabel("Time (s)", fontsize=8)
+    ax.set_ylabel(ylabel, fontsize=8, color='black')
+    ax.tick_params(axis='y', colors='black')
+    
+    lines, labels = ax.get_legend_handles_labels()
+    if lines:
+        unique_labels = {}
+        for line, label in zip(lines, labels):
+            if "fit" in label:
+                base_label = label.replace(" fit", "")
+                if base_label not in unique_labels:
+                    unique_labels[base_label] = line
+            else:
+                unique_labels[label] = line
+        ax.legend(unique_labels.values(), unique_labels.keys(),
+                  loc='best', fontsize=6)
+
+    return ax
+
+def add_panel_label(ax, panel_label):
+    ax.text(0.02, 0.98, panel_label+")", transform=ax.transAxes,
+            fontsize=12, fontweight='bold', va='top')
+    return ax
+
+solutes = ["Glycerol", "Sucrose", "Trehalose"]
+trial_keys = ["Trial 1", "Trial 2", "Trial 3", "Average"]
+base_colors = {
+        "Glycerol": ["#208EA3", "#4178BC", "#7A71FC", "#AA71FF"], #aqua, blue, indigo, purple
+        "Sucrose": ["#E37CFF", "#EA4E9D", "#FCA7E4", "#E8384F"], #magenta, hot pink, pink, red
+        "Trehalose":["#A4C61A", "#62BB35", "#37A862", "#37C597"], #yellow green, green, blue green, dark green
+        } # Talk with Karen about best colors, want ones that change hue
+
+impop_ax = fig.add_subplot(count_area_subplot[0])
+circ_ax = fig.add_subplot(circ_subplot[0])
+ar_ax = fig.add_subplot(AR_subplot[0])
+solid_ax = fig.add_subplot(solidity_subplot[0])
+
+plot_vol_estms(fig, sphere_vol_subplot[0], "Spherical", solutes, base_colors)
+plot_vol_estms(fig, spheroid_vol_subplot[0], "Oblate Spheroid", solutes, base_colors)
+
+
+for sol in solutes:
+    plot_counts_area_percent(impop_ax, sol, base_colors)
+    plot_IRI_indics(circ_ax, "Circularity", sol, base_colors, std_dev_data)
+    plot_IRI_indics(ar_ax, "Aspect Ratio", sol, base_colors, std_dev_data)
+    plot_IRI_indics(solid_ax, "Solidity", sol, base_colors, std_dev_data)
+
+add_panel_label(impop_ax, "A")
+add_panel_label(circ_ax, "D")
+add_panel_label(ar_ax, "E")
+add_panel_label(solid_ax, "F")
+
 Path(save_path_wk).parent.mkdir(parents=True, exist_ok=True)
 plt.savefig(save_path_wk, bbox_inches="tight", facecolor="white")
 plt.show()
+quit()
+
