@@ -522,22 +522,28 @@ def gather_points_with_pva(sol, dataset):
 
     return trial_data_list
 
-def plot_combined_solutes(ax, data_dict, title, color_dict, marker_dict, 
+trial_alpha = 0.40
+trial_lw = 1.8
+def plot_combined_solutes(ax, data_dict, title, color_dict, avgcolor_dict, marker_dict, 
                           xlabel='', ylabel='', show_legend=True, 
-                          alpha=0.90, lw=1.8):
+                          alpha=0.90, lw=1.8, trend_padding=0.2):
     """
     """
     for solute, data in data_dict.items():
         trial_datasets = data
                
         # Get the color_list for each solute
-        color_list = color_dict.get(solute, ["#000000", "#444444", "#888888"])
-       
+        color_list = color_dict.get(solute, ["#000000"] * 3) # default to black
+        average_color = avgcolor_dict.get(solute, "#000000")
+
         # Get marker configuration
         marker_cfg = marker_dict.get(solute, {})
         marker_style = marker_cfg.get('marker', 'o')
         mec = marker_cfg.get('mec', "#8D9F98")
         mew = marker_cfg.get('mew', 0.3)
+        
+        all_x=[]
+        all_y=[]
 
         for trial_idx, trial_data in enumerate(trial_datasets):
             if len(trial_data) != 2:
@@ -550,6 +556,9 @@ def plot_combined_solutes(ax, data_dict, title, color_dict, marker_dict,
             if x_data is None or y_data is None or len(x_data) == 0 or len(y_data) == 0:
                 continue
             
+            all_x.extend(x_data)
+            all_y.extend(y_data)
+
             color_idx = trial_idx % len(color_list)
             current_color = color_list[color_idx]
 
@@ -567,6 +576,31 @@ def plot_combined_solutes(ax, data_dict, title, color_dict, marker_dict,
                        linewidth=mew,
                        label=solute,
                        zorder=3)
+        
+        if len(all_x) > 1:            
+            z = np.polyfit(all_x, all_y, 1)
+            p = np.poly1d(z)
+            
+            # for plot ranges/axes - not working as intended
+            x_min, x_max = min(all_x), max(all_x)
+            y_min, y_max = min(all_y), max(all_y)
+            #x_diff = x_max - x_min
+            #y_diff = y_max - y_min
+            # x_padding = x_diff * trend_padding
+            #y_padding = y_diff * trend_padding
+            #x_range = (x_min - x_padding, x_max + x_padding)
+            #y_range = (y_min - y_padding, y_max + y_padding)
+
+            t_smooth = np.linspace(x_min, x_max, 100)
+            y_trend = p(t_smooth)
+
+            ax.plot(t_smooth, y_trend,
+                    linestyle='--',
+                    linewidth=trial_lw,
+                    alpha=trial_alpha,
+                    color=average_color,
+                    label=f"{solute} fit")
+
     
     # Styling
     for spine in ax.spines.values():
@@ -577,6 +611,10 @@ def plot_combined_solutes(ax, data_dict, title, color_dict, marker_dict,
     ax.minorticks_on()
     ax.tick_params(axis="both", labelsize=9)
     
+    #Set x and y limits manually
+    ax.set_xlim(0,130)
+    ax.set_ylim(0,21000)
+
     # Set labels
     if xlabel:
         ax.set_xlabel(xlabel, fontsize=12)
@@ -588,34 +626,39 @@ def plot_combined_solutes(ax, data_dict, title, color_dict, marker_dict,
     
     return ax
 
-def plot_with_broken_yaxis(figure, gs_pos, data_dict, color_dict, marker_dict, panel_label, show_legend=True):
+def plot_with_broken_yaxis(figure, gs_pos, data_dict, color_dict, trendline_dict, marker_dict, panel_label, show_legend=True):
     """
     """
     gs_sub = gridspec.GridSpecFromSubplotSpec(2, 1, subplot_spec=gs_pos,
-                                              height_ratios=[1,3], hspace=0.08)
+                                              height_ratios=[1,1], hspace=0.08)
 
     ax_top = figure.add_subplot(gs_sub[0])
     ax_bot = figure.add_subplot(gs_sub[1])
 
-    y_range_bot = (0,65)
-    y_range_top = (650, 7500)
-
+    y_range_bot = (0,70)
+    y_range_top = (1000, 7000)
+    
+    five_min_dict = {}
     for solute, trial_datasets in data_dict.items():
         if not trial_datasets or len(trial_datasets) == 0:
             continue
         
-        color_list = color_dict.get(solute, ["#000000", "#444444", "#888888"])
+        color_list = color_dict.get(solute, ["#000000"] * 3) # default to black
         marker_cfg = marker_dict.get(solute, {})
         marker_style = marker_cfg.get('marker', 'o')
         mec = marker_cfg.get('mec', "#8D9F98")
         mew = marker_cfg.get('mew', 0.3)
-
+        
+        five_min_values = []
         for trial_idx, trial_data in enumerate(trial_datasets):
             print(f"Inside broken_axis, currently processing: {solute} trial {trial_idx}")
             x_data, y_data = trial_data
             if x_data is None or y_data is None or len(x_data) == 0:
                 continue
             
+            if x_data[0] == 5:
+                five_min_values.append(y_data[0])
+                
             color_idx = trial_idx % len(color_list)
             current_color = color_list[color_idx]
             if show_legend and trial_idx == 0:
@@ -642,6 +685,22 @@ def plot_with_broken_yaxis(figure, gs_pos, data_dict, color_dict, marker_dict, p
                            linewidth=mew,
                            label=label,
                            zorder=3)
+        if five_min_values:
+            five_min_avg = np.mean(five_min_values)
+            five_min_dict[solute] = five_min_avg
+    
+    print("The entire five_min_dict looks like:", five_min_dict)
+
+    for solute, avg_value in five_min_dict.items():
+        current_color = trendline_dict.get(solute, "#000000")
+        
+        x_line = [0, 5]
+        y_line = [0, avg_value]
+        
+        ax_bot.plot(x_line, y_line, color=current_color, linestyle='--', 
+                   linewidth=1.5, alpha=0.7, label=f'{solute} trend' if show_legend else "")
+        ax_top.plot(x_line, y_line, color=current_color, linestyle='--', 
+                   linewidth=1.5, alpha=0.7)
 
     ax_bot.set_ylim(y_range_bot)
     ax_top.set_ylim(y_range_top)
@@ -674,11 +733,12 @@ def plot_with_broken_yaxis(figure, gs_pos, data_dict, color_dict, marker_dict, p
         ax.grid(True, which="major", linestyle=':', linewidth=0.5, alpha=0.12)
         ax.minorticks_on()
         ax.tick_params(axis="both", labelsize=9)
-
+    print("The entire five_min_dict looks like:", five_min_dict)
+ 
     return ax_bot
 
 def plot_combined_panel(figure, gs_spec, csvdataset, pvadataset, 
-                        basecolors, marker_info, panel_labels=['a', 'b']):
+                        basecolors, average_colors, marker_info, panel_labels=['a', 'b']):
     """
     """
     ax_left = figure.add_subplot(gs_spec[0, 0])
@@ -700,6 +760,7 @@ def plot_combined_panel(figure, gs_spec, csvdataset, pvadataset,
         without_pva_data,
         title="Without PVA",
         color_dict=base_colors,
+        avgcolor_dict=trendline_colors,
         marker_dict=marker_info,
         xlabel='Time (min)',
         ylabel=r'$R^3$ ($\mu$m$^3$)',
@@ -713,7 +774,7 @@ def plot_combined_panel(figure, gs_spec, csvdataset, pvadataset,
                  fontsize=10, fontweight='bold', va='top')
     
     ax_right = plot_with_broken_yaxis(figure, gs_spec[0, 1], with_pva_data,
-                                      base_colors, marker_info, panel_labels[1])
+                                      base_colors, trendline_colors, marker_info, panel_labels[1])
 
         
     # Optionally synchronize y-limits
@@ -759,7 +820,7 @@ pva_data = {
                 (80,4506.458),
                 (100,3339.451),
                 (120,3742.128),
-            ],   
+            ],
         },
         "Sucrose": {
             "Trial 1": [     # Was Trial 2
@@ -788,7 +849,7 @@ pva_data = {
                 (80,34.505),
                 (100,33.854),
                 (120,36.802),
-            ]  
+            ],
         },
         "Trehalose": {
             "Trial 1": [
@@ -817,7 +878,7 @@ pva_data = {
                 (80,35.193),
                 (100,34.427),
                 (120,37.165),
-            ]
+            ],
         }
     }
 }
@@ -863,11 +924,16 @@ pva_data = {
 #quit()
 
 base_colors = {
-        "Glycerol": ["#208EA3", "#4178BC", "#7A71F6"],
-        "Sucrose": ["#E37CFF", "#EA4E9D", "#FCA7E4"],
-        "Trehalose": ["#A4C61A", "#62BB35", "#37A862"],
+        "Glycerol": ["#208EA3", "#4178BC", "#7A71FC"], #aqua, blue, indigo
+        "Sucrose": ["#E37CFF", "#EA4E9D", "#FCA7E4"], #magenta, hot pink, pink
+        "Trehalose":["#A4C61A", "#62BB35", "#37A862"], #yellow green, green, blue green
+        } # Talk with Karen about best colors, want ones that change hue
+
+trendline_colors = {
+        "Glycerol": "#AA71FF", #purple
+        "Sucrose": "#E8384F", #red
+        "Trehalose": "#37C597", #dark green
         }
-        # old: {"Glycerol": "#1f77b4", "Sucrose": "#ff7f0e", "Trehalose": "#2ca02c"}
 
 marker_info = {
         "Glycerol": {'marker': 'o'},
@@ -887,6 +953,7 @@ ax_left, ax_right = plot_combined_panel(
         csvdataset=csv_sources,
         pvadataset=pva_data["With PVA"],
         basecolors=base_colors,
+        average_colors=trendline_colors,
         marker_info=marker_info,
         panel_labels=['N', 'O'],
 )
