@@ -51,6 +51,6 @@ Beyond modifying the protocol,
 2. 40 $^o$C/min, -50 $^o$C, 1 min hold LNP auto;
 	- 
 3. 5 $^o$C/min, -25 $^o$C, no hold LNP auto;
-	- for heating/thawing, want slower rate of temerature change. Better for confidenc ein temperature sensor reading to make intended temperature
+	- for heating/thawing, want slower rate of temperature change. Better for confidence in temperature sensor reading to make intended temperature
 
 
