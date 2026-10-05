@@ -11,11 +11,12 @@ import pandas as pd
 
 filenumbers = [1, 4, 8, 12, 16, 20, 24]
 timestamps = [5, 20, 40, 60, 80, 100, 120]
-solutes = ["Glycerol", "Sucrose"]   #, "Trehalose"]
+solutes = ["Trehalose"]  #"Glycerol", "Sucrose"]   #, "Trehalose"]
 
 trials_map = {
     "Glycerol": [1, 2, 3],
     "Sucrose": [1, 2, 3, 4],
+    "Trehalose": [1, 2, 3],
 }
 
 def create_expt_dataframe(
@@ -60,8 +61,6 @@ print(f"The initial DataFrame looks like:")
 print(expt_df.head(10))
 print(f"\n{'='*50}\n")
 
-# quit()
-
 def determine_proc_methods(
     df, #default to the intended df
 ):
@@ -82,6 +81,9 @@ def determine_proc_methods(
         ("Sucrose", 2): r'Suc_PVA_Images/03_06_24_trial2/',
         ("Sucrose", 3): r'Suc_PVA_Images/03_06_24_trial3/',
         ("Sucrose", 4): r'Suc_PVA_Images/12_08_23_trial4/',
+        ("Trehalose", 1): r'Tre_PVA_Images/03_13_24_trial1/',
+        ("Trehalose", 2): r'Tre_PVA_Images/12_12_23_trial2/',
+        ("Trehalose", 3): r'Tre_PVA_Images/03_13_24_trial3/',
     }
     #   if copy_df["cosolute"] == "Trehalose":
     #       if copy_df["trial number"] == 1:
@@ -183,6 +185,8 @@ print("........")
 print(updated_df.tail(20))
 print(f"\n{'='*50}\n")
 
+# quit()
+
 def generate_results_macro(
     cosolute,
     trial_number,
@@ -248,12 +252,10 @@ def generate_results_macro(
     
     if saveAs_configs is None:
         saveAs_configs = [
-                {'filetype': 'Results', 'suffix': f'Summary_T{file_num_str}_{time_stamp_str}min_trial{trial_num_str}'},                         # saveAs instances 1, Summary.csv
                 {'filetype': 'Tiff', 'suffix': f'drawing_T{file_num_str}_{time_stamp_str}min_trhd-{threshold}_{watershed}_trial{trial_num_str}_proc'},                            # saveAs instances 2, Drawing of Outlines
-                {'filetype': 'Results', 'suffix': f'Results_T{file_num_str}_{time_stamp_str}min_trial{trial_num_str}'},                        # saveAs instance 3, Results.csv
-                {'filetype': 'Tiff', 'suffix': f'T{file_num_str}_{time_stamp_str}min_trhd-{threshold}_{watershed}_trial{trial_num_str}_proc'},       # saveAs instances 4, final image (after threshold and "Analyze Particles..")
-                {'filetype': 'Tiff', 'suffix': f'AreaDistribution_T{file_num_str}_{time_stamp_str}min_trial{trial_num_str}'},                   # saveAs instance 5, Area Distribution image
-                {'filetype': 'Results', 'suffix': f'AreaDistribution_T{file_num_str}_{time_stamp_str}min_trial{trial_num_str}_list'},           # saveAs instance 6, Area Distribution list
+                {'filetype': 'Results', 'suffix': f'Results_T{file_num_str}_{time_stamp_str}min_trial{trial_num_str}'},                         # saveAs instances 2, Results.csv
+                {'filetype': 'Tiff', 'suffix': f'T{file_num_str}_{time_stamp_str}min_trhd-{threshold}_{watershed}_trial{trial_num_str}_proc'},       # saveAs instances 3, final image (after threshold and "Analyze Particles..")
+                {'filetype': 'Tiff', 'suffix': f'AreaDistribution_T{file_num_str}_{time_stamp_str}min_trial{trial_num_str}'},                   # saveAs instance 4, Area Distribution image
             ] 
     
     saveAs_counter = 0
@@ -291,13 +293,13 @@ def generate_results_macro(
     modified_macro = re.sub(saveAs_pattern, saveAs_results, modified_macro)
 
     selectIm_counter = 0
-    selectIm_pattern = r'(selectImage\(\s*"T)(\d+)(.*?_grey)(\.\w+"\);)'
+    selectIm_pattern = r'(selectImage\(\s*"T)(\d+)(.*?_grey-1)(\.\w+"\);)'
 
     def selectImage_results(match):
         nonlocal selectIm_counter
         selectIm_counter += 1
         
-        selectIm_suffix = f"_{time_stamp_str}min_trhd-{threshold}_{watershed}_grey"
+        selectIm_suffix = f"_{time_stamp_str}min_trhd-{threshold}_{watershed}_grey-1"
 
         selectImage_prefix = match.group(1)
         T_number = match.group(2)
