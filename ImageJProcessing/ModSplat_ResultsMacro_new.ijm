@@ -1,0 +1,16 @@
+open("C:/Users/WarrenKincaid/git/notebook_wk_hanlab/ImageJProcessing/Gly_PVA_Images/03_04_24_trial1/AutoProc/T0001_5min_trhd-im_no-ws_grey.tif");
+run("Duplicate...", " ");
+setAutoThreshold("Default no-reset");
+setThreshold(3, 128);
+setOption("BlackBackground", true);
+run("Convert to Mask");
+run("Set Scale...", "distance=2.425 known=1 unit=µm");
+run("Set Measurements...", "area mean standard perimeter shape feret's display redirect=None decimal=3");
+run("Analyze Particles...", "size=10.00-Infinity show=Outlines display exclude summarize");
+saveAs("Tiff", "C:/Users/WarrenKincaid/git/notebook_wk_hanlab/ImageJProcessing/Gly_PVA_Images/03_04_24_trial1/AutoProc/drawing_T0001_5min_trhd-im_no-ws_trial1_proc.tif");
+close;
+saveAs("Results", "C:/Users/WarrenKincaid/git/notebook_wk_hanlab/ImageJProcessing/Gly_PVA_Images/03_04_24_trial1/AutoProc/Results_T0001_5min_trial1.csv");
+selectImage("T0001_5min_trhd-im_no-ws_grey-1.tif");
+saveAs("Tiff", "C:/Users/WarrenKincaid/git/notebook_wk_hanlab/ImageJProcessing/Gly_PVA_Images/03_04_24_trial1/AutoProc/T0001_5min_trhd-im_no-ws_trial1_proc.tif");
+run("Distribution...", "parameter=Area automatic");
+saveAs("Tiff", "C:/Users/WarrenKincaid/git/notebook_wk_hanlab/ImageJProcessing/Gly_PVA_Images/03_04_24_trial1/AutoProc/AreaDistribution_T0001_5min_trial1.tif");
