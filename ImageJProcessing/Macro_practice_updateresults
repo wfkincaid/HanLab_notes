@@ -1,0 +1,15 @@
+open("C:/Users/WarrenKincaid/git/notebook_wk_hanlab/ImageJProcessing/Suc_PVA_Images/03_06_24_trial2/AutoProc/T0001_5min_trhd-im_ws_grey.tif");
+setAutoThreshold("Default no-reset");
+//run("Threshold...");
+setThreshold(1, 128, "raw");
+//setThreshold(1, 128);
+run("Convert to Mask");
+run("Close");
+run("Set Scale...", "distance=2.425 known=1 unit=µm");
+run("Analyze Particles...", "size=10.00-Infinity show=Outlines display exclude summarize");
+selectImage("T0001_5min_trhd-im_ws_grey.tif");
+run("Set Measurements...", "area mean standard perimeter shape feret's display redirect=None decimal=3");
+run("Set Measurements...", "area mean standard perimeter shape feret's display redirect=None decimal=3");
+selectImage("Drawing of T0001_5min_trhd-im_ws_grey.tif");
+close;
+run("Analyze Particles...", "size=10.00-Infinity show=Outlines display exclude summarize");
