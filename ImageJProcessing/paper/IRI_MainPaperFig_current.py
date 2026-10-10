@@ -163,29 +163,33 @@ def plot_img_borderless(ax, img, show_ticks=False):
     """
     """
     if img is not None:
+        h, w = img.shape[:2]
+        ratio = h / w
         ax.imshow(
             img,
-            extent = (0,1,0,1),
             origin = "upper",
             interpolation = "nearest",
-            aspect = "auto",
+            aspect = "equal",
+            # anchor="C",
         )
+        ax.set_box_aspect(ratio)
     else:
         ax.set_facecolor("lightgrey")
         ax.text(0.5, 0.5, "Image not Available",
                 ha="center", va="center", color="red",
                 transform=ax.transAxes, fontsize=10)
 
-        for spine in ax.spine.values():
-            spine.set_visible(False)
-        ax.set_xticks([])
-        ax.set_yticks([])
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+    
+    ax.set_xticks([])
+    ax.set_yticks([])
         
-        if show_ticks == False:
-            ax.tick_params(axis="both", which="both",
-                           length=0, labelbottom=False, labelleft=False)
-        ax.grid(False)
-        ax.set_aspect("auto")
+    if show_ticks == False:
+        ax.tick_params(axis="both", which="both",
+                       length=0, labelbottom=False, labelleft=False)
+    ax.grid(False)
+    ax.set_aspect("auto")
 
 def style_axis_with_frame(ax, lw=0.85, color="#444444"):
     for spine in ax.spines.values():
@@ -364,7 +368,7 @@ for ax, lab in zip([ax for row in axes_img for ax in row], panel_labels):
     label_panel(ax, lab + ")", fs=10)
 
 # ---------------------------------------------------
-# 6) Broken-axis bar charts NOW G-I - NEEDS FIX    (J–L)
+# 6) Broken-axis bar charts (NOW K, L, M)
 # ---------------------------------------------------
 error_params = dict(capsize=4, capthick=1.4, elinewidth=1.4, ecolor="black", fmt="none")
 bar_width = 0.12
@@ -410,7 +414,8 @@ def add_broken_bar_simple(subplot_spec, buf_mean, buf_err, pva_mean, pva_err, bu
     top_ax.set_ylim(*top_ylim)
     bot_ax.set_ylim(*bottom_ylim)
 
-    set_axis_title(top_ax, title, fontsize=14, x=0.6, y=0.5)
+    #set_axis_title(top_ax, title, fontsize=14, x=0.6, y=0.5)
+    top_ax.set_title(title, fontsize=10, fontweight="bold", pad=7)
 
     top_ax.spines["bottom"].set_visible(False)
     bot_ax.spines["top"].set_visible(False)
@@ -473,9 +478,21 @@ for sol in solutes:
             buffer_color, pva_color, "Trehalose (18%)", #add_legend=True,
         )
 
-suc_bot.set_ylabel("Average area ($\\mu m^2$)", fontsize=14, fontweight="bold")
+#suc_bot.set_ylabel("Average area ($\\mu m^2$)", fontsize=14, fontweight="bold")
 for ax in (suc_top, tre_top, tre_bot):
     ax.set_ylabel("")
+
+pos = tre_bot.get_position()
+fig.text(
+    pos.x1 + 0.02,
+    0.5 * (gly_top.get_position().y1 + tre_bot.get_position().y0),
+    "Average area ($\\mu m^2$)",
+    fontsize=13,
+    fontweight="bold",
+    va="center",
+    ha="center",
+    rotation=-90,
+)
 
 handles, labels_ = gly_top.get_legend_handles_labels()
 if handles:
