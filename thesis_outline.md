@@ -37,9 +37,9 @@ predicted through simulations.
 
 ## Ice & Ice Recrystallization Inhibition
 
-<WKcom>
-Include:
-- PVA is most effective synthetic chemical ice-inhibition molecule currently widely available (need citation)
+<WKcom> Include:
+- PVA is most effective synthetic chemical ice-inhibition molecule currently
+	widely available [Burkey 2018, proabably others as well]
 - 
 
 
@@ -98,10 +98,18 @@ to the ODNP resonator in an nontraditional way.
 # Investigations of poly(vinyl alcohol) ice recrystallization inhibition activities
 ## Prelude
 
-The content of the following chapter is a part of the upcoming publication "Water structuring on poly(vinyl alcohol) surfaces underlies ice recrystallization inhibition activity" by Pravin P. Taware, Warren F. Kincaid, Maria-Jose Ferre, Candice Crilly, Emma Gubbins, Zachary W. Brotherton, Lokeswara Rao, Alison Karis Kim, Rajat Kumar, Brady Axtell, Nathaniel A. lynd, Valeria Molinero, Baron Peters, Konrad Meister, Mary Shultz, Songi Han
+The content of the following chapter is a part of the upcoming publication
+"Water structuring on poly(vinyl alcohol) surfaces underlies ice
+recrystallization inhibition activity" by Pravin P. Taware, Warren F. Kincaid,
+Maria-Jose Ferre, Candice Crilly, Emma Gubbins, Zachary W. Brotherton,
+Lokeswara Rao, Alison Karis Kim, Rajat Kumar, Brady Axtell, Nathaniel A. lynd,
+Valeria Molinero, Baron Peters, Konrad Meister, Mary Shultz, Songi Han
 
 <WKcom>
+Include description of chapter being from currently (soon to be/hopefully submitted) manuscript
 
+Include my contributions to studies - Mod splat assay
+</WKcom>
 
 ## Introduction
 
@@ -1383,7 +1391,8 @@ We also gratefully acknowledge access to the IMSERC NMR facility.
 ## Supporting Information
 
 <WKcom>
-Ask SH for if I should add this and if so how
+After talk with SH, include. Provide context in prelude for SI section as well
+(my specialization was in processing the IRI images...)
 </WKcom>
 
 # Method of incorporating the Perfectly Matched Layer boundary condition to enable Eigenmode Simulations of a Coupling Device
@@ -3252,6 +3261,8 @@ polymerases for amplification which relies more on the original plasmid
 template rather than using whole-plasmid doubling capable of exponential
 amplification of the mutant plasmid.
 
+## Experimental Methods
+
 ## Results and Discussion
 <WKcom>
 [Incorporate] Using modern low-error, high amplification polymerases for
@@ -3276,44 +3287,79 @@ Including for ODNP, it is very important to have precise quantitative ESR measur
 
 One solution to this overall problem would be to perform simulation or wavelet analysis, but these each introduce their own new sets of assumptions. We instead explore the solutions of using a home-built script to illustrate the individual steps of spin quantization and a method using correlation alignment for the comparison of similar spectra.
 
+## Experimental Methods 
+
+<WKcom>
+- Describe process of capturing EPR spectra and XEPR
+- Include single EPR spectra here and layout basic processing methodology
+</WKcom>
+
 ## Results and Discussion
+
+
+
+
 
 <WKcom>
 Add figures of:
 - Tuning curve to normalized enhancements (make horizontal)
 - Scaled overlay of ESR spectra for the same mutant, diff samples/concentrations
-- Field Sweep example
 </WKcom>
+
+# Methods for more Reproducible and Precise ODNP Measurements
+## Introduction
+
+<WKcom>
+Focus on hardware and airflow improvements, assisting probe support design
+- Hardware improvements - improved probe supports, sample changer, airflow reconfigure
+- Software improvement - Capturing NMR signal, ODNP processing procedure (kRas as example)
+- assisting in noise measurements (cite AG paper)
+</WKcom>
+
+## Experimental Methods
+
+<WKcom>
+Process of probe support design
+process of airflow improvements
+</WKcom>
+
+## Results and Discussion
+
+
+
+
+
+
 
 # Utilizing the IRI activities of PVA with co-solute incorporation to inform controlled hydrogel production
 ## Introduction
 
 Polyvinyl alcohol (PVA) is the most widely studied synthetic polymer that
 exhibits ice recrystallization inhibition (IRI), a key mechanism for preventing
-ice crystal growth during the thawing process of cryopreservation.
-The findings
-above show that PVA does not strongly bind to ice itself but is still
-extremely efficient in its ability to effectively inhibit ice recrystallization
-through the influence it has on restructuring interfacial water.
-Also shown
-above, we can use added cosolutes including glycerol, sucrose,
-and trehalose in
-solution who are capable of suppressing the freezing point of an aqueous
-solution for additional improvements on the effectiveness of cryopreservation.
-Taking from the morphological and spectroscopic analysis of PVA's IRI
-mechanism, a current investigation of PVA-based hydrogels has been undertaken
-investigating the tunability of these hydrogels' mechanical properties through
-the mechanism of PVA's IRI effectiveness by tuning the annealing of the
-hydrogels at their particular ice-water coexistence temperatures.  
+ice crystal growth during the thawing process of cryopreservation. The findings
+above show that PVA does not strongly bind to ice itself but is still extremely
+efficient in its ability to effectively inhibit ice recrystallization through
+the influence it has on restructuring interfacial water. Also shown above, we
+can use added cosolutes including glycerol, sucrose, and trehalose in solution
+who are capable of suppressing the freezing point of an aqueous solution for
+additional improvements on the effectiveness of cryopreservation. Taking from
+the morphological and spectroscopic analysis of PVA's IRI mechanism, a current
+investigation of PVA-based hydrogels has been undertaken investigating the
+tunability of these hydrogels' mechanical properties through the mechanism of
+PVA's IRI effectiveness by tuning the annealing of the hydrogels at their
+particular ice-water coexistence temperatures.  
 
 
 
 ## Results and Discussion
 
+
+
 <WKcom>
-Include:
+Include for figures:
 - Overview of IRI mechanism to tune hydrogels, use currently used figure in presentation
 - Light microscope images of cryo-ultramicrotome slices, visualizing mesh and pores as well as overall gel structure
+- Gd-labeling PVA 
 </WKcom>
  
 
