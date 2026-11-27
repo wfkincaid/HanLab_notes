@@ -37,10 +37,13 @@ predicted through simulations.
 
 ## Ice & Ice Recrystallization Inhibition
 
-<WKcom> Include:
+<WKcom>
+Include:
+- Ice recrystallization inhibition/crypotection context or definition
 - PVA is most effective synthetic chemical ice-inhibition molecule currently
 	widely available [Burkey 2018, proabably others as well]
-- 
+- using optical microscopy and magnetic resonance for understanding the mechanism of PVA's IRI
+</WKcom>
 
 
 
@@ -115,7 +118,7 @@ Include my contributions to studies - Mod splat assay
 
 Ice recrystallization inhibition (IRI) plays a pivotal role in various
 applications where controlling ice crystal growth is essential
-(1-6; Hedir 2017, Zhao 2023, Rajan 2021, Liu 2021, Biggs 2019, Elliot 2017).
+[1-6; Hedir 2017, Zhao 2023, Rajan 2021, Liu 2021, Biggs 2019, Elliot 2017].
 In
 cryopreservation, a principal challenge is to prevent cellular damage caused by
 ice crystal formation and growth during freeze-thaw cycles.
@@ -123,7 +126,7 @@ Cryoprotective
 solutes, such as dimethyl sulfoxide (DMSO), glycerol, ethylene glycol,
 propylene glycol, and trehalose, are widely used in cryopreservation mixtures
 to mitigate intracellular ice formation and protect cells and tissues from
-damage (6–10; Elliot 2017, Best 2015, Cypser 2018, Ghafari 2011, Phillips 2016).
+damage [6–10; Elliot 2017, Best 2015, Cypser 2018, Ghafari 2011, Phillips 2016].
 However, at the concentrations necessary for efficacy, often
 exceeding 10% by volume (v/v), these agents can induce cytotoxicity,
 oxidative
@@ -387,7 +390,7 @@ crystal area, circularity, solidity, and Feret diameter.
 The Feret diameter was
 especially useful for evaluating growth inhibition.
 The field of view was set
-to 800 × 800 pixels (1940 μm × 1940 μm or 3.76*10^6 $\mum^2$)
+to 800 × 800 pixels (1940 μm × 1940 μm or 3.76\*10^6 $\mum^2$)
 and was calibrated
 using the microscope’s scale bar for precise measurements.
 
@@ -567,36 +570,28 @@ interaction and binding of PVA to ice.
 We present results of simulations for
 three systems
 		
-		# A simulation cell with 1 PVA 30-mer chain equilibrated in the presence of a
-		liquid-water interface at 273 K and 1 bar, evolved for 50 ns (Figure 1a, b),
-		sampling every 50 ps.
-		This simulation was initiated from a configuration from
-		ref.
-		(59),  with dimensions 91 × 53 × 115 Å3.
-		We melted the slab of ice at the
-		end, away from the PVA, for this analysis.
-		Because there is only a single PVA
-		30-mer in the cell and most of the chain is bound to ice, most of the
-		interfacial area remains PVA-free and can serve as an internal “pure interface”
-		reference region for comparison.
-		Moreover, the Qtet was computed only for water
-		molecules in the vicinity of PVA bound to ice and, separately,
-		for interfacial
-		regions without nearby PVA at matched distance from the interface.
+1. A simulation cell with 1 PVA 30-mer chain equilibrated in the presence of a
+	 liquid-water interface at 273 K and 1 bar, evolved for 50 ns (Figure 1a, b),
+	 sampling every 50 ps. This simulation was initiated from a configuration
+	 from ref. (59),  with dimensions 91 × 53 × 115 Å3. We melted the slab of ice
+	 at the end, away from the PVA, for this analysis. Because there is only a
+	 single PVA 30-mer in the cell and most of the chain is bound to ice, most of
+	 the interfacial area remains PVA-free and can serve as an internal “pure
+	 interface” reference region for comparison. Moreover, the Qtet was computed
+	 only for water molecules in the vicinity of PVA bound to ice and,
+	 separately, for interfacial regions without nearby PVA at matched distance
+	 from the interface.
 		
-		# A simulation cell with one PVA 30-mer chain equilibrated in liquid water at 273K
-		and 1 bar, evolved for 50 ns (Figure 1c), sampling every 50 ps,
-		with dimensions
-		with dimensions 91 × 53 × 115 Å3.
-		This simulation was initiated from
-		configuration (59) and melted all the ice in the system, ensuring that PVA was
-		immersed in liquid water.
+2. A simulation cell with one PVA 30-mer chain equilibrated in liquid water at
+	 273K and 1 bar, evolved for 50 ns (Figure 1c), sampling every 50 ps, with
+	 dimensions with dimensions 91 × 53 × 115 Å3. This simulation was initiated
+	 from configuration (59) and melted all the ice in the system, ensuring that
+	 PVA was immersed in liquid water.
 		
-		# Bulk liquid water reference - A simulation cell
-		with 8000 molecules of liquid water, evolved at 273 K and 1 bar for 10 ns,
-		sampling every 100 ps.
-		The initial configuration for this simulation was
-		prepared by randomly generating 8000 particles in a cell using Packmol(60)
+3. Bulk liquid water reference - A simulation cell with 8000 molecules of
+	 liquid water, evolved at 273 K and 1 bar for 10 ns, sampling every 100 ps.
+	 The initial configuration for this simulation was prepared by randomly
+	 generating 8000 particles in a cell using Packmol(60)
 
 We perform molecular dynamics simulations using LAMMPS(61).
 The equation of motion are integrated with the Velocity-Verlet algorithm using
@@ -634,7 +629,19 @@ molecular interactions between mW and OH of PVA beads in simulations have been
 modeled as mW water interactions and both these beads have been considered in
 Qtet calculations.
 
-<WKcom> Add Simulations Figure </WKcom>
+![ **Simulation snapshots and polymer–water radial distribution functions used to define the Qtet analysis regions.** (A) Side view of the simulation cell showing PVA (red) bound at the ice–water interface (water, cyan).
+(B) Same configuration viewed from
+the bottom of the ice.
+(C) Configuration with PVA (red) fully immersed in
+liquid water (cyan).
+(D) Radial distribution functions (g(r)) between PVA
+hydroxyl groups (OH–mW, blue) and PVA methylene groups (CH–mW, red)
+and mW
+water.
+Dashed vertical lines at 3.5 Å and 6.0 Å indicate the first minima of
+the respective RDFs and were used as distance cutoffs to select water molecules
+for (Qtet) calculations.
+](./media/MainPaperFigure1.png){#fig:MDSimsForQtetAnalysis height="3.5in"}
 
 at the ice–water interface (water, cyan).
 (B) Same configuration viewed from
@@ -759,7 +766,7 @@ Circularity
 values over the course of ice recrystallization for the cosolute-PVA solutions
 are visually represented in SI Figure S7D.
 
-<WKcom> IRI figure here </WKcom>
+![ **Ice recrystallization inhibition by PVA in glycerol, sucrose, and trehalose cosolute environments.** (A-D) show chemical structures of the glycerol, sucrose and trehalose cosolutes (A, B, C) as well as the basic polymer structure of PVA (D). Cryomicrographs (E-J) show ice crystal morphology after annealing in 5% (w/w) glycerol (E, F), 18% (w/w) sucrose (G, H), or 18% (w/w) trehalose (I, J), comparing buffer control (E, G, I) to samples containing 0.2 mg/mL PVA (F, H, J). Scale bars, 100 µm. Bar plots (K, L, M) quantify mean ice crystal cross-sectional area (µm2) for Buffer versus Buffer + PVA, reporting 12,289 ± 5,860 vs 659.8 ± 342.6 (glycerol; K), 1,021 ± 236.2 vs 34.99 ± 11.93 (sucrose; L), and 766 ± 52.4 vs 31.25 ± 5.494 (trehalose; M), demonstrating strong suppression of recrystallization in the presence of PVA across all cosolutes. Kinetic analyses (N & O) plot R3 (µm3) versus time (min): without PVA (N) exhibits approximately linear growth with slopes averaged across trials (shown in plot), whereas with PVA (O) shows markedly reduced and non-linear growth trajectories after the first (5 minute) observation of ice recrystallization, consistent with PVA-mediated inhibition of ice crystal ripening.](./media/MainPaperFigure2.png){#fig:IRIMorphologyAnalysis height="5in"}
 
 The solidity analysis quantifies the crystal density and structural integrity
 across all experimental conditions.
@@ -977,7 +984,7 @@ coexistence, indicating that PVA does not undergo extensive,
 strong ice-surface
 binding under these conditions.
 
-<WKcom> EPR and Ice boule fig </WKcom>
+![ **CW-EPR lineshape analysis of PVA mobility in sucrose solutions at −6 °C and ice boule formation studies of PVA in cryoprotectant solutions.** X-band CW-EPR spectra of sparsely (~2%) TEMPO-labeled 15 kDa PVA in sucrose solutions at −6 °C were analyzed using two-component lineshape simulations, yielding coexisting fast and slow motional populations (experimental, black; total fit, red; slow component, blue; fast component, green dashed). (A) 18% (w/w) sucrose, pre-freeze: τc,fast = 0.20 ns (44%) and τc,slow = 2.45 ns (56%). (B) 30% (w/w) sucrose, pre-freeze: τc, fast = 0.47 ns (52%) and τc,slow = 2.29 ns (48%). (C) 45% (w/w) sucrose, pre-freeze: τc,fast = 1.44 ns (67%) and τc,slow = 3.92 ns (33%). (D) 18% (w/w) sucrose, post-freeze (ice–water coexistence at −6 °C): τc,fast = 0.35 ns (45%) and τc,slow = 2.62 ns (55%). (F) At -4 °C, growth is chaotic, and the liquid-solid growth interface descends into the single-crystal region. The entire liquid phase rapidly and chaotically grows, solidifying the entire boule. (G) At –3 °C, growth dendritically extends into the single-crystal region. The liquid region is a mixture of relatively large single crystals and unfrozen liquid. (H) Adding 0.5 mg/mL of 86-89% hydrated 15 kDa PVA alters the growth front to a flat interface, similar to the water-ice interface observed during single crystal growth. The ice crystals extending into the liquid phase were similar to those in (I). Note the excellent, optically transparent single crystal in the lower part of the boule.](./media/MainPaperFigure3.png){#fig:CWEPRandIceBouleProp height="5in"}
 
 ### Controlled ice boule crystal propagation
 
@@ -1096,7 +1103,7 @@ In 18% (w/w) sucrose solution a 0.45 ppm downfield shift and in 18%
 Thus, Δδ isolates the incremental PVA-dependent shift at fixed cosolute
 composition.
 
-<WKcom> Add figure of 17O NMR data </WKcom>
+![ **Figure 4. Comprehensive ¹⁷O NMR analysis of PVA–water dynamics and cosolute-mediated water restructuring at room temperature and under ice–water coexistence.** (A) Room-temperature ¹⁷O NMR spectra of isotope-enriched HEPES buffer (20 mM HEPES, 150 mM NaCl, pH 7.5) containing 1 mg/mL PEG (20 kDa, red) or PVA (15 kDa, blue) compared with buffer alone (black). Dashed vertical lines mark the peak positions used to determine the polymer-induced downfield shift (ΔB–W). (B, C) 17O NMR spectra of 20% (w/w) PVA in buffer containing 18% (w/w) sucrose (B) or trehalose (C) before freezing (black) and under ice–water coexistence (red). The reduced liquid-water signal intensity upon freezing enables spin-counting of the remaining unfrozen fraction, yielding concentration factors of 2.97× (sucrose) and 3.27× (trehalose) (arrows). (D–G) Room-temperature overlays of normalized ¹⁷O NMR spectra for each cosolute condition, HEPES buffer (D), 5% (w/w) glycerol (E), 18% (w/w) sucrose (F), and 18% (w/w) trehalose (G) comparing buffer/cosolute only (black) with +20% (w/w) PVA (red). (H–K) Corresponding overlays acquired at −6 °C under ice–water coexistence for the same four conditions. Insets (D–K) show zoomed views of the peak apex to highlight small chemical-shift differences. For panels D–K, dashed vertical lines indicate peak positions, and Δ denotes the PVA-induced downfield shift (ppm) relative to the matched cosolute-only control at the same temperature/condition.](./media/MainPaperFigure4.png){#fig:17ONMRSpectra height="5in"}
 
 The 17O NMR chemical shift measurements were repeated at −6 °C under ice-water
 coexistence conditions upon addition of PVA to buffered solutions containing 5%
@@ -1232,7 +1239,7 @@ report distinct q_tetsignatures (~0.71 in bulk hydration shells versus ~0.78 at
 the interface), even without requiring additional polymer-induced enhancement
 beyond the interfacial baseline.
 
-<WKcom> Add figure of Qtet of water </WKcom>
+![ **Spatial variation of water tetrahedrality along the simulation cell.** Averaged tetrahedral order parameter (Qtet) of water molecules as a function of position along the (x)-axis (as defined in Fig. 1A). The dashed horizontal line at (Qtet = 0.72) indicates the bulk-liquid water reference value.](./media/MainPaperFigure5.png){#fig:WaterTetrahedralityQtet height="3in"}
 
 ## Discussion
 
@@ -1389,11 +1396,93 @@ study.
 We also gratefully acknowledge access to the IMSERC NMR facility.
 
 ## Supporting Information
-
 <WKcom>
 After talk with SH, include. Provide context in prelude for SI section as well
 (my specialization was in processing the IRI images...)
 </WKcom>
+
+### Materials
+
+All solutions were prepared using Milli-Q water (resistivity > 18 MΩ cm−1), unless otherwise specified. HEPES, sodium chloride (NaCl), glycerol, sucrose, and anhydrous trehalose were purchased from Fisher Scientific.  Cambridge Isotope Laboratories supplied 4% 17O-enriched water. For polymer synthesis and modifications, the following reagents were used: vinyl acetate (ARCOS Organics, 99.0%), azo-bis(2-methylpropionitrile) (AIBN, Sigma-Aldrich, ACS), ethyl acetate (Fisher, ACS), sodium hydroxide (Sigma Aldrich, 98%), methanol (Fisher, ACS), dibutyl tin dilaurate (ARCOS Organics, 94%), dimethyl sulfoxide (Sigma Aldrich, 99.7%), pyridine (ACROS Organics, Extra Dry, 99.0%), fluorescein isothiocyanate isomer I (Sigma Aldrich, 90%), 4-isothiocyanato-2,2,6,6-tetramethylpiperidine 1-oxyl free radical (ITC TEMPO, TCI America, 97.0%), acetone (Fisher, ACS), and hexanes (Fisher, ACS).
+
+### PVA synthesis, fractionation, labeling
+
+Poly (vinyl acetate) (PVAc) was synthesized according to a previously reported procedure (1). Vinyl acetate (19.97 g, 232 mmol) and AIBN (110 mg, 0.67 mmol) were dissolved in ethyl acetate (100 mL) in a round‑bottom flask equipped with a magnetic stir bar. The flask was sealed, purged with nitrogen for 10 min, and heated at 60 °C with stirring for 24 h. The reaction mixture was quenched by cooling with liquid nitrogen and precipitated into excess hexane(2). The supernatant was decanted, and the precipitate was redissolved in ethyl acetate; reprecipitation into hexane was repeated three times. The purified polymer was dried under vacuum and characterized by 1H NMR spectroscopy and gel permeation chromatography (GPC). To reduce dispersity, the polydisperse PVAc was fractionated by controlled precipitation. PVAc was dissolved in acetone (100 mg/mL), and hexane was added dropwise with stirring until persistent turbidity was observed. The mixture was heated to 50 °C and then allowed to cool to room temperature overnight, during which the highest‑molar‑mass fraction precipitated as a viscous layer at the bottom of the flask. This bottom layer was isolated and dried under vacuum. The procedure was repeated until the solution no longer turned cloudy with the addition of excess hexane. The molecular weights of each fraction were determined by GPC calibrated against polystyrene standards. Fractionated PVAc was hydrolyzed to PVA by dissolving PVAc (1.942 g, 22.6 mmol of repeat units) in methanol (40 mL). Sodium hydroxide (452 mg, 11.3 mmol) was added slowly with stirring, and the reaction was maintained at 40 °C for 4 hours. As hydrolysis proceeded, PVA precipitated. The suspension was centrifuged to collect the PVA, which was resuspended in methanol and centrifuged twice more. The purified PVA was dissolved in deionized water and lyophilized to facilitate subsequent dissolution. The lyophilized product was analyzed by 1H NMR spectroscopy.
+
+![ Synthesis of spin-labeled PVA. Schematic representation of labeling poly(vinyl acetate) (PVAc) with ITC‑TEMPO to obtain spin-labeled PVA.](./media/SuppInfoPaperFigure1.png){#fig:SLedPVASynthesis height="2.5in"}
+
+PVA was labeled with ITC‑TEMPO as previously described(3) . PVA (50 mg, 1.14 mmol of repeat units) was dissolved in DMSO (1.25 mL) in a scintillation vial. Pyridine (0.016 mL) and dibutyltin dilaurate (0.002 mL) were added, and the mixture was heated to 95 °C with stirring. ITC‑TEMPO (0.0114 mmol) was then added, and the reaction proceeded for 2 h. The labeled polymer was precipitated into methanol, collected by centrifugation, and resuspended in fresh methanol three times. The product was subsequently dissolved in water and lyophilized. 
+
+*Size-Exclusion chromatography:* The PVA was further purified through size-exclusion chromatography (SEC) to achieve a narrow molecular weight distribution centered at 15 kDa. The purification was conducted using the same Agilent SEC system, equipped with a 1260 Infinity isocratic pump, a degasser, and a temperature-controlled column maintained at 30°C. The system operated with chloroform as the mobile phase and covered a molecular weight range of 200–10,000,000 g/mol relative to polystyrene standards. Through careful fraction collection and SEC separation, the broad molecular weight distribution of the original PVA sample was refined to isolate the desired 15 kDa fraction, resulting in a polymer with significantly improved polydispersity and uniform chain length distribution. This purification step was crucial for obtaining consistent ice recrystallization inhibition (IRI) activity, as the molecular weight uniformity directly affects the polymer's interaction with water and the dynamics of ice crystal formation.
+
+*Hydrated polymer preparation for $$^{17}O$$ NMR:* The commercially available PVA polymer (MW 8-10 kDa, Sigma-Aldrich, CAS Number: 9002-89-5) was used for all NMR measurements. The appropriate amount of PVA was weighed and dissolved into buffer solution containing 20 mM HEPES, 150 mM NaCl, and either 5% (w/w) glycerol, 18% (w/w) sucrose, or 18% (w/w) trehalose, with 4% H2O for isotopic enrichment. The mixture was inverted and heated to approximately 40°C to completely dissolve the polymer. To ensure complete hydration, the solution was incubated overnight at 40°C. For NMR measurements, each sample was centrifuged directly into a 3.2 mm Kel-F insert (Bruker, MPN: B4493) due to the high solution viscosity. Following centrifugation, the inserts were sealed with plugs and caps.
+
+*$$^{17}O$$ NMR spectroscopy:* The 17O NMR spectra presented in Figure 4 of the main manuscript were acquired on an 11.7 T superconducting Bruker magnet, equipped with a Bruker Avance WB spectrometer operating at 400MHz. A 4mm MAS double-resonance double-broadband probe equipped with an FTS external chiller was used for the experiments. To ensure accurate temperature readings, methanol-d4 was used for temperature calibration (either 22.5°C or -6°C). Prior to all experiments, the 17O chemical shift was referenced with 30-40% isotope-enriched 17O water at 0 ppm at 20°C.
+
+*Pulse Acquire $$^{17}O$$ Spectra:* Samples were allowed to equilibrate in the precooled magnet for 15 minutes before acquisition. After the temperature equilibration period, the sample was tuned to the 17O resonant frequency, then re-tuned to a new value (11.7T, 67.78 MHz), and a nutation curve was performed to determine the 17O pulse for each sample. 17O spectra were acquired with a relaxation delay of 1 s, an acquisition of 0.2 s, and 2K transients.
+
+*Inversion Recover $$^{17}O$$ Spectra:* A standard inversion-recovery pulse sequence was used to measure the spin-lattice relaxation times-, starting from thermal equilibrium nuclear spin polarization, of hydrated PVA in the absence or presence of different cosolutes at varying temperatures. The relaxation delay was set to 3 s to ensure relaxation, and the acquisition was set to 0.2 s. The results are presented in SI-Table 1.
+
+<WKcom>
+Add SI Table 1
+</WKcom>
+
+*Excluded Volume Measurements with $$^{17}O$$ NMR* Samples under pre-freezing conditions (i.e. supercooled) were allowed to equilibrate in the precooled magnet for 15 mins before acquisition. After the temperature equilibration period, the sample was tuned to the resonant frequency of 17O (11.7T, 67.78 MHz), and a nutation curve was carried out to determine the 17O π/2 pulse for each sample. Under post-freezing conditions, where ice and water coexist, samples were prepared by immersing the PVA-containing 4mm SSNMR rotors in liquid nitrogen for 30 s. The rotor, with the flash-frozen sample, was then immediately placed within an 11.7T superconducting magnet pre-cooled to -18°C. After waiting for temperature stabilization, the temperature was adjusted to the ice-water coexistence point, which in our case is -6°C for 18% sucrose and trehalose. The sample was allowed to equilibrate for 15 mins before scanning was initiated.17O spectra were acquired with a relaxation delay of 1 second, an acquisition of 0.2 s, and 2048 transients for both pre-freezing and post-freezing conditions. 
+
+### Phase diagram of Glycerol/Sucrose/Trehalose-water
+
+The phase behavior of aqueous cosolute solutions under sub-zero temperatures is governed by the equilibrium relationships depicted in temperature-concentration phase diagrams. For binary water-solute systems, the liquidus curve (Tm) describes the equilibrium freezing point depression as a function of solute concentration, while the glass transition curve (Tg) defines the temperature below which the maximally freeze-concentrated solution vitrifies into an amorphous glassy state. Between these two curves lies the ice + solution coexistence region, where pure ice crystals are in equilibrium with a concentrated liquid phase (5–8). 
+
+![ Phase diagrams of glycerol, sucrose, and trehalose aqueous solutions showing liquidus (Tm) and glass transition (Tg) lines as functions of temperature and solute concentration (wt%). Phase regions include homogeneous solution, ice + concentrated liquid, and glass. Representative tie lines indicate liquid and ice mass fractions during freeze-concentration at specified temperatures.](./media/SuppInfoPaperFigure2.png){#fig:CosolutePhaseDiagrams height="7in"}
+
+### Modified splat assay
+
+The samples were prepared in a buffer solution containing 20 mM HEPES, 150 mM NaCl, and 0.576 M sucrose, trehalose, or glycerol. Samples contained 15 kDa PVA at concentrations of 0.1, 0.2, 0.25, and 1 mg/mL. A 2 μL aliquot was placed between two Nest Scientific 14 mm round cover glass slides (Chemglass Life Sciences, P.N.: CGN-1763-N14) and sealed with vacuum grease. The sealed sample was placed in a THMS600 temperature control stage (Linkam, P.N.: 1406-026-4134) to observe PVA’s IRI activity. An Olympus BX51 fluorescence microscope (Olympus Life Science) alongside a Linkam cooling system (Linkam, P.N.: 14050-1268) and liquid nitrogen pump (Linkam P.N.: 14102-5587) facilitated temperature regulation of this cold stage for each trial via the Link temperature control software available through Linkam Scientific. Heated nitrogen at 40°C was used to purge water vapor from the cold stage and cooling system before each run. To flash freeze the sample, the temperature was rapidly dropped to -50 °C at a rate of 40 °C/min. Crystal seeding (which is usually seen at -20 °C) was then observed as the stage temperature was increased to the annealing temperature of -6 °C at a rate of 10 °C /min. A Teledyne Lumenera Infintiy 8 camera, model:I8-LC00-08M, attached to the Olympus microscope was used to capture the ice crystal images. Once the system reached the annealing temperature[WK1.1], an auto-imaging protocol on Olympus Stream software was used to capture the progression of ice crystal growth. The crystal growth was imaged in 5-min increments and recorded for a total of 130 mins. The camera sensitivity was set to ISO 400 with an exposure compensation of -1/3 and a resolution of 1600x1200 pixels.
+
+![ **Ice recrystallization inhibition (IRI) activity of 15 kDa PVA in 5% glycerol solutions.** Cryomicrographs showing ice crystal growth over 120 minutes at 5-minute intervals during annealing at -6°C. Alternating rows show control samples (glycerol only) and PVA-treated samples (glycerol + PVA at 0.2 mg/mL concentrations). Samples prepared in 20 mM HEPES buffer with 150 mM NaCl and 0.576 M glycerol, imaged using Olympus BX51 microscope with Linkam temperature control.](./media/SuppInfoPaperFigure3.png){#fig:GlycerolIRIActivity height:"5in"}
+
+![ **Ice recrystallization inhibition (IRI) activity of 15 kDa PVA in 18% sucrose solutions.** Cryomicrographs display ice crystal growth over 120 minutes, captured at 5-minute intervals during annealing at -6°C. Control samples (sucrose only) and PVA-treated samples (sucrose + 0.2 mg/mL PVA) are organized in alternating rows. The images clearly highlight the enhanced IRI activity of PVA, evident in reduced ice crystal coarsening compared to the controls. Samples were prepared in 20 mM HEPES buffer with 150 mM NaCl and 0.576 M sucrose and imaged using an Olympus BX51 microscope coupled with a Linkam temperature control stage.](./media/SuppInfoPaperFigure4.png){#fig:SucroseIRIActivity height:"5in"}
+
+![ **Ice recrystallization inhibition (IRI) activity by 15 kDa PVA in 18% trehalose solutions.** Time-lapse cryomicrographs over 120 minutes (5-minute intervals) during annealing at -6°C. Alternating rows compare trehalose controls with trehalose + 0.2 mg/mL PVA, demonstrating effective inhibition of ice crystal coarsening. Samples in 20 mM HEPES buffer with 150 mM NaCl and 0.576 M Trehalose, imaged using Olympus BX51 microscope with Linkam temperature control stage.](./media/SuppInfoFigure5.png){#fig:TrehaloseIRIActivity height:"5in"}
+
+![ **Thermal hysteresis (TH) measurements of PVA in sugar cosolute environments.** TH measured by nanoliter osmometry for PVA (10 mg/mL) in 18% (w/w) sucrose (left) or 18% (w/w) trehalose (right) at a cooling rate of 10 mOsm/min, showing negligible TH in both conditions despite observable ice shaping/faceting.](./media/SuppInfoPaperFigure6.png){#fig:ThermalHysteresis height:"2.5in"}
+
+### ImageJ analysis
+
+The raw data obtained from the modified splat assay were imported into ImageJ for endpoint analysis. Image scale factors were determined to be, on average, 2.425? pixels/µm. The central 800x800 pixel area of each image were selected to define the region of analysis. The red channel of each image was selected upon color splitting. Images were then de-speckled, and contrast enhanced to better emphasize the ice crystal edges. Images are then subsequently converted to an 8-bit binary format mask through the application of an auto-threshold method further defining the edges of the ice crystals. Threshold methods were compared for each image to determine the method with most favorable contrast of binary scaling assisted by threshold values. Be default, the Intermodes threshold was applied and was most used. Instances for which Intermodes did not provide an optimal threshold for ice crystal selection under a grey-fill procedure, more favorable auto-thresholds for ice crystal selection were compared and chosen, particularly the IsoData and Rényi Entropy as well as the Otsu, Minimum, and Huang 2 methods all available within ImageJ. Particularly for the small ice crystal images of the PVA in co-solution with sucrose or trehalose, a watershed treatment was applied, filling the gaps in edges the ice crystal boundaries for more accurate crystal selection during the grey-fill procedure. After manually selecting ice crystals for each region of analysis, each grey-fill image has a binary mask applied through an auto-threshold with 1 and 128 set minimum and maximum pixel intensity limits specifying the grey-fill objects as the particles in the image and the rest of the background black. Upon setting the desired measurement values to be returned, crystals were characterized using the built-in “Analyze Particles” protocol within ImageJ. Area distributions were also determined from the image’s generated results.
+
+<WKcom>
+Add SI Table 2 - IRI data
+</WKcom>
+
+![ **IRI morphological parameters for glycerol, sucrose, and trehalose solution with PVA.** Averages for each solute with PVA solution shown for (A) particle counts and % area – ice as well as (D) circularity, (E) aspect ratio, and (F) solidity. Trendlines for solutions with PVA averages as well as trial data shown for (B) spherical volume and (C) oblate spheroid volume projections.](./media/SuppInfoFigure7.png){#fig:IRIMorphologicalParamsSI height:"6in"}
+
+![ **Time-lapse ice morphology in non-spin-labelled versus spin-labelled PVA (15 kDa).** Representative cryomicrographs showing ice crystal evolution in samples containing non-spin-labelled PVA (top row) and spin-labelled PVA (bottom row) at the indicated times (10, 30, 50, 70, 100, and 125 min). Images are displayed using consistent contrast settings within each condition; red scale bars correspond to 50 µm.](./media/SuppInfoFigure8.png){#fig:TimelapseSLedvNonSLedPVA15kDa height:"3in"}
+
+![ **Ice crystal morphology in non–spin-labelled and spin-labelled PVA (15 kDa).** Cryomicrographs at the final/end point (at 120min) comparing ice crystal microstructure in samples containing non–spin-labelled PVA (left) and spin-labelled PVA (right). Red scale bars represent 50 µm.](./media/SuppInfoFigure9.png){#fig:FinalIRISLedvNonSLedPVA15kDa height:"3.5in"}
+
+![ **Ice crystal morphology in non–spin-labelled and spin-labelled PVA (12 kDa).** Cryomicrographs at the final/end point (at 120min) comparing ice crystal microstructure in samples containing non–spin-labelled PVA (left) and spin-labelled PVA (right). Red scale bars represent 50 µm.](./media/SuppInfoFigure10.png){#fig:FinalIRISLedvNonSLedPVA15kDa height:"3.5in"}
+
+### Ostwald Ripening Kinetics Analysis Using 2D Marqusee Theory 
+
+Ostwald ripening occurs in the last stages of nucleation and growth as the concentrations of solutes and solvents approach equilibrium. In these final stages, interfacial free energy effects cause larger particles to grow at the expense of smaller particles. In three dimensions, the Lifshitz-Sleyzov-Wagner (LSW) theory of Ostwald ripening predicts a particle size distribution that evolves asymptotically toward a self-similar shape with a mean size that grows as \<R\>~ t^(1/3)[9 Streets 2009 
+In our experiments, a sugar-water solution and ripening ice crystals are confined to a narrow gap between two glass plates. Since the ice particles are much larger in diameter than the thickness of the gap, an alternative ripening theory for two dimensions is needed. Marqusee extended the LSW theory to 2-dimensional ripening processes. Remarkably, the Marqusee theory gives the same <R>~t^(1/3) power law as the 3D-LSW theory, but with a different coefficient(10).
+
+$$
+\< R \> = (\frac{2DA^2c_{eq}(∞)r_{0}^{3}}{k_{B}T}\gamma)^{\frac{1}{3}}t^{\frac{1}{3}}
+$$
+
+Here, R is the particle radius, and t is time. k_B T is the Boltzmann constant multiplied by temperature, γ is the energy per circumference of the 2D particles, and r_0 depends on the approximately constant area fraction covered by the ice particles(10) . The other variables are properties of the material that comprises the ripening particles, in our case, water. D is the diffusivity of water in the sugar-water solution, A is the area per water molecule in the ice particles, and c_eq (∞) is the concentration of water in the sugar-water solution at equilibrium with a macroscopic ice crystal(10) .
+Note that equation (i), like its corresponding result from the 3D LSW theory, predicts an initial condition of vanishingly small particles, even though the ripening process must begin with particles of non-zero size(10, 11). The predicted linear relationship between the average radius cubed versus time was confirmed for glycerol, sucrose, and trehalose.
+
+### Controlled ice boule crystal propagation
+A multistep method was used to probe modification of growth at the ice-solution interface. With neat water, large single crystals of ice are grown [Bisson 2016] at a constant shelf temperature of 0°C. Growth modification uses a multistep modification as follows. 
+1.	Grow a single crystal at least 1 cm into the boule body to establish a single crystal foundation. (5 cm total growth to clear the bulb, capillary, crucible, and neck region plus 1 cm growth into the larger boule).
+1.	Neat water is removed using a pipette to prepare for solution exchange.
+1.	Ensure an ice-only interface (no unfrozen water) by lowering the constant temperature shelf temperature to the target temperature and continuing to lower the boule through the shelf for 15 min. (~ 8 microns). Our experience with annealing ice in a freezer indicates that any unsolidified water is templated by the single crystal, thereby maintaining the single-crystal surface.
+1.	Add the prechilled (to the target temperature) target solution to the slowly lowering boule.
+1.	Continue to grow, lowering the boule an additional 5 cm.
+1.	Remove the boule from the growth apparatus and visually examine
 
 # Method of incorporating the Perfectly Matched Layer boundary condition to enable Eigenmode Simulations of a Coupling Device
 ## Introduction:
@@ -1643,7 +1732,6 @@ be validated by a standard waveport
 simulation.
 
 ## Theory
-
 ### Relationship Between $Q$ Factor and Coupling
 
 Cavity resonators are physically hollow
@@ -3396,51 +3484,31 @@ files.
 <WKcom>
 This needs to be slightly updated to match the automated procedures specified above
 </WKcom>
+1. Go to <span style="color:red">`File -> Open`</span> to open a file manager where the desire .tiff file can be selected.
+1. Go to <span style="color:red">`Image -> Duplicate`</span> which will create a second copy of the selected image.
+1. Save either the original or copy (I typically save the original)
+to the side/minimize to come back to later and use as a reference.
+1. With the duplicate selected, go to <span style="color:red">`Image -> Color -> Split Channels`</span>. This will split the duplicated image into 3 B&W images of the 3 wavelength/color contributions in  the full RGB colored original TIF image.
+1. Review the 3 channeled images for which one appears with the most contrast with defined crystal edges, most typically this is the '(red)' channeled images. If performing this protocol manually, all three color split outputs can be saved to come back to if unsure.
+1. Select <span style="color:red">`Process -> Noise -> Despeckle`</span>.
+1. Select <span style="color:red">`Process -> Enhance Contrast`</span>. In the gui that appears, choose the default saturated pixels (for me this is 35%), and check Normalize and Equalize histogram.
+1. Select <span style="color:red">`Process -> Binary -> Convert to Mask`</span>. There is no way to select a light background or which method is used to determine the mask. Because of this, the software will sometimes choose a dark background with the ice crystal boundaries in white. If this happens, select <span style="color:red">`Edit -> Invert`</span> to flip the dark and light colors that make up the image.
+1. Select <span style="color:red">`Process -> Binary -> Close`</span>, which connects any pixels that are 1 pixel away from one another. If the backgrounds were flipped and the image is inverted like mentioned above, this can do the opposite of desired and open some boundaries between ice crystal. Keep an eye out for this.
+1. This is a good point to save, prior to selecting an area for the actual touching up and analysis.
+1. Go to <span style="color:red">`Edit -> Options -> Colors`</span> and for 'Selection:' pick 'Red'. This is for the rectangle/ellipse/text box/etc tools in the lower command panel. Click and draw a circle over the image, you will select dimensions for the circle next. If you find it is needed, you can also make a reference circle on the original image you have minimized by refollowing this and the following step for the upcoming ice crystal selection step.
+1. Select <span style="color:red">`Edit -> Selection -> Specify`</span> and in the Specify gui that pops up choose the following dimensions for the circle:
+		Width: 800
+		Height: 800
+		X coordinate: 800
+		Y coordinate: 600
+		[x] Oval
+		[ ] Constrain square/circle
+		[x] Centered
 
-		#. Go to <span style="color:red">`File -> Open`</span> to open a file manager where the desire .tiff file can be selected.
-		#. Go to <span style="color:red">`Image -> Duplicate`</span> which will create a second copy of the selected image.
-		#. Save either the original or copy (I typically save the original)
-		to the side/minimize to come back to later and use as a reference.
-		#. With the duplicate selected, go to <span style="color:red">`Image -> Color -> Split Channels`</span>. This will split the duplicated image into 3 B&W images of the 3 wavelength/color contributions in  the full RGB colored original TIF image.
-		#. Review the 3 channeled images for which one appears with the most contrast
-		with defined crystal edges, most typically this is the '(red)' channeled
-		images.
-		Save all three outputs to come back to if you're unsure.
-		#. Select <span style="color:red">`Process -> Noise -> Despeckle\le/span>.
-		#. Select <span style="color:red">`Process -> Enhance Contrast`</span>. In the gui that appears, choose the default saturated pixels (for me this is 35%), and check Normalize and Equalize histogram.
-		#. Select <span style="color:red">`Process -> Binary -> Convert to Mask`</span>. There is no way to select a light background or which method is used to determine the mask. Because of this, the software will sometimes choose a dark background with the ice crystal boundaries in white. If this happens, select <span style="color:red">`Edit -> Invert`</span> to flip the dark and light colors that make up the image.
-		#. Select <span style="color:red">`Process -> Binary -> Close`</span>, which connects any pixels that are 1 pixel away from one another. If the backgrounds were flipped and the image is inverted like mentioned above, this can do the opposite of desired and open some boundaries between ice crystal. Keep an eye out for this.
-		#. This is a good point to save, prior to selecting an area for the actual
-		touching up and analysis.
-		#. Go to <span style="color:red">`Edit -> Options -> Colors`</span> and for 'Selection:' pick 'Red'. This is for the rectangle/ellipse/text box/etc tools in the lower command panel. Click and draw a circle over the image, you will select dimensions for the circle next. If you find it is needed, you can also make a reference circle on the original image you have minimized by refollowing this and the following step for the upcoming ice crystal selection step.
-		#. Select <span style="color:red">`Edit -> Selection -> Specify`</span> and in the Specify gui that pops up choose the following dimensions for the circle:
-
-				Width: 800
-				Height: 800
-				X coordinate: 800
-				Y coordinate: 600
-				[x] Oval
-				[ ] Constrain square/circle
-				[x] Centered
-
-		#. If you are performing this analysis on a sample which has many
-		bubbles/speckles or has reflections/shadows, you will need to clean up the
-		image as best you can.
-		You want each ice crystal to be fully enclosed with a black border as best as
-		possible.
-		Using the original colored duplicated image as a reference,
-		you can use the color picker and paintbrush tools to select white and black
-		colors as needed to enclose each crystal (black) and color in each crystal
-		(white) at least near the boundaries to be able to fill that crystal with gray
-		color in the next step.
-		Make these modifications within the circle you have defined first.
-		It is best to do as minimal manual changes to the image at this step as possible.
-		An automated protocol has been implemented avoiding this step
-		#. Save and again generate a duplicated image selecting <span style="color:red">`Image -> Duplicate`</span>. This duplicated image will now be a square defined by the specified circular selection above.
-		#. Go again to <span style="color:red">`Edit -> Options -> Colors`</span> and for 'foreground' select 'gray'. Also confirm background is selected as 'black'. Fill in the white space with grey of each ice crystal using the Flood fill tool in the ImageJ tool bar. Do this slowly at first, and be prepared to click `[CTRL] + [Z]` to undo any last move if a crystal is not actually enclosed. You can go back to using the color picker and paintbrush tools to fix crystals as you go.
-		#. Once you have each crystal filled in with gray as you desired,
-		save the file again as "...\_gray-filled.tif" or something similar/recognizable
-		to you.
+1. An automated protocol has been implemented avoiding the step of manually modifying the crystal images 
+1. Save and again generate a duplicated image selecting <span style="color:red">`Image -> Duplicate`</span>. This duplicated image will now be a square defined by the specified circular selection above.
+1. Go again to <span style="color:red">`Edit -> Options -> Colors`</span> and for 'foreground' select 'gray'. Also confirm background is selected as 'black'. Fill in the white space with grey of each ice crystal using the Flood fill tool in the ImageJ tool bar. Do this slowly at first, and be prepared to click `[CTRL] + [Z]` to undo any last move if a crystal is not actually enclosed. You can go back to using the color picker and paintbrush tools to fix crystals as you go.
+1. Once you have each crystal filled in with gray as you desired, save the file again as "...\_gray-filled.tif" or something similar/recognizable to you. This file name will need to be read by the second script 
 		#. Select <span style="color:red">`Image -> Adjust -> Threshold`</span>, a gui window will pop up with 2 slider bars adjusting the contribution of white and black to the image based on the images hues already assigned (this is why the ice crystals were filled with grey). Ideally, you can adjust the two bars such that the background (liquid) and the ice crystal outlines are white leaving the previously grey-filled crystals in black. This does not always work and a second best option is to leave just the outlines in whit and to go back in with the Flood fill tool to turn the background from black to white. This can be time consuming and thus a 3rd option is to adjust the threshold slides such that the outlines and background are in black leaving the crystals white and then inverting the image. This can lead to the watershed function at the next step not working as intended because of the specified threshold being flipped after the image's inversion. No matter which method you choose be sure to save the file before and after this step.
 		#. Select <span style="color:red">`Process -> Binary -> Convert to Mask`</span> on the now threshold applied image.
 		#. ImageJ's built-in watershed algorithm may work for you to determine and separate a cluster of crystals into individuals but this does not always work as expected, especially for crystals of smaller size or irregular shape such as those in trehalose-containing solution. You can apply this algorithm by selecting <span style="color:red">`Process -> Binary -> Watershed`</span> just be prepared to use `[CTRL] + [Z]` if this does not do as you intend.
@@ -3541,7 +3609,7 @@ concentration (typically ~12 ng/μL) that you desire.
 
 The primers we use are designed for a back-to-back	 orientation, which
 correlates with NEB’s Q5 Master Mix, that contains DNA polymerase, Mg2+, and
-dNTPs for DNA amplification using PCR. NEBaseChanger provides a predicted
+dNTPs for DNA amplification using PCR. NEBaseChanger provides a predicted annealing temperature for the desired mutation of the primer you're interested in. This is just a prediction and is not always the optimal annealing temperature for the desired mutation of the primer you're interested in. NEBaseChanger provides a predicted
 annealing temperature for the desired mutation of the primer you’re interested
 in. This is just a prediction and is not always the optimal annealing
 temperature for that specific desired mutation, although it does provide a
